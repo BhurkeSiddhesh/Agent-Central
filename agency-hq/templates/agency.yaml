@@ -1,0 +1,9 @@
+project_name: "My Gen-AI Project"
+project_description: "A brief description of what this project does."
+
+# List of agents required for this project
+# These names must match the filenames in your HQ's 'roles' directory (e.g., 'backend-dev' -> 'backend-dev.md')
+required_agents:
+  - architect
+  - backend-dev
+  - jules-qa

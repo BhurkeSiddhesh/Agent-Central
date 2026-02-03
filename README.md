@@ -74,6 +74,28 @@ Run the Task Assigner protocol to audit branches and update the board:
 python -m src.main ops sync
 ```
 
+### 5. Hiring for External Projects
+
+You can use Agent-Central to staff other projects (e.g., `../File Converter/`) by defining a team configuration.
+
+**Step 1:** Create a `agency.yaml` in your external project root:
+```yaml
+project_name: "File Converter"
+required_agents:
+  - architect
+  - backend-dev
+  - jules-qa
+```
+
+**Step 2:** Run the hire command from your Agent-Central directory, pointing to the external config:
+```bash
+# Windows Example
+cd Agent-Central
+python -m src.main hire role --config "C:\Users\siddh\Desktop\Projects\File Converter\agency.yaml"
+```
+
+*This will copy the agent personas into `File Converter/.ai-context/team/`.*
+
 ---
 
 ## 📜 Ethical Protocols

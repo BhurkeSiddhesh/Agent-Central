@@ -19,7 +19,9 @@
 - Implementing the "Agency" model.
 
 ## 5. Change Log (Reverse Chronological)
+- [2026-02-03] Added Dynamic Hiring feature (`hire --config`) and related documentation.
 - [2026-02-03] Created comprehensive README.md.
+
 - [2026-02-03] Prepared repository for publication (task.md, JULES_LOG.json audit).
 
 - [2026-02-03] Initial creation of AGENTS.md
