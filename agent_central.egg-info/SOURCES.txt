@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+agent_central/__init__.py
+agent_central/main.py
+agent_central.egg-info/PKG-INFO
+agent_central.egg-info/SOURCES.txt
+agent_central.egg-info/dependency_links.txt
+agent_central.egg-info/entry_points.txt
+agent_central.egg-info/requires.txt
+agent_central.egg-info/top_level.txt
+agent_central/commands/__init__.py
+agent_central/commands/hire.py
+agent_central/commands/init.py
+agent_central/commands/ops.py
+agent_central/services/__init__.py
+agent_central/services/git_service.py
+agent_central/services/hq_service.py

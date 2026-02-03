@@ -50,14 +50,17 @@ Clone the repository and install dependencies:
 git clone https://github.com/BhurkeSiddhesh/Agent-Central.git
 cd Agent-Central
 pip install -r requirements.txt
+pip install -e .
 ```
+
+This installs the `ai` command globally on your system (in editable mode).
 
 ### 2. Basic Usage
 
 Initialize your project and bootstrap the Agency HQ:
 
 ```bash
-python -m src.main init project
+ai init project
 ```
 
 ### 3. Hiring an Agent
@@ -65,7 +68,7 @@ python -m src.main init project
 Activate a specific persona to handle tasks:
 
 ```bash
-python -m src.main hire architect
+ai hire architect
 ```
 
 ### 4. Syncing the Agency
@@ -73,7 +76,7 @@ python -m src.main hire architect
 Run the Task Assigner protocol to audit branches and update the board:
 
 ```bash
-python -m src.main ops sync
+ai ops sync
 ```
 
 - [2026-02-03] Integrated 630+ modular skills and `code-reviewer` agent from external repositories.
@@ -103,8 +106,7 @@ required_skills:
 
 **Step 2:** Run the hire command from your project folder:
 ```bash
-# Assuming you have an alias or specific path
-python -m Agent-Central.src.main hire role
+ai hire role
 ```
 
 *This will automatically find `agency.yaml` in your current folder, reach back to the central Agent-Central HQ for personas and skills, and copy them into `team/` and `skills/`.*
