@@ -54,3 +54,22 @@ For every feature request:
 > - **Risk**: User migration needed.
 >
 > Please review before I assign Codex to implement."
+
+
+## 7. Learned Protocols
+- [Upskill] - [Pattern] Use `pydantic` for config validation to strict type checking.
+- [Fix] Resolution for "ModuleNotFoundError" in decentralized CLI.
+- [Upskill] - [Pattern] Use `pydantic` for config validation to strict type checking.
+- [Fix] Resolution for "ModuleNotFoundError" in decentralized CLI.
+- [Upskill] - [Pattern] Always use `pytest-xdist` for parallel tests in HQ.
+- [Fix] Fixed a race condition in file writing.
+
+### 📐 Design Standard: Pattern
+> **Rule**: Always start Python files with a shebang.
+> **Context**: Derived from project experience.
+
+
+### 🛠️ Verification Protocol: Fix
+> **Rule**: Resolution for memory leak in `process_data`.
+> **Context**: Derived from project experience.
+

@@ -26,11 +26,12 @@
     - [ ] Rewrite `architect.md` (System Design)
     - [x] Rewrite `frontend-dev.md`
 
-- [x] Knowledge Feedback Loop (Protocol v2.3)
+- [ ] Knowledge Feedback Loop (Protocol v2.3)
     - [x] Create `agency-hq/knowledge/` structure
     - [x] Update `HQService` with `learn_from_project`
     - [x] Implement `ops learn` command
     - [x] Update `AGENTS.md` template with "Learned" section
+    - [x] Implement Intelligence Layer (Synthesized Protocols)
 
 
 

@@ -54,3 +54,15 @@ def learn():
     hq = HQService()
     typer.echo("🧠 Initiating Knowledge Feedback Loop...")
     hq.learn_from_project(".")
+    typer.echo("💡 New knowledge synced. Run 'ai ops upskill' to consolidate into master roles.")
+
+@app.command()
+def upskill():
+    """
+    Consolidates raw knowledge from patterns/ into master roles.
+    Updates personas with learned protocols.
+    """
+    hq = HQService()
+    typer.echo("🚀 Initiating Upskill Protocol (v2.4)...")
+    hq.consolidate_knowledge()
+    typer.echo("✨ Agency upskilled and evolved.")

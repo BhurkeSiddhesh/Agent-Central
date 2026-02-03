@@ -259,3 +259,107 @@ class HQService:
         
         knowledge_file.write_text(f"# Learning from {project_name}\n\n{learned_content}", encoding="utf-8")
         print(f"📢 Synced new knowledge to: {knowledge_file.name}")
+
+    def consolidate_knowledge(self):
+        """Processes raw knowledge and updates master roles/skills."""
+        patterns_dir = self.hq_path / "knowledge" / "patterns"
+        archive_dir = self.hq_path / "knowledge" / "archive" / "patterns"
+        archive_dir.mkdir(parents=True, exist_ok=True)
+
+        if not patterns_dir.exists():
+            print("ℹ️  No knowledge patterns found to consolidate.")
+            return
+
+        knowledge_files = list(patterns_dir.glob("*.md"))
+        if not knowledge_files:
+            print("ℹ️  No new knowledge patterns to process.")
+            return
+
+        roles = self.list_roles()
+        
+        for k_file in knowledge_files:
+            content = k_file.read_text(encoding="utf-8")
+            # Determine target role based on simple keyword matching
+            target_role = None
+            content_lower = content.lower()
+            
+            if "architect" in content_lower or "design" in content_lower or "pattern" in content_lower:
+                target_role = "architect"
+            elif "qa" in content_lower or "test" in content_lower or "regression" in content_lower:
+                target_role = "jules-qa"
+            elif "backend" in content_lower or "api" in content_lower or "logic" in content_lower:
+                target_role = "backend-dev"
+            elif "frontend" in content_lower or "ui" in content_lower or "ux" in content_lower:
+                target_role = "frontend-dev"
+            else:
+                target_role = "task-assigner" # Default to manager for generic patterns
+
+            if target_role in roles:
+                self._upskill_role(target_role, content)
+                # Archive the processed file
+                shutil.move(str(k_file), str(archive_dir / k_file.name))
+                print(f"🚀 Upskilled '{target_role}' with knowledge from {k_file.name}")
+
+    def _synthesize_wisdom(self, raw_text: str) -> str:
+        """
+        Simulates an LLM to structure raw text into a Protocol.
+        Extracts 'Topic', 'Rule', and 'Type'.
+        """
+        import re
+        
+        # Heuristic extraction
+        topic = "General Protocol"
+        rule = raw_text
+        
+        # Try to find a topic in [Brackets] or first few words
+        match = re.search(r"\[(.*?)\]", raw_text)
+        if match:
+            topic = match.group(1).title()
+            # Remove the tag from the rule text for cleanliness
+            rule = raw_text.replace(f"[{match.group(1)}]", "").strip()
+        else:
+            # First 3 words as topic
+            words = raw_text.split()
+            if len(words) > 3:
+                topic = " ".join(words[:3]).title()
+
+        # Determine Emoji/Type
+        p_type = "🧠 Learned Protocol"
+        if "fix" in topic.lower() or "bug" in topic.lower():
+            p_type = "🛠️ Verification Protocol"
+        elif "pattern" in topic.lower():
+            p_type = "📐 Design Standard"
+
+        # Format into the "Sauce"
+        synthesized = f"""
+### {p_type}: {topic}
+> **Rule**: {rule}
+> **Context**: Derived from project experience.
+"""
+        return synthesized
+
+    def _upskill_role(self, role_name: str, knowledge_content: str):
+        """Appends knowledge to a specific role's Learned Protocols section."""
+        role_file = self.hq_path / "roles" / f"{role_name}.md"
+        if not role_file.exists():
+            return
+
+        current_content = role_file.read_text(encoding="utf-8")
+        
+        # Extract new wisdom (skip header of knowledge file)
+        raw_wisdom_lines = knowledge_content.split("\n\n", 1)[-1].strip().splitlines()
+        
+        # Synthesize each line (assuming bullet points)
+        synthesized_block = ""
+        for line in raw_wisdom_lines:
+            if line.strip():
+                clean_line = line.strip("- ").strip()
+                s_wisdom = self._synthesize_wisdom(clean_line)
+                synthesized_block += f"{s_wisdom}\n"
+        
+        if "## 7. Learned Protocols" in current_content:
+            updated_content = current_content + "\n" + synthesized_block
+        else:
+            updated_content = current_content + "\n\n## 7. Learned Protocols\n" + synthesized_block
+            
+        role_file.write_text(updated_content, encoding="utf-8")
