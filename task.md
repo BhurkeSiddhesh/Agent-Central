@@ -20,6 +20,12 @@
     - [x] Implement keyword-based inference for agents/skills from requirements
     - [x] VERIFY: `hire --project` copies both agents and inferred skills.
 
+- [ ] Refine Agent Roles (Protocol v2.2)
+    - [ ] Rewrite `task-assigner.md` (Protocol Enforcement)
+    - [ ] Rewrite `jules-qa.md` (Zero Regression)
+    - [ ] Rewrite `architect.md` (System Design)
+    - [ ] Rewrite `backend-dev.md` & `frontend-dev.md`
+
 
 
 
