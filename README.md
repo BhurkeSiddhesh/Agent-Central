@@ -7,6 +7,7 @@
 ## 🚀 Key Features
 
 - **Multi-Agent Orchestration**: Specialized roles including Architects, Backend/Frontend Developers, Security, and QA.
+- **630+ Agentic Skills**: A massive library of modular skills for debugging, TDD, cloud deployment, security auditing, and more.
 - **Protocol Enforcement**: Built-in support for "Durable Agent" workflows and automated quality gates.
 - **Agency Sync**: Centralized management of task assignments, branch sweeps, and PR audits.
 - **Persona Management**: Dynamic activation of agent personas based on the task at hand.
@@ -25,7 +26,8 @@
 ```text
 Agent-Central/
 ├── agency-hq/          # Agency blueprints and role definitions
-│   ├── roles/          # Specialized agent personas (Architect, QA, etc.)
+│   ├── roles/          # Specialized agent personas (Architect, Code Reviewer, etc.)
+│   ├── skills/         # 630+ modular agentic skills
 │   └── templates/      # Roster and configuration templates
 ├── src/                # Core CLI source code
 │   ├── commands/       # CLI command implementations (init, hire, ops, etc.)
@@ -73,6 +75,10 @@ Run the Task Assigner protocol to audit branches and update the board:
 ```bash
 python -m src.main ops sync
 ```
+
+- [2026-02-03] Integrated 630+ modular skills and `code-reviewer` agent from external repositories.
+- [2026-02-03] Fixed bug where `hire --config` targeted wrong directory; enforced UTF-8 reading.
+- [2026-02-03] Added `--project` argument to `hire` command for easier external project targeting.
 
 ### 5. Hiring for External Projects
 

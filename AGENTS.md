@@ -19,8 +19,8 @@
 - Implementing the "Agency" model.
 
 ## 5. Change Log (Reverse Chronological)
+- [2026-02-03] Integrated 630+ modular skills and `code-reviewer` agent from external repositories.
 - [2026-02-03] Added `--project` argument to `hire` command for easier external project targeting.
-- [2026-02-03] Fixed bug where `hire --config` targeted wrong directory; enforced UTF-8 reading.
 
 - [2026-02-03] Added Dynamic Hiring feature (`hire --config`) and related documentation.
 

@@ -13,10 +13,18 @@
 - [x] Implement "Missing Agent" Request Mechanism
 - [x] Verification w/ Mock Project
 - [x] Refactor `hire` to support `--project` argument
+- [x] Import Skills & Agents from `antigravity-awesome-skills`
 
 ## Steps
-- [ ] **Step 1: Planning & Design**
-    - [ ] Update `implementation_plan.md`
-    - [ ] VERIFY: Design meets user request.
+- [x] **Step 1: Analysis**
+    - [x] Clone `sickn33/antigravity-awesome-skills`
+    - [x] Map repository structure to `Agent-Central`
+    - [x] VERIFY: Identify all importable assets.
+- [x] **Step 2: Integration**
+    - [x] Copy Agents to `agency-hq/roles`
+    - [x] Copy Skills to `agency-hq/skills`
+    - [x] VERIFY: Assets are present in HQ.
+
+
 
 
