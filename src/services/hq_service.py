@@ -55,7 +55,7 @@ class HQService:
             raise FileNotFoundError(f"Configuration file not found at {config_file}")
 
         try:
-            with open(config_file, "r") as f:
+            with open(config_file, "r", encoding="utf-8") as f:
                 config = yaml.safe_load(f)
         except Exception as e:
             raise ValueError(f"Failed to parse agency config: {e}")
@@ -65,7 +65,7 @@ class HQService:
             print("⚠️  No agents listed in 'required_agents'.")
             return
 
-        team_dir = self.context_path / "team"
+        team_dir = config_file.parent / ".ai-context" / "team"
         team_dir.mkdir(parents=True, exist_ok=True)
         
         missing_agents = []
@@ -76,20 +76,19 @@ class HQService:
                 content = self.get_role_content(agent)
                 (team_dir / f"{agent}.md").write_text(content, encoding="utf-8")
                 hired_count += 1
-                # If this is the first agent, make them active by default
-                if hired_count == 1:
-                    self.set_active_persona(agent)
             except ValueError:
                 missing_agents.append(agent)
 
         print(f"✅ Hired {hired_count} agents to {team_dir}")
         
         if missing_agents:
-            self._log_missing_agents(missing_agents)
+            self._log_missing_agents(missing_agents, config_file.parent / ".ai-context")
             
-    def _log_missing_agents(self, agents: list):
+    def _log_missing_agents(self, agents: list, context_path: Path = None):
         """Logs missing agents to HQ_REQUESTS.md"""
-        request_file = self.context_path / "HQ_REQUESTS.md"
+        target_path = context_path if context_path else self.context_path
+        request_file = target_path / "HQ_REQUESTS.md"
+        request_file.parent.mkdir(parents=True, exist_ok=True)
         
         # Read existing requests to avoid duplicates
         existing_requests = set()
