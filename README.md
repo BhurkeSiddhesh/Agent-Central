@@ -87,10 +87,18 @@ You can use Agent-Central to staff other projects (e.g., `../File Converter/`) b
 **Step 1:** Create a `agency.yaml` in your external project root:
 ```yaml
 project_name: "File Converter"
+
+# [Optional] Natural Language Requirements
+# Describe what you need, and the tool will infer missing agents/skills!
+project_requirements: "I need a backend developer with security focus."
+
+# [Optional] Explicit Agents
 required_agents:
   - architect
-  - backend-dev
-  - jules-qa
+
+# [Optional] Explicit Skills
+required_skills:
+  - brainstorming
 ```
 
 **Step 2:** Run the hire command from your Agent-Central directory using the `--project` flag:
@@ -100,7 +108,7 @@ cd Agent-Central
 python -m src.main hire role --project "C:\Users\siddh\Desktop\Projects\File Converter"
 ```
 
-*This will automatically find `agency.yaml` in that folder and copy the agent personas into `File Converter/.ai-context/team/`.*
+*This will automatically find `agency.yaml`, infer any missing assets from your requirements, and copy agent personas into `team/` and modular skills into `skills/`.*
 
 ---
 

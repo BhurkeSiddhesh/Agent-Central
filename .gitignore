@@ -1,1 +1,10 @@
 .venv
+
+*.pyc
+__pycache__/
+.env
+.agency-hq/
+.ai-context/
+temp_*/
+verify_*/
+*_skills.txt
