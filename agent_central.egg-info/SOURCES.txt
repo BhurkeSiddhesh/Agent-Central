@@ -12,6 +12,8 @@ agent_central/commands/__init__.py
 agent_central/commands/hire.py
 agent_central/commands/init.py
 agent_central/commands/ops.py
+agent_central/commands/skills.py
 agent_central/services/__init__.py
 agent_central/services/git_service.py
 agent_central/services/hq_service.py
+agent_central/services/skill_service.py

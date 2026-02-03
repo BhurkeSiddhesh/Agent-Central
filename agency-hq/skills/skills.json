@@ -1,0 +1,5622 @@
+[
+  {
+    "id": "3d-web-experience",
+    "name": "3D Web Experience",
+    "description": "---",
+    "keywords": [
+      "3d web experience"
+    ],
+    "path": "skills\\3d-web-experience"
+  },
+  {
+    "id": "ab-test-setup",
+    "name": "Ab Test Setup",
+    "description": "---",
+    "keywords": [
+      "ab test setup"
+    ],
+    "path": "skills\\ab-test-setup"
+  },
+  {
+    "id": "accessibility-compliance-accessibility-audit",
+    "name": "Accessibility Compliance Accessibility Audit",
+    "description": "---",
+    "keywords": [
+      "accessibility compliance accessibility audit"
+    ],
+    "path": "skills\\accessibility-compliance-accessibility-audit"
+  },
+  {
+    "id": "active-directory-attacks",
+    "name": "Active Directory Attacks",
+    "description": "---",
+    "keywords": [
+      "active directory attacks"
+    ],
+    "path": "skills\\active-directory-attacks"
+  },
+  {
+    "id": "address-github-comments",
+    "name": "Address Github Comments",
+    "description": "---",
+    "keywords": [
+      "address github comments"
+    ],
+    "path": "skills\\address-github-comments"
+  },
+  {
+    "id": "agent-evaluation",
+    "name": "Agent Evaluation",
+    "description": "---",
+    "keywords": [
+      "agent evaluation"
+    ],
+    "path": "skills\\agent-evaluation"
+  },
+  {
+    "id": "agent-manager-skill",
+    "name": "Agent Manager Skill",
+    "description": "---",
+    "keywords": [
+      "agent manager skill"
+    ],
+    "path": "skills\\agent-manager-skill"
+  },
+  {
+    "id": "agent-memory-mcp",
+    "name": "Agent Memory Mcp",
+    "description": "---",
+    "keywords": [
+      "agent memory mcp"
+    ],
+    "path": "skills\\agent-memory-mcp"
+  },
+  {
+    "id": "agent-memory-systems",
+    "name": "Agent Memory Systems",
+    "description": "---",
+    "keywords": [
+      "agent memory systems"
+    ],
+    "path": "skills\\agent-memory-systems"
+  },
+  {
+    "id": "agent-orchestration-improve-agent",
+    "name": "Agent Orchestration Improve Agent",
+    "description": "---",
+    "keywords": [
+      "agent orchestration improve agent"
+    ],
+    "path": "skills\\agent-orchestration-improve-agent"
+  },
+  {
+    "id": "agent-orchestration-multi-agent-optimize",
+    "name": "Agent Orchestration Multi Agent Optimize",
+    "description": "---",
+    "keywords": [
+      "agent orchestration multi agent optimize"
+    ],
+    "path": "skills\\agent-orchestration-multi-agent-optimize"
+  },
+  {
+    "id": "agent-tool-builder",
+    "name": "Agent Tool Builder",
+    "description": "---",
+    "keywords": [
+      "agent tool builder"
+    ],
+    "path": "skills\\agent-tool-builder"
+  },
+  {
+    "id": "ai-agents-architect",
+    "name": "Ai Agents Architect",
+    "description": "---",
+    "keywords": [
+      "ai agents architect"
+    ],
+    "path": "skills\\ai-agents-architect"
+  },
+  {
+    "id": "ai-engineer",
+    "name": "Ai Engineer",
+    "description": "---",
+    "keywords": [
+      "ai engineer"
+    ],
+    "path": "skills\\ai-engineer"
+  },
+  {
+    "id": "ai-product",
+    "name": "Ai Product",
+    "description": "---",
+    "keywords": [
+      "ai product"
+    ],
+    "path": "skills\\ai-product"
+  },
+  {
+    "id": "ai-wrapper-product",
+    "name": "Ai Wrapper Product",
+    "description": "---",
+    "keywords": [
+      "ai wrapper product"
+    ],
+    "path": "skills\\ai-wrapper-product"
+  },
+  {
+    "id": "airflow-dag-patterns",
+    "name": "Airflow Dag Patterns",
+    "description": "---",
+    "keywords": [
+      "airflow dag patterns"
+    ],
+    "path": "skills\\airflow-dag-patterns"
+  },
+  {
+    "id": "algolia-search",
+    "name": "Algolia Search",
+    "description": "---",
+    "keywords": [
+      "algolia search"
+    ],
+    "path": "skills\\algolia-search"
+  },
+  {
+    "id": "algorithmic-art",
+    "name": "Algorithmic Art",
+    "description": "---",
+    "keywords": [
+      "algorithmic art"
+    ],
+    "path": "skills\\algorithmic-art"
+  },
+  {
+    "id": "analytics-tracking",
+    "name": "Analytics Tracking",
+    "description": "---",
+    "keywords": [
+      "analytics tracking"
+    ],
+    "path": "skills\\analytics-tracking"
+  },
+  {
+    "id": "angular-migration",
+    "name": "Angular Migration",
+    "description": "---",
+    "keywords": [
+      "angular migration"
+    ],
+    "path": "skills\\angular-migration"
+  },
+  {
+    "id": "anti-reversing-techniques",
+    "name": "Anti Reversing Techniques",
+    "description": "---",
+    "keywords": [
+      "anti reversing techniques"
+    ],
+    "path": "skills\\anti-reversing-techniques"
+  },
+  {
+    "id": "api-design-principles",
+    "name": "Api Design Principles",
+    "description": "---",
+    "keywords": [
+      "api design principles"
+    ],
+    "path": "skills\\api-design-principles"
+  },
+  {
+    "id": "api-documentation-generator",
+    "name": "Api Documentation Generator",
+    "description": "---",
+    "keywords": [
+      "api documentation generator"
+    ],
+    "path": "skills\\api-documentation-generator"
+  },
+  {
+    "id": "api-documenter",
+    "name": "Api Documenter",
+    "description": "---",
+    "keywords": [
+      "api documenter"
+    ],
+    "path": "skills\\api-documenter"
+  },
+  {
+    "id": "api-fuzzing-bug-bounty",
+    "name": "Api Fuzzing Bug Bounty",
+    "description": "---",
+    "keywords": [
+      "api fuzzing bug bounty"
+    ],
+    "path": "skills\\api-fuzzing-bug-bounty"
+  },
+  {
+    "id": "api-patterns",
+    "name": "Api Patterns",
+    "description": "---",
+    "keywords": [
+      "api patterns"
+    ],
+    "path": "skills\\api-patterns"
+  },
+  {
+    "id": "api-security-best-practices",
+    "name": "Api Security Best Practices",
+    "description": "---",
+    "keywords": [
+      "api security best practices"
+    ],
+    "path": "skills\\api-security-best-practices"
+  },
+  {
+    "id": "api-testing-observability-api-mock",
+    "name": "Api Testing Observability Api Mock",
+    "description": "---",
+    "keywords": [
+      "api testing observability api mock"
+    ],
+    "path": "skills\\api-testing-observability-api-mock"
+  },
+  {
+    "id": "app-builder",
+    "name": "App Builder",
+    "description": "---",
+    "keywords": [
+      "app builder"
+    ],
+    "path": "skills\\app-builder"
+  },
+  {
+    "id": "app-store-optimization",
+    "name": "App Store Optimization",
+    "description": "**Version**: 1.0.0",
+    "keywords": [
+      "1.0.0",
+      "app store optimization",
+      "**version**:"
+    ],
+    "path": "skills\\app-store-optimization"
+  },
+  {
+    "id": "application-performance-performance-optimization",
+    "name": "Application Performance Performance Optimization",
+    "description": "---",
+    "keywords": [
+      "application performance performance optimization"
+    ],
+    "path": "skills\\application-performance-performance-optimization"
+  },
+  {
+    "id": "architect-review",
+    "name": "Architect Review",
+    "description": "---",
+    "keywords": [
+      "architect review"
+    ],
+    "path": "skills\\architect-review"
+  },
+  {
+    "id": "architecture",
+    "name": "Architecture",
+    "description": "---",
+    "keywords": [
+      "architecture"
+    ],
+    "path": "skills\\architecture"
+  },
+  {
+    "id": "architecture-decision-records",
+    "name": "Architecture Decision Records",
+    "description": "---",
+    "keywords": [
+      "architecture decision records"
+    ],
+    "path": "skills\\architecture-decision-records"
+  },
+  {
+    "id": "architecture-patterns",
+    "name": "Architecture Patterns",
+    "description": "---",
+    "keywords": [
+      "architecture patterns"
+    ],
+    "path": "skills\\architecture-patterns"
+  },
+  {
+    "id": "arm-cortex-expert",
+    "name": "Arm Cortex Expert",
+    "description": "---",
+    "keywords": [
+      "arm cortex expert"
+    ],
+    "path": "skills\\arm-cortex-expert"
+  },
+  {
+    "id": "async-python-patterns",
+    "name": "Async Python Patterns",
+    "description": "---",
+    "keywords": [
+      "async python patterns"
+    ],
+    "path": "skills\\async-python-patterns"
+  },
+  {
+    "id": "attack-tree-construction",
+    "name": "Attack Tree Construction",
+    "description": "---",
+    "keywords": [
+      "attack tree construction"
+    ],
+    "path": "skills\\attack-tree-construction"
+  },
+  {
+    "id": "auth-implementation-patterns",
+    "name": "Auth Implementation Patterns",
+    "description": "---",
+    "keywords": [
+      "auth implementation patterns"
+    ],
+    "path": "skills\\auth-implementation-patterns"
+  },
+  {
+    "id": "automate-whatsapp",
+    "name": "Automate Whatsapp",
+    "description": "---",
+    "keywords": [
+      "automate whatsapp"
+    ],
+    "path": "skills\\automate-whatsapp"
+  },
+  {
+    "id": "autonomous-agent-patterns",
+    "name": "Autonomous Agent Patterns",
+    "description": "---",
+    "keywords": [
+      "autonomous agent patterns"
+    ],
+    "path": "skills\\autonomous-agent-patterns"
+  },
+  {
+    "id": "autonomous-agents",
+    "name": "Autonomous Agents",
+    "description": "---",
+    "keywords": [
+      "autonomous agents"
+    ],
+    "path": "skills\\autonomous-agents"
+  },
+  {
+    "id": "avalonia-layout-zafiro",
+    "name": "Avalonia Layout Zafiro",
+    "description": "---",
+    "keywords": [
+      "avalonia layout zafiro"
+    ],
+    "path": "skills\\avalonia-layout-zafiro"
+  },
+  {
+    "id": "avalonia-viewmodels-zafiro",
+    "name": "Avalonia Viewmodels Zafiro",
+    "description": "---",
+    "keywords": [
+      "avalonia viewmodels zafiro"
+    ],
+    "path": "skills\\avalonia-viewmodels-zafiro"
+  },
+  {
+    "id": "avalonia-zafiro-development",
+    "name": "Avalonia Zafiro Development",
+    "description": "---",
+    "keywords": [
+      "avalonia zafiro development"
+    ],
+    "path": "skills\\avalonia-zafiro-development"
+  },
+  {
+    "id": "aws-penetration-testing",
+    "name": "Aws Penetration Testing",
+    "description": "---",
+    "keywords": [
+      "aws penetration testing"
+    ],
+    "path": "skills\\aws-penetration-testing"
+  },
+  {
+    "id": "aws-serverless",
+    "name": "Aws Serverless",
+    "description": "---",
+    "keywords": [
+      "aws serverless"
+    ],
+    "path": "skills\\aws-serverless"
+  },
+  {
+    "id": "aws-skills",
+    "name": "Aws Skills",
+    "description": "---",
+    "keywords": [
+      "aws skills"
+    ],
+    "path": "skills\\aws-skills"
+  },
+  {
+    "id": "azure-functions",
+    "name": "Azure Functions",
+    "description": "---",
+    "keywords": [
+      "azure functions"
+    ],
+    "path": "skills\\azure-functions"
+  },
+  {
+    "id": "backend-architect",
+    "name": "Backend Architect",
+    "description": "---",
+    "keywords": [
+      "backend architect"
+    ],
+    "path": "skills\\backend-architect"
+  },
+  {
+    "id": "backend-dev-guidelines",
+    "name": "Backend Dev Guidelines",
+    "description": "---",
+    "keywords": [
+      "backend dev guidelines"
+    ],
+    "path": "skills\\backend-dev-guidelines"
+  },
+  {
+    "id": "backend-development-feature-development",
+    "name": "Backend Development Feature Development",
+    "description": "---",
+    "keywords": [
+      "backend development feature development"
+    ],
+    "path": "skills\\backend-development-feature-development"
+  },
+  {
+    "id": "backend-security-coder",
+    "name": "Backend Security Coder",
+    "description": "---",
+    "keywords": [
+      "backend security coder"
+    ],
+    "path": "skills\\backend-security-coder"
+  },
+  {
+    "id": "backtesting-frameworks",
+    "name": "Backtesting Frameworks",
+    "description": "---",
+    "keywords": [
+      "backtesting frameworks"
+    ],
+    "path": "skills\\backtesting-frameworks"
+  },
+  {
+    "id": "bash-defensive-patterns",
+    "name": "Bash Defensive Patterns",
+    "description": "---",
+    "keywords": [
+      "bash defensive patterns"
+    ],
+    "path": "skills\\bash-defensive-patterns"
+  },
+  {
+    "id": "bash-linux",
+    "name": "Bash Linux",
+    "description": "---",
+    "keywords": [
+      "bash linux"
+    ],
+    "path": "skills\\bash-linux"
+  },
+  {
+    "id": "bash-pro",
+    "name": "Bash Pro",
+    "description": "---",
+    "keywords": [
+      "bash pro"
+    ],
+    "path": "skills\\bash-pro"
+  },
+  {
+    "id": "bats-testing-patterns",
+    "name": "Bats Testing Patterns",
+    "description": "---",
+    "keywords": [
+      "bats testing patterns"
+    ],
+    "path": "skills\\bats-testing-patterns"
+  },
+  {
+    "id": "bazel-build-optimization",
+    "name": "Bazel Build Optimization",
+    "description": "---",
+    "keywords": [
+      "bazel build optimization"
+    ],
+    "path": "skills\\bazel-build-optimization"
+  },
+  {
+    "id": "beautiful-prose",
+    "name": "Beautiful Prose",
+    "description": "---",
+    "keywords": [
+      "beautiful prose"
+    ],
+    "path": "skills\\beautiful-prose"
+  },
+  {
+    "id": "behavioral-modes",
+    "name": "Behavioral Modes",
+    "description": "---",
+    "keywords": [
+      "behavioral modes"
+    ],
+    "path": "skills\\behavioral-modes"
+  },
+  {
+    "id": "billing-automation",
+    "name": "Billing Automation",
+    "description": "---",
+    "keywords": [
+      "billing automation"
+    ],
+    "path": "skills\\billing-automation"
+  },
+  {
+    "id": "binary-analysis-patterns",
+    "name": "Binary Analysis Patterns",
+    "description": "---",
+    "keywords": [
+      "binary analysis patterns"
+    ],
+    "path": "skills\\binary-analysis-patterns"
+  },
+  {
+    "id": "blockchain-developer",
+    "name": "Blockchain Developer",
+    "description": "---",
+    "keywords": [
+      "blockchain developer"
+    ],
+    "path": "skills\\blockchain-developer"
+  },
+  {
+    "id": "blockrun",
+    "name": "Blockrun",
+    "description": "---",
+    "keywords": [
+      "blockrun"
+    ],
+    "path": "skills\\blockrun"
+  },
+  {
+    "id": "brainstorming",
+    "name": "Brainstorming",
+    "description": "---",
+    "keywords": [
+      "brainstorming"
+    ],
+    "path": "skills\\brainstorming"
+  },
+  {
+    "id": "brand-guidelines-anthropic",
+    "name": "Brand Guidelines Anthropic",
+    "description": "---",
+    "keywords": [
+      "brand guidelines anthropic"
+    ],
+    "path": "skills\\brand-guidelines-anthropic"
+  },
+  {
+    "id": "brand-guidelines-community",
+    "name": "Brand Guidelines Community",
+    "description": "---",
+    "keywords": [
+      "brand guidelines community"
+    ],
+    "path": "skills\\brand-guidelines-community"
+  },
+  {
+    "id": "broken-authentication",
+    "name": "Broken Authentication",
+    "description": "---",
+    "keywords": [
+      "broken authentication"
+    ],
+    "path": "skills\\broken-authentication"
+  },
+  {
+    "id": "browser-automation",
+    "name": "Browser Automation",
+    "description": "---",
+    "keywords": [
+      "browser automation"
+    ],
+    "path": "skills\\browser-automation"
+  },
+  {
+    "id": "browser-extension-builder",
+    "name": "Browser Extension Builder",
+    "description": "---",
+    "keywords": [
+      "browser extension builder"
+    ],
+    "path": "skills\\browser-extension-builder"
+  },
+  {
+    "id": "bullmq-specialist",
+    "name": "Bullmq Specialist",
+    "description": "---",
+    "keywords": [
+      "bullmq specialist"
+    ],
+    "path": "skills\\bullmq-specialist"
+  },
+  {
+    "id": "bun-development",
+    "name": "Bun Development",
+    "description": "---",
+    "keywords": [
+      "bun development"
+    ],
+    "path": "skills\\bun-development"
+  },
+  {
+    "id": "burp-suite-testing",
+    "name": "Burp Suite Testing",
+    "description": "---",
+    "keywords": [
+      "burp suite testing"
+    ],
+    "path": "skills\\burp-suite-testing"
+  },
+  {
+    "id": "business-analyst",
+    "name": "Business Analyst",
+    "description": "---",
+    "keywords": [
+      "business analyst"
+    ],
+    "path": "skills\\business-analyst"
+  },
+  {
+    "id": "busybox-on-windows",
+    "name": "Busybox On Windows",
+    "description": "---",
+    "keywords": [
+      "busybox on windows"
+    ],
+    "path": "skills\\busybox-on-windows"
+  },
+  {
+    "id": "c-pro",
+    "name": "C Pro",
+    "description": "---",
+    "keywords": [
+      "c pro"
+    ],
+    "path": "skills\\c-pro"
+  },
+  {
+    "id": "c4-architecture-c4-architecture",
+    "name": "C4 Architecture C4 Architecture",
+    "description": "---",
+    "keywords": [
+      "c4 architecture c4 architecture"
+    ],
+    "path": "skills\\c4-architecture-c4-architecture"
+  },
+  {
+    "id": "c4-code",
+    "name": "C4 Code",
+    "description": "---",
+    "keywords": [
+      "c4 code"
+    ],
+    "path": "skills\\c4-code"
+  },
+  {
+    "id": "c4-component",
+    "name": "C4 Component",
+    "description": "---",
+    "keywords": [
+      "c4 component"
+    ],
+    "path": "skills\\c4-component"
+  },
+  {
+    "id": "c4-container",
+    "name": "C4 Container",
+    "description": "---",
+    "keywords": [
+      "c4 container"
+    ],
+    "path": "skills\\c4-container"
+  },
+  {
+    "id": "c4-context",
+    "name": "C4 Context",
+    "description": "---",
+    "keywords": [
+      "c4 context"
+    ],
+    "path": "skills\\c4-context"
+  },
+  {
+    "id": "canvas-design",
+    "name": "Canvas Design",
+    "description": "---",
+    "keywords": [
+      "canvas design"
+    ],
+    "path": "skills\\canvas-design"
+  },
+  {
+    "id": "cc-skill-backend-patterns",
+    "name": "Cc Skill Backend Patterns",
+    "description": "---",
+    "keywords": [
+      "cc skill backend patterns"
+    ],
+    "path": "skills\\cc-skill-backend-patterns"
+  },
+  {
+    "id": "cc-skill-clickhouse-io",
+    "name": "Cc Skill Clickhouse Io",
+    "description": "---",
+    "keywords": [
+      "cc skill clickhouse io"
+    ],
+    "path": "skills\\cc-skill-clickhouse-io"
+  },
+  {
+    "id": "cc-skill-coding-standards",
+    "name": "Cc Skill Coding Standards",
+    "description": "---",
+    "keywords": [
+      "cc skill coding standards"
+    ],
+    "path": "skills\\cc-skill-coding-standards"
+  },
+  {
+    "id": "cc-skill-continuous-learning",
+    "name": "Cc Skill Continuous Learning",
+    "description": "---",
+    "keywords": [
+      "cc skill continuous learning"
+    ],
+    "path": "skills\\cc-skill-continuous-learning"
+  },
+  {
+    "id": "cc-skill-frontend-patterns",
+    "name": "Cc Skill Frontend Patterns",
+    "description": "---",
+    "keywords": [
+      "cc skill frontend patterns"
+    ],
+    "path": "skills\\cc-skill-frontend-patterns"
+  },
+  {
+    "id": "cc-skill-project-guidelines-example",
+    "name": "Cc Skill Project Guidelines Example",
+    "description": "---",
+    "keywords": [
+      "cc skill project guidelines example"
+    ],
+    "path": "skills\\cc-skill-project-guidelines-example"
+  },
+  {
+    "id": "cc-skill-security-review",
+    "name": "Cc Skill Security Review",
+    "description": "---",
+    "keywords": [
+      "cc skill security review"
+    ],
+    "path": "skills\\cc-skill-security-review"
+  },
+  {
+    "id": "cc-skill-strategic-compact",
+    "name": "Cc Skill Strategic Compact",
+    "description": "---",
+    "keywords": [
+      "cc skill strategic compact"
+    ],
+    "path": "skills\\cc-skill-strategic-compact"
+  },
+  {
+    "id": "changelog-automation",
+    "name": "Changelog Automation",
+    "description": "---",
+    "keywords": [
+      "changelog automation"
+    ],
+    "path": "skills\\changelog-automation"
+  },
+  {
+    "id": "cicd-automation-workflow-automate",
+    "name": "Cicd Automation Workflow Automate",
+    "description": "---",
+    "keywords": [
+      "cicd automation workflow automate"
+    ],
+    "path": "skills\\cicd-automation-workflow-automate"
+  },
+  {
+    "id": "clarity-gate",
+    "name": "Clarity Gate",
+    "description": "---",
+    "keywords": [
+      "clarity gate"
+    ],
+    "path": "skills\\clarity-gate"
+  },
+  {
+    "id": "claude-ally-health",
+    "name": "Claude Ally Health",
+    "description": "---",
+    "keywords": [
+      "claude ally health"
+    ],
+    "path": "skills\\claude-ally-health"
+  },
+  {
+    "id": "claude-code-guide",
+    "name": "Claude Code Guide",
+    "description": "---",
+    "keywords": [
+      "claude code guide"
+    ],
+    "path": "skills\\claude-code-guide"
+  },
+  {
+    "id": "claude-d3js-skill",
+    "name": "Claude D3Js Skill",
+    "description": "---",
+    "keywords": [
+      "claude d3js skill"
+    ],
+    "path": "skills\\claude-d3js-skill"
+  },
+  {
+    "id": "claude-scientific-skills",
+    "name": "Claude Scientific Skills",
+    "description": "---",
+    "keywords": [
+      "claude scientific skills"
+    ],
+    "path": "skills\\claude-scientific-skills"
+  },
+  {
+    "id": "claude-speed-reader",
+    "name": "Claude Speed Reader",
+    "description": "---",
+    "keywords": [
+      "claude speed reader"
+    ],
+    "path": "skills\\claude-speed-reader"
+  },
+  {
+    "id": "claude-win11-speckit-update-skill",
+    "name": "Claude Win11 Speckit Update Skill",
+    "description": "---",
+    "keywords": [
+      "claude win11 speckit update skill"
+    ],
+    "path": "skills\\claude-win11-speckit-update-skill"
+  },
+  {
+    "id": "clean-code",
+    "name": "Clean Code",
+    "description": "---",
+    "keywords": [
+      "clean code"
+    ],
+    "path": "skills\\clean-code"
+  },
+  {
+    "id": "clerk-auth",
+    "name": "Clerk Auth",
+    "description": "---",
+    "keywords": [
+      "clerk auth"
+    ],
+    "path": "skills\\clerk-auth"
+  },
+  {
+    "id": "cloud-architect",
+    "name": "Cloud Architect",
+    "description": "---",
+    "keywords": [
+      "cloud architect"
+    ],
+    "path": "skills\\cloud-architect"
+  },
+  {
+    "id": "cloud-penetration-testing",
+    "name": "Cloud Penetration Testing",
+    "description": "---",
+    "keywords": [
+      "cloud penetration testing"
+    ],
+    "path": "skills\\cloud-penetration-testing"
+  },
+  {
+    "id": "code-documentation-code-explain",
+    "name": "Code Documentation Code Explain",
+    "description": "---",
+    "keywords": [
+      "code documentation code explain"
+    ],
+    "path": "skills\\code-documentation-code-explain"
+  },
+  {
+    "id": "code-documentation-doc-generate",
+    "name": "Code Documentation Doc Generate",
+    "description": "---",
+    "keywords": [
+      "code documentation doc generate"
+    ],
+    "path": "skills\\code-documentation-doc-generate"
+  },
+  {
+    "id": "code-refactoring-context-restore",
+    "name": "Code Refactoring Context Restore",
+    "description": "---",
+    "keywords": [
+      "code refactoring context restore"
+    ],
+    "path": "skills\\code-refactoring-context-restore"
+  },
+  {
+    "id": "code-refactoring-refactor-clean",
+    "name": "Code Refactoring Refactor Clean",
+    "description": "---",
+    "keywords": [
+      "code refactoring refactor clean"
+    ],
+    "path": "skills\\code-refactoring-refactor-clean"
+  },
+  {
+    "id": "code-refactoring-tech-debt",
+    "name": "Code Refactoring Tech Debt",
+    "description": "---",
+    "keywords": [
+      "code refactoring tech debt"
+    ],
+    "path": "skills\\code-refactoring-tech-debt"
+  },
+  {
+    "id": "code-review-ai-ai-review",
+    "name": "Code Review Ai Ai Review",
+    "description": "---",
+    "keywords": [
+      "code review ai ai review"
+    ],
+    "path": "skills\\code-review-ai-ai-review"
+  },
+  {
+    "id": "code-review-checklist",
+    "name": "Code Review Checklist",
+    "description": "---",
+    "keywords": [
+      "code review checklist"
+    ],
+    "path": "skills\\code-review-checklist"
+  },
+  {
+    "id": "code-review-excellence",
+    "name": "Code Review Excellence",
+    "description": "---",
+    "keywords": [
+      "code review excellence"
+    ],
+    "path": "skills\\code-review-excellence"
+  },
+  {
+    "id": "code-reviewer",
+    "name": "Code Reviewer",
+    "description": "---",
+    "keywords": [
+      "code reviewer"
+    ],
+    "path": "skills\\code-reviewer"
+  },
+  {
+    "id": "codebase-cleanup-deps-audit",
+    "name": "Codebase Cleanup Deps Audit",
+    "description": "---",
+    "keywords": [
+      "codebase cleanup deps audit"
+    ],
+    "path": "skills\\codebase-cleanup-deps-audit"
+  },
+  {
+    "id": "codebase-cleanup-refactor-clean",
+    "name": "Codebase Cleanup Refactor Clean",
+    "description": "---",
+    "keywords": [
+      "codebase cleanup refactor clean"
+    ],
+    "path": "skills\\codebase-cleanup-refactor-clean"
+  },
+  {
+    "id": "codebase-cleanup-tech-debt",
+    "name": "Codebase Cleanup Tech Debt",
+    "description": "---",
+    "keywords": [
+      "codebase cleanup tech debt"
+    ],
+    "path": "skills\\codebase-cleanup-tech-debt"
+  },
+  {
+    "id": "codex-review",
+    "name": "Codex Review",
+    "description": "---",
+    "keywords": [
+      "codex review"
+    ],
+    "path": "skills\\codex-review"
+  },
+  {
+    "id": "commit",
+    "name": "Commit",
+    "description": "---",
+    "keywords": [
+      "commit"
+    ],
+    "path": "skills\\commit"
+  },
+  {
+    "id": "competitive-landscape",
+    "name": "Competitive Landscape",
+    "description": "---",
+    "keywords": [
+      "competitive landscape"
+    ],
+    "path": "skills\\competitive-landscape"
+  },
+  {
+    "id": "competitor-alternatives",
+    "name": "Competitor Alternatives",
+    "description": "---",
+    "keywords": [
+      "competitor alternatives"
+    ],
+    "path": "skills\\competitor-alternatives"
+  },
+  {
+    "id": "comprehensive-review-full-review",
+    "name": "Comprehensive Review Full Review",
+    "description": "---",
+    "keywords": [
+      "comprehensive review full review"
+    ],
+    "path": "skills\\comprehensive-review-full-review"
+  },
+  {
+    "id": "comprehensive-review-pr-enhance",
+    "name": "Comprehensive Review Pr Enhance",
+    "description": "---",
+    "keywords": [
+      "comprehensive review pr enhance"
+    ],
+    "path": "skills\\comprehensive-review-pr-enhance"
+  },
+  {
+    "id": "computer-use-agents",
+    "name": "Computer Use Agents",
+    "description": "---",
+    "keywords": [
+      "computer use agents"
+    ],
+    "path": "skills\\computer-use-agents"
+  },
+  {
+    "id": "concise-planning",
+    "name": "Concise Planning",
+    "description": "---",
+    "keywords": [
+      "concise planning"
+    ],
+    "path": "skills\\concise-planning"
+  },
+  {
+    "id": "conductor-implement",
+    "name": "Conductor Implement",
+    "description": "---",
+    "keywords": [
+      "conductor implement"
+    ],
+    "path": "skills\\conductor-implement"
+  },
+  {
+    "id": "conductor-manage",
+    "name": "Conductor Manage",
+    "description": "---",
+    "keywords": [
+      "conductor manage"
+    ],
+    "path": "skills\\conductor-manage"
+  },
+  {
+    "id": "conductor-new-track",
+    "name": "Conductor New Track",
+    "description": "---",
+    "keywords": [
+      "conductor new track"
+    ],
+    "path": "skills\\conductor-new-track"
+  },
+  {
+    "id": "conductor-revert",
+    "name": "Conductor Revert",
+    "description": "---",
+    "keywords": [
+      "conductor revert"
+    ],
+    "path": "skills\\conductor-revert"
+  },
+  {
+    "id": "conductor-setup",
+    "name": "Conductor Setup",
+    "description": "---",
+    "keywords": [
+      "conductor setup"
+    ],
+    "path": "skills\\conductor-setup"
+  },
+  {
+    "id": "conductor-status",
+    "name": "Conductor Status",
+    "description": "---",
+    "keywords": [
+      "conductor status"
+    ],
+    "path": "skills\\conductor-status"
+  },
+  {
+    "id": "conductor-validator",
+    "name": "Conductor Validator",
+    "description": "---",
+    "keywords": [
+      "conductor validator"
+    ],
+    "path": "skills\\conductor-validator"
+  },
+  {
+    "id": "content-creator",
+    "name": "Content Creator",
+    "description": "---",
+    "keywords": [
+      "content creator"
+    ],
+    "path": "skills\\content-creator"
+  },
+  {
+    "id": "content-marketer",
+    "name": "Content Marketer",
+    "description": "---",
+    "keywords": [
+      "content marketer"
+    ],
+    "path": "skills\\content-marketer"
+  },
+  {
+    "id": "context-compression",
+    "name": "Context Compression",
+    "description": "---",
+    "keywords": [
+      "context compression"
+    ],
+    "path": "skills\\context-compression"
+  },
+  {
+    "id": "context-degradation",
+    "name": "Context Degradation",
+    "description": "---",
+    "keywords": [
+      "context degradation"
+    ],
+    "path": "skills\\context-degradation"
+  },
+  {
+    "id": "context-driven-development",
+    "name": "Context Driven Development",
+    "description": "---",
+    "keywords": [
+      "context driven development"
+    ],
+    "path": "skills\\context-driven-development"
+  },
+  {
+    "id": "context-fundamentals",
+    "name": "Context Fundamentals",
+    "description": "---",
+    "keywords": [
+      "context fundamentals"
+    ],
+    "path": "skills\\context-fundamentals"
+  },
+  {
+    "id": "context-management-context-restore",
+    "name": "Context Management Context Restore",
+    "description": "---",
+    "keywords": [
+      "context management context restore"
+    ],
+    "path": "skills\\context-management-context-restore"
+  },
+  {
+    "id": "context-management-context-save",
+    "name": "Context Management Context Save",
+    "description": "---",
+    "keywords": [
+      "context management context save"
+    ],
+    "path": "skills\\context-management-context-save"
+  },
+  {
+    "id": "context-manager",
+    "name": "Context Manager",
+    "description": "---",
+    "keywords": [
+      "context manager"
+    ],
+    "path": "skills\\context-manager"
+  },
+  {
+    "id": "context-optimization",
+    "name": "Context Optimization",
+    "description": "---",
+    "keywords": [
+      "context optimization"
+    ],
+    "path": "skills\\context-optimization"
+  },
+  {
+    "id": "context-window-management",
+    "name": "Context Window Management",
+    "description": "---",
+    "keywords": [
+      "context window management"
+    ],
+    "path": "skills\\context-window-management"
+  },
+  {
+    "id": "context7-auto-research",
+    "name": "Context7 Auto Research",
+    "description": "---",
+    "keywords": [
+      "context7 auto research"
+    ],
+    "path": "skills\\context7-auto-research"
+  },
+  {
+    "id": "conversation-memory",
+    "name": "Conversation Memory",
+    "description": "---",
+    "keywords": [
+      "conversation memory"
+    ],
+    "path": "skills\\conversation-memory"
+  },
+  {
+    "id": "copy-editing",
+    "name": "Copy Editing",
+    "description": "---",
+    "keywords": [
+      "copy editing"
+    ],
+    "path": "skills\\copy-editing"
+  },
+  {
+    "id": "copywriting",
+    "name": "Copywriting",
+    "description": "---",
+    "keywords": [
+      "copywriting"
+    ],
+    "path": "skills\\copywriting"
+  },
+  {
+    "id": "core-components",
+    "name": "Core Components",
+    "description": "---",
+    "keywords": [
+      "core components"
+    ],
+    "path": "skills\\core-components"
+  },
+  {
+    "id": "cost-optimization",
+    "name": "Cost Optimization",
+    "description": "---",
+    "keywords": [
+      "cost optimization"
+    ],
+    "path": "skills\\cost-optimization"
+  },
+  {
+    "id": "cpp-pro",
+    "name": "Cpp Pro",
+    "description": "---",
+    "keywords": [
+      "cpp pro"
+    ],
+    "path": "skills\\cpp-pro"
+  },
+  {
+    "id": "cqrs-implementation",
+    "name": "Cqrs Implementation",
+    "description": "---",
+    "keywords": [
+      "cqrs implementation"
+    ],
+    "path": "skills\\cqrs-implementation"
+  },
+  {
+    "id": "create-pr",
+    "name": "Create Pr",
+    "description": "---",
+    "keywords": [
+      "create pr"
+    ],
+    "path": "skills\\create-pr"
+  },
+  {
+    "id": "crewai",
+    "name": "Crewai",
+    "description": "---",
+    "keywords": [
+      "crewai"
+    ],
+    "path": "skills\\crewai"
+  },
+  {
+    "id": "csharp-pro",
+    "name": "Csharp Pro",
+    "description": "---",
+    "keywords": [
+      "csharp pro"
+    ],
+    "path": "skills\\csharp-pro"
+  },
+  {
+    "id": "culture-index",
+    "name": "Culture Index",
+    "description": "---",
+    "keywords": [
+      "culture index"
+    ],
+    "path": "skills\\culture-index"
+  },
+  {
+    "id": "customer-support",
+    "name": "Customer Support",
+    "description": "---",
+    "keywords": [
+      "customer support"
+    ],
+    "path": "skills\\customer-support"
+  },
+  {
+    "id": "daily-news-report",
+    "name": "Daily News Report",
+    "description": "---",
+    "keywords": [
+      "daily news report"
+    ],
+    "path": "skills\\daily-news-report"
+  },
+  {
+    "id": "data-engineer",
+    "name": "Data Engineer",
+    "description": "---",
+    "keywords": [
+      "data engineer"
+    ],
+    "path": "skills\\data-engineer"
+  },
+  {
+    "id": "data-engineering-data-driven-feature",
+    "name": "Data Engineering Data Driven Feature",
+    "description": "---",
+    "keywords": [
+      "data engineering data driven feature"
+    ],
+    "path": "skills\\data-engineering-data-driven-feature"
+  },
+  {
+    "id": "data-engineering-data-pipeline",
+    "name": "Data Engineering Data Pipeline",
+    "description": "---",
+    "keywords": [
+      "data engineering data pipeline"
+    ],
+    "path": "skills\\data-engineering-data-pipeline"
+  },
+  {
+    "id": "data-quality-frameworks",
+    "name": "Data Quality Frameworks",
+    "description": "---",
+    "keywords": [
+      "data quality frameworks"
+    ],
+    "path": "skills\\data-quality-frameworks"
+  },
+  {
+    "id": "data-scientist",
+    "name": "Data Scientist",
+    "description": "---",
+    "keywords": [
+      "data scientist"
+    ],
+    "path": "skills\\data-scientist"
+  },
+  {
+    "id": "data-storytelling",
+    "name": "Data Storytelling",
+    "description": "---",
+    "keywords": [
+      "data storytelling"
+    ],
+    "path": "skills\\data-storytelling"
+  },
+  {
+    "id": "database-admin",
+    "name": "Database Admin",
+    "description": "---",
+    "keywords": [
+      "database admin"
+    ],
+    "path": "skills\\database-admin"
+  },
+  {
+    "id": "database-architect",
+    "name": "Database Architect",
+    "description": "---",
+    "keywords": [
+      "database architect"
+    ],
+    "path": "skills\\database-architect"
+  },
+  {
+    "id": "database-cloud-optimization-cost-optimize",
+    "name": "Database Cloud Optimization Cost Optimize",
+    "description": "---",
+    "keywords": [
+      "database cloud optimization cost optimize"
+    ],
+    "path": "skills\\database-cloud-optimization-cost-optimize"
+  },
+  {
+    "id": "database-design",
+    "name": "Database Design",
+    "description": "---",
+    "keywords": [
+      "database design"
+    ],
+    "path": "skills\\database-design"
+  },
+  {
+    "id": "database-migration",
+    "name": "Database Migration",
+    "description": "---",
+    "keywords": [
+      "database migration"
+    ],
+    "path": "skills\\database-migration"
+  },
+  {
+    "id": "database-migrations-migration-observability",
+    "name": "Database Migrations Migration Observability",
+    "description": "---",
+    "keywords": [
+      "database migrations migration observability"
+    ],
+    "path": "skills\\database-migrations-migration-observability"
+  },
+  {
+    "id": "database-migrations-sql-migrations",
+    "name": "Database Migrations Sql Migrations",
+    "description": "---",
+    "keywords": [
+      "database migrations sql migrations"
+    ],
+    "path": "skills\\database-migrations-sql-migrations"
+  },
+  {
+    "id": "database-optimizer",
+    "name": "Database Optimizer",
+    "description": "---",
+    "keywords": [
+      "database optimizer"
+    ],
+    "path": "skills\\database-optimizer"
+  },
+  {
+    "id": "dbt-transformation-patterns",
+    "name": "Dbt Transformation Patterns",
+    "description": "---",
+    "keywords": [
+      "dbt transformation patterns"
+    ],
+    "path": "skills\\dbt-transformation-patterns"
+  },
+  {
+    "id": "debugger",
+    "name": "Debugger",
+    "description": "---",
+    "keywords": [
+      "debugger"
+    ],
+    "path": "skills\\debugger"
+  },
+  {
+    "id": "debugging-strategies",
+    "name": "Debugging Strategies",
+    "description": "---",
+    "keywords": [
+      "debugging strategies"
+    ],
+    "path": "skills\\debugging-strategies"
+  },
+  {
+    "id": "debugging-toolkit-smart-debug",
+    "name": "Debugging Toolkit Smart Debug",
+    "description": "---",
+    "keywords": [
+      "debugging toolkit smart debug"
+    ],
+    "path": "skills\\debugging-toolkit-smart-debug"
+  },
+  {
+    "id": "deep-research",
+    "name": "Deep Research",
+    "description": "---",
+    "keywords": [
+      "deep research"
+    ],
+    "path": "skills\\deep-research"
+  },
+  {
+    "id": "defi-protocol-templates",
+    "name": "Defi Protocol Templates",
+    "description": "---",
+    "keywords": [
+      "defi protocol templates"
+    ],
+    "path": "skills\\defi-protocol-templates"
+  },
+  {
+    "id": "dependency-management-deps-audit",
+    "name": "Dependency Management Deps Audit",
+    "description": "---",
+    "keywords": [
+      "dependency management deps audit"
+    ],
+    "path": "skills\\dependency-management-deps-audit"
+  },
+  {
+    "id": "dependency-upgrade",
+    "name": "Dependency Upgrade",
+    "description": "---",
+    "keywords": [
+      "dependency upgrade"
+    ],
+    "path": "skills\\dependency-upgrade"
+  },
+  {
+    "id": "deployment-engineer",
+    "name": "Deployment Engineer",
+    "description": "---",
+    "keywords": [
+      "deployment engineer"
+    ],
+    "path": "skills\\deployment-engineer"
+  },
+  {
+    "id": "deployment-pipeline-design",
+    "name": "Deployment Pipeline Design",
+    "description": "---",
+    "keywords": [
+      "deployment pipeline design"
+    ],
+    "path": "skills\\deployment-pipeline-design"
+  },
+  {
+    "id": "deployment-procedures",
+    "name": "Deployment Procedures",
+    "description": "---",
+    "keywords": [
+      "deployment procedures"
+    ],
+    "path": "skills\\deployment-procedures"
+  },
+  {
+    "id": "deployment-validation-config-validate",
+    "name": "Deployment Validation Config Validate",
+    "description": "---",
+    "keywords": [
+      "deployment validation config validate"
+    ],
+    "path": "skills\\deployment-validation-config-validate"
+  },
+  {
+    "id": "design-md",
+    "name": "Design Md",
+    "description": "---",
+    "keywords": [
+      "design md"
+    ],
+    "path": "skills\\design-md"
+  },
+  {
+    "id": "design-orchestration",
+    "name": "Design Orchestration",
+    "description": "---",
+    "keywords": [
+      "design orchestration"
+    ],
+    "path": "skills\\design-orchestration"
+  },
+  {
+    "id": "devops-troubleshooter",
+    "name": "Devops Troubleshooter",
+    "description": "---",
+    "keywords": [
+      "devops troubleshooter"
+    ],
+    "path": "skills\\devops-troubleshooter"
+  },
+  {
+    "id": "discord-bot-architect",
+    "name": "Discord Bot Architect",
+    "description": "---",
+    "keywords": [
+      "discord bot architect"
+    ],
+    "path": "skills\\discord-bot-architect"
+  },
+  {
+    "id": "dispatching-parallel-agents",
+    "name": "Dispatching Parallel Agents",
+    "description": "---",
+    "keywords": [
+      "dispatching parallel agents"
+    ],
+    "path": "skills\\dispatching-parallel-agents"
+  },
+  {
+    "id": "distributed-debugging-debug-trace",
+    "name": "Distributed Debugging Debug Trace",
+    "description": "---",
+    "keywords": [
+      "distributed debugging debug trace"
+    ],
+    "path": "skills\\distributed-debugging-debug-trace"
+  },
+  {
+    "id": "distributed-tracing",
+    "name": "Distributed Tracing",
+    "description": "---",
+    "keywords": [
+      "distributed tracing"
+    ],
+    "path": "skills\\distributed-tracing"
+  },
+  {
+    "id": "django-pro",
+    "name": "Django Pro",
+    "description": "---",
+    "keywords": [
+      "django pro"
+    ],
+    "path": "skills\\django-pro"
+  },
+  {
+    "id": "doc-coauthoring",
+    "name": "Doc Coauthoring",
+    "description": "---",
+    "keywords": [
+      "doc coauthoring"
+    ],
+    "path": "skills\\doc-coauthoring"
+  },
+  {
+    "id": "docker-expert",
+    "name": "Docker Expert",
+    "description": "---",
+    "keywords": [
+      "docker expert"
+    ],
+    "path": "skills\\docker-expert"
+  },
+  {
+    "id": "docs-architect",
+    "name": "Docs Architect",
+    "description": "---",
+    "keywords": [
+      "docs architect"
+    ],
+    "path": "skills\\docs-architect"
+  },
+  {
+    "id": "documentation-generation-doc-generate",
+    "name": "Documentation Generation Doc Generate",
+    "description": "---",
+    "keywords": [
+      "documentation generation doc generate"
+    ],
+    "path": "skills\\documentation-generation-doc-generate"
+  },
+  {
+    "id": "documentation-templates",
+    "name": "Documentation Templates",
+    "description": "---",
+    "keywords": [
+      "documentation templates"
+    ],
+    "path": "skills\\documentation-templates"
+  },
+  {
+    "id": "docx-official",
+    "name": "Docx Official",
+    "description": "---",
+    "keywords": [
+      "docx official"
+    ],
+    "path": "skills\\docx-official"
+  },
+  {
+    "id": "dotnet-architect",
+    "name": "Dotnet Architect",
+    "description": "---",
+    "keywords": [
+      "dotnet architect"
+    ],
+    "path": "skills\\dotnet-architect"
+  },
+  {
+    "id": "dotnet-backend-patterns",
+    "name": "Dotnet Backend Patterns",
+    "description": "---",
+    "keywords": [
+      "dotnet backend patterns"
+    ],
+    "path": "skills\\dotnet-backend-patterns"
+  },
+  {
+    "id": "dx-optimizer",
+    "name": "Dx Optimizer",
+    "description": "---",
+    "keywords": [
+      "dx optimizer"
+    ],
+    "path": "skills\\dx-optimizer"
+  },
+  {
+    "id": "e2e-testing-patterns",
+    "name": "E2E Testing Patterns",
+    "description": "---",
+    "keywords": [
+      "e2e testing patterns"
+    ],
+    "path": "skills\\e2e-testing-patterns"
+  },
+  {
+    "id": "elixir-pro",
+    "name": "Elixir Pro",
+    "description": "---",
+    "keywords": [
+      "elixir pro"
+    ],
+    "path": "skills\\elixir-pro"
+  },
+  {
+    "id": "email-sequence",
+    "name": "Email Sequence",
+    "description": "---",
+    "keywords": [
+      "email sequence"
+    ],
+    "path": "skills\\email-sequence"
+  },
+  {
+    "id": "email-systems",
+    "name": "Email Systems",
+    "description": "---",
+    "keywords": [
+      "email systems"
+    ],
+    "path": "skills\\email-systems"
+  },
+  {
+    "id": "embedding-strategies",
+    "name": "Embedding Strategies",
+    "description": "---",
+    "keywords": [
+      "embedding strategies"
+    ],
+    "path": "skills\\embedding-strategies"
+  },
+  {
+    "id": "employment-contract-templates",
+    "name": "Employment Contract Templates",
+    "description": "---",
+    "keywords": [
+      "employment contract templates"
+    ],
+    "path": "skills\\employment-contract-templates"
+  },
+  {
+    "id": "environment-setup-guide",
+    "name": "Environment Setup Guide",
+    "description": "---",
+    "keywords": [
+      "environment setup guide"
+    ],
+    "path": "skills\\environment-setup-guide"
+  },
+  {
+    "id": "error-debugging-error-analysis",
+    "name": "Error Debugging Error Analysis",
+    "description": "---",
+    "keywords": [
+      "error debugging error analysis"
+    ],
+    "path": "skills\\error-debugging-error-analysis"
+  },
+  {
+    "id": "error-debugging-error-trace",
+    "name": "Error Debugging Error Trace",
+    "description": "---",
+    "keywords": [
+      "error debugging error trace"
+    ],
+    "path": "skills\\error-debugging-error-trace"
+  },
+  {
+    "id": "error-debugging-multi-agent-review",
+    "name": "Error Debugging Multi Agent Review",
+    "description": "---",
+    "keywords": [
+      "error debugging multi agent review"
+    ],
+    "path": "skills\\error-debugging-multi-agent-review"
+  },
+  {
+    "id": "error-detective",
+    "name": "Error Detective",
+    "description": "---",
+    "keywords": [
+      "error detective"
+    ],
+    "path": "skills\\error-detective"
+  },
+  {
+    "id": "error-diagnostics-error-analysis",
+    "name": "Error Diagnostics Error Analysis",
+    "description": "---",
+    "keywords": [
+      "error diagnostics error analysis"
+    ],
+    "path": "skills\\error-diagnostics-error-analysis"
+  },
+  {
+    "id": "error-diagnostics-error-trace",
+    "name": "Error Diagnostics Error Trace",
+    "description": "---",
+    "keywords": [
+      "error diagnostics error trace"
+    ],
+    "path": "skills\\error-diagnostics-error-trace"
+  },
+  {
+    "id": "error-diagnostics-smart-debug",
+    "name": "Error Diagnostics Smart Debug",
+    "description": "---",
+    "keywords": [
+      "error diagnostics smart debug"
+    ],
+    "path": "skills\\error-diagnostics-smart-debug"
+  },
+  {
+    "id": "error-handling-patterns",
+    "name": "Error Handling Patterns",
+    "description": "---",
+    "keywords": [
+      "error handling patterns"
+    ],
+    "path": "skills\\error-handling-patterns"
+  },
+  {
+    "id": "ethical-hacking-methodology",
+    "name": "Ethical Hacking Methodology",
+    "description": "---",
+    "keywords": [
+      "ethical hacking methodology"
+    ],
+    "path": "skills\\ethical-hacking-methodology"
+  },
+  {
+    "id": "evaluation",
+    "name": "Evaluation",
+    "description": "---",
+    "keywords": [
+      "evaluation"
+    ],
+    "path": "skills\\evaluation"
+  },
+  {
+    "id": "event-sourcing-architect",
+    "name": "Event Sourcing Architect",
+    "description": "---",
+    "keywords": [
+      "event sourcing architect"
+    ],
+    "path": "skills\\event-sourcing-architect"
+  },
+  {
+    "id": "event-store-design",
+    "name": "Event Store Design",
+    "description": "---",
+    "keywords": [
+      "event store design"
+    ],
+    "path": "skills\\event-store-design"
+  },
+  {
+    "id": "exa-search",
+    "name": "Exa Search",
+    "description": "---",
+    "keywords": [
+      "exa search"
+    ],
+    "path": "skills\\exa-search"
+  },
+  {
+    "id": "executing-plans",
+    "name": "Executing Plans",
+    "description": "---",
+    "keywords": [
+      "executing plans"
+    ],
+    "path": "skills\\executing-plans"
+  },
+  {
+    "id": "expo-deployment",
+    "name": "Expo Deployment",
+    "description": "---",
+    "keywords": [
+      "expo deployment"
+    ],
+    "path": "skills\\expo-deployment"
+  },
+  {
+    "id": "fal-audio",
+    "name": "Fal Audio",
+    "description": "---",
+    "keywords": [
+      "fal audio"
+    ],
+    "path": "skills\\fal-audio"
+  },
+  {
+    "id": "fal-generate",
+    "name": "Fal Generate",
+    "description": "---",
+    "keywords": [
+      "fal generate"
+    ],
+    "path": "skills\\fal-generate"
+  },
+  {
+    "id": "fal-image-edit",
+    "name": "Fal Image Edit",
+    "description": "---",
+    "keywords": [
+      "fal image edit"
+    ],
+    "path": "skills\\fal-image-edit"
+  },
+  {
+    "id": "fal-platform",
+    "name": "Fal Platform",
+    "description": "---",
+    "keywords": [
+      "fal platform"
+    ],
+    "path": "skills\\fal-platform"
+  },
+  {
+    "id": "fal-upscale",
+    "name": "Fal Upscale",
+    "description": "---",
+    "keywords": [
+      "fal upscale"
+    ],
+    "path": "skills\\fal-upscale"
+  },
+  {
+    "id": "fal-workflow",
+    "name": "Fal Workflow",
+    "description": "---",
+    "keywords": [
+      "fal workflow"
+    ],
+    "path": "skills\\fal-workflow"
+  },
+  {
+    "id": "fastapi-pro",
+    "name": "Fastapi Pro",
+    "description": "---",
+    "keywords": [
+      "fastapi pro"
+    ],
+    "path": "skills\\fastapi-pro"
+  },
+  {
+    "id": "fastapi-templates",
+    "name": "Fastapi Templates",
+    "description": "---",
+    "keywords": [
+      "fastapi templates"
+    ],
+    "path": "skills\\fastapi-templates"
+  },
+  {
+    "id": "ffuf-claude-skill",
+    "name": "Ffuf Claude Skill",
+    "description": "---",
+    "keywords": [
+      "ffuf claude skill"
+    ],
+    "path": "skills\\ffuf-claude-skill"
+  },
+  {
+    "id": "file-organizer",
+    "name": "File Organizer",
+    "description": "---",
+    "keywords": [
+      "file organizer"
+    ],
+    "path": "skills\\file-organizer"
+  },
+  {
+    "id": "file-path-traversal",
+    "name": "File Path Traversal",
+    "description": "---",
+    "keywords": [
+      "file path traversal"
+    ],
+    "path": "skills\\file-path-traversal"
+  },
+  {
+    "id": "file-uploads",
+    "name": "File Uploads",
+    "description": "---",
+    "keywords": [
+      "file uploads"
+    ],
+    "path": "skills\\file-uploads"
+  },
+  {
+    "id": "find-bugs",
+    "name": "Find Bugs",
+    "description": "---",
+    "keywords": [
+      "find bugs"
+    ],
+    "path": "skills\\find-bugs"
+  },
+  {
+    "id": "finishing-a-development-branch",
+    "name": "Finishing A Development Branch",
+    "description": "---",
+    "keywords": [
+      "finishing a development branch"
+    ],
+    "path": "skills\\finishing-a-development-branch"
+  },
+  {
+    "id": "firebase",
+    "name": "Firebase",
+    "description": "---",
+    "keywords": [
+      "firebase"
+    ],
+    "path": "skills\\firebase"
+  },
+  {
+    "id": "firecrawl-scraper",
+    "name": "Firecrawl Scraper",
+    "description": "---",
+    "keywords": [
+      "firecrawl scraper"
+    ],
+    "path": "skills\\firecrawl-scraper"
+  },
+  {
+    "id": "firmware-analyst",
+    "name": "Firmware Analyst",
+    "description": "---",
+    "keywords": [
+      "firmware analyst"
+    ],
+    "path": "skills\\firmware-analyst"
+  },
+  {
+    "id": "fix-review",
+    "name": "Fix Review",
+    "description": "---",
+    "keywords": [
+      "fix review"
+    ],
+    "path": "skills\\fix-review"
+  },
+  {
+    "id": "flutter-expert",
+    "name": "Flutter Expert",
+    "description": "---",
+    "keywords": [
+      "flutter expert"
+    ],
+    "path": "skills\\flutter-expert"
+  },
+  {
+    "id": "form-cro",
+    "name": "Form Cro",
+    "description": "---",
+    "keywords": [
+      "form cro"
+    ],
+    "path": "skills\\form-cro"
+  },
+  {
+    "id": "fp-ts-errors",
+    "name": "Fp Ts Errors",
+    "description": "---",
+    "keywords": [
+      "fp ts errors"
+    ],
+    "path": "skills\\fp-ts-errors"
+  },
+  {
+    "id": "fp-ts-pragmatic",
+    "name": "Fp Ts Pragmatic",
+    "description": "---",
+    "keywords": [
+      "fp ts pragmatic"
+    ],
+    "path": "skills\\fp-ts-pragmatic"
+  },
+  {
+    "id": "fp-ts-react",
+    "name": "Fp Ts React",
+    "description": "---",
+    "keywords": [
+      "fp ts react"
+    ],
+    "path": "skills\\fp-ts-react"
+  },
+  {
+    "id": "framework-migration-code-migrate",
+    "name": "Framework Migration Code Migrate",
+    "description": "---",
+    "keywords": [
+      "framework migration code migrate"
+    ],
+    "path": "skills\\framework-migration-code-migrate"
+  },
+  {
+    "id": "framework-migration-deps-upgrade",
+    "name": "Framework Migration Deps Upgrade",
+    "description": "---",
+    "keywords": [
+      "framework migration deps upgrade"
+    ],
+    "path": "skills\\framework-migration-deps-upgrade"
+  },
+  {
+    "id": "framework-migration-legacy-modernize",
+    "name": "Framework Migration Legacy Modernize",
+    "description": "---",
+    "keywords": [
+      "framework migration legacy modernize"
+    ],
+    "path": "skills\\framework-migration-legacy-modernize"
+  },
+  {
+    "id": "free-tool-strategy",
+    "name": "Free Tool Strategy",
+    "description": "---",
+    "keywords": [
+      "free tool strategy"
+    ],
+    "path": "skills\\free-tool-strategy"
+  },
+  {
+    "id": "frontend-design",
+    "name": "Frontend Design",
+    "description": "---",
+    "keywords": [
+      "frontend design"
+    ],
+    "path": "skills\\frontend-design"
+  },
+  {
+    "id": "frontend-dev-guidelines",
+    "name": "Frontend Dev Guidelines",
+    "description": "---",
+    "keywords": [
+      "frontend dev guidelines"
+    ],
+    "path": "skills\\frontend-dev-guidelines"
+  },
+  {
+    "id": "frontend-developer",
+    "name": "Frontend Developer",
+    "description": "---",
+    "keywords": [
+      "frontend developer"
+    ],
+    "path": "skills\\frontend-developer"
+  },
+  {
+    "id": "frontend-mobile-development-component-scaffold",
+    "name": "Frontend Mobile Development Component Scaffold",
+    "description": "---",
+    "keywords": [
+      "frontend mobile development component scaffold"
+    ],
+    "path": "skills\\frontend-mobile-development-component-scaffold"
+  },
+  {
+    "id": "frontend-mobile-security-xss-scan",
+    "name": "Frontend Mobile Security Xss Scan",
+    "description": "---",
+    "keywords": [
+      "frontend mobile security xss scan"
+    ],
+    "path": "skills\\frontend-mobile-security-xss-scan"
+  },
+  {
+    "id": "frontend-security-coder",
+    "name": "Frontend Security Coder",
+    "description": "---",
+    "keywords": [
+      "frontend security coder"
+    ],
+    "path": "skills\\frontend-security-coder"
+  },
+  {
+    "id": "frontend-slides",
+    "name": "Frontend Slides",
+    "description": "---",
+    "keywords": [
+      "frontend slides"
+    ],
+    "path": "skills\\frontend-slides"
+  },
+  {
+    "id": "full-stack-orchestration-full-stack-feature",
+    "name": "Full Stack Orchestration Full Stack Feature",
+    "description": "---",
+    "keywords": [
+      "full stack orchestration full stack feature"
+    ],
+    "path": "skills\\full-stack-orchestration-full-stack-feature"
+  },
+  {
+    "id": "game-development",
+    "name": "Game Development",
+    "description": "---",
+    "keywords": [
+      "game development"
+    ],
+    "path": "skills\\game-development"
+  },
+  {
+    "id": "gcp-cloud-run",
+    "name": "Gcp Cloud Run",
+    "description": "---",
+    "keywords": [
+      "gcp cloud run"
+    ],
+    "path": "skills\\gcp-cloud-run"
+  },
+  {
+    "id": "gdpr-data-handling",
+    "name": "Gdpr Data Handling",
+    "description": "---",
+    "keywords": [
+      "gdpr data handling"
+    ],
+    "path": "skills\\gdpr-data-handling"
+  },
+  {
+    "id": "geo-fundamentals",
+    "name": "Geo Fundamentals",
+    "description": "---",
+    "keywords": [
+      "geo fundamentals"
+    ],
+    "path": "skills\\geo-fundamentals"
+  },
+  {
+    "id": "git-advanced-workflows",
+    "name": "Git Advanced Workflows",
+    "description": "---",
+    "keywords": [
+      "git advanced workflows"
+    ],
+    "path": "skills\\git-advanced-workflows"
+  },
+  {
+    "id": "git-pr-workflows-git-workflow",
+    "name": "Git Pr Workflows Git Workflow",
+    "description": "---",
+    "keywords": [
+      "git pr workflows git workflow"
+    ],
+    "path": "skills\\git-pr-workflows-git-workflow"
+  },
+  {
+    "id": "git-pr-workflows-onboard",
+    "name": "Git Pr Workflows Onboard",
+    "description": "---",
+    "keywords": [
+      "git pr workflows onboard"
+    ],
+    "path": "skills\\git-pr-workflows-onboard"
+  },
+  {
+    "id": "git-pr-workflows-pr-enhance",
+    "name": "Git Pr Workflows Pr Enhance",
+    "description": "---",
+    "keywords": [
+      "git pr workflows pr enhance"
+    ],
+    "path": "skills\\git-pr-workflows-pr-enhance"
+  },
+  {
+    "id": "git-pushing",
+    "name": "Git Pushing",
+    "description": "---",
+    "keywords": [
+      "git pushing"
+    ],
+    "path": "skills\\git-pushing"
+  },
+  {
+    "id": "github-actions-templates",
+    "name": "Github Actions Templates",
+    "description": "---",
+    "keywords": [
+      "github actions templates"
+    ],
+    "path": "skills\\github-actions-templates"
+  },
+  {
+    "id": "github-workflow-automation",
+    "name": "Github Workflow Automation",
+    "description": "---",
+    "keywords": [
+      "github workflow automation"
+    ],
+    "path": "skills\\github-workflow-automation"
+  },
+  {
+    "id": "gitlab-ci-patterns",
+    "name": "Gitlab Ci Patterns",
+    "description": "---",
+    "keywords": [
+      "gitlab ci patterns"
+    ],
+    "path": "skills\\gitlab-ci-patterns"
+  },
+  {
+    "id": "gitops-workflow",
+    "name": "Gitops Workflow",
+    "description": "---",
+    "keywords": [
+      "gitops workflow"
+    ],
+    "path": "skills\\gitops-workflow"
+  },
+  {
+    "id": "go-concurrency-patterns",
+    "name": "Go Concurrency Patterns",
+    "description": "---",
+    "keywords": [
+      "go concurrency patterns"
+    ],
+    "path": "skills\\go-concurrency-patterns"
+  },
+  {
+    "id": "godot-gdscript-patterns",
+    "name": "Godot Gdscript Patterns",
+    "description": "---",
+    "keywords": [
+      "godot gdscript patterns"
+    ],
+    "path": "skills\\godot-gdscript-patterns"
+  },
+  {
+    "id": "golang-pro",
+    "name": "Golang Pro",
+    "description": "---",
+    "keywords": [
+      "golang pro"
+    ],
+    "path": "skills\\golang-pro"
+  },
+  {
+    "id": "grafana-dashboards",
+    "name": "Grafana Dashboards",
+    "description": "---",
+    "keywords": [
+      "grafana dashboards"
+    ],
+    "path": "skills\\grafana-dashboards"
+  },
+  {
+    "id": "graphql",
+    "name": "Graphql",
+    "description": "---",
+    "keywords": [
+      "graphql"
+    ],
+    "path": "skills\\graphql"
+  },
+  {
+    "id": "graphql-architect",
+    "name": "Graphql Architect",
+    "description": "---",
+    "keywords": [
+      "graphql architect"
+    ],
+    "path": "skills\\graphql-architect"
+  },
+  {
+    "id": "haskell-pro",
+    "name": "Haskell Pro",
+    "description": "---",
+    "keywords": [
+      "haskell pro"
+    ],
+    "path": "skills\\haskell-pro"
+  },
+  {
+    "id": "helm-chart-scaffolding",
+    "name": "Helm Chart Scaffolding",
+    "description": "---",
+    "keywords": [
+      "helm chart scaffolding"
+    ],
+    "path": "skills\\helm-chart-scaffolding"
+  },
+  {
+    "id": "hr-pro",
+    "name": "Hr Pro",
+    "description": "---",
+    "keywords": [
+      "hr pro"
+    ],
+    "path": "skills\\hr-pro"
+  },
+  {
+    "id": "html-injection-testing",
+    "name": "Html Injection Testing",
+    "description": "---",
+    "keywords": [
+      "html injection testing"
+    ],
+    "path": "skills\\html-injection-testing"
+  },
+  {
+    "id": "hubspot-integration",
+    "name": "Hubspot Integration",
+    "description": "---",
+    "keywords": [
+      "hubspot integration"
+    ],
+    "path": "skills\\hubspot-integration"
+  },
+  {
+    "id": "hugging-face-cli",
+    "name": "Hugging Face Cli",
+    "description": "---",
+    "keywords": [
+      "hugging face cli"
+    ],
+    "path": "skills\\hugging-face-cli"
+  },
+  {
+    "id": "hugging-face-jobs",
+    "name": "Hugging Face Jobs",
+    "description": "---",
+    "keywords": [
+      "hugging face jobs"
+    ],
+    "path": "skills\\hugging-face-jobs"
+  },
+  {
+    "id": "hybrid-cloud-architect",
+    "name": "Hybrid Cloud Architect",
+    "description": "---",
+    "keywords": [
+      "hybrid cloud architect"
+    ],
+    "path": "skills\\hybrid-cloud-architect"
+  },
+  {
+    "id": "hybrid-cloud-networking",
+    "name": "Hybrid Cloud Networking",
+    "description": "---",
+    "keywords": [
+      "hybrid cloud networking"
+    ],
+    "path": "skills\\hybrid-cloud-networking"
+  },
+  {
+    "id": "hybrid-search-implementation",
+    "name": "Hybrid Search Implementation",
+    "description": "---",
+    "keywords": [
+      "hybrid search implementation"
+    ],
+    "path": "skills\\hybrid-search-implementation"
+  },
+  {
+    "id": "i18n-localization",
+    "name": "I18N Localization",
+    "description": "---",
+    "keywords": [
+      "i18n localization"
+    ],
+    "path": "skills\\i18n-localization"
+  },
+  {
+    "id": "idor-testing",
+    "name": "Idor Testing",
+    "description": "---",
+    "keywords": [
+      "idor testing"
+    ],
+    "path": "skills\\idor-testing"
+  },
+  {
+    "id": "imagen",
+    "name": "Imagen",
+    "description": "---",
+    "keywords": [
+      "imagen"
+    ],
+    "path": "skills\\imagen"
+  },
+  {
+    "id": "incident-responder",
+    "name": "Incident Responder",
+    "description": "---",
+    "keywords": [
+      "incident responder"
+    ],
+    "path": "skills\\incident-responder"
+  },
+  {
+    "id": "incident-response-incident-response",
+    "name": "Incident Response Incident Response",
+    "description": "---",
+    "keywords": [
+      "incident response incident response"
+    ],
+    "path": "skills\\incident-response-incident-response"
+  },
+  {
+    "id": "incident-response-smart-fix",
+    "name": "Incident Response Smart Fix",
+    "description": "---",
+    "keywords": [
+      "incident response smart fix"
+    ],
+    "path": "skills\\incident-response-smart-fix"
+  },
+  {
+    "id": "incident-runbook-templates",
+    "name": "Incident Runbook Templates",
+    "description": "---",
+    "keywords": [
+      "incident runbook templates"
+    ],
+    "path": "skills\\incident-runbook-templates"
+  },
+  {
+    "id": "infinite-gratitude",
+    "name": "Infinite Gratitude",
+    "description": "---",
+    "keywords": [
+      "infinite gratitude"
+    ],
+    "path": "skills\\infinite-gratitude"
+  },
+  {
+    "id": "inngest",
+    "name": "Inngest",
+    "description": "---",
+    "keywords": [
+      "inngest"
+    ],
+    "path": "skills\\inngest"
+  },
+  {
+    "id": "interactive-portfolio",
+    "name": "Interactive Portfolio",
+    "description": "---",
+    "keywords": [
+      "interactive portfolio"
+    ],
+    "path": "skills\\interactive-portfolio"
+  },
+  {
+    "id": "internal-comms-anthropic",
+    "name": "Internal Comms Anthropic",
+    "description": "---",
+    "keywords": [
+      "internal comms anthropic"
+    ],
+    "path": "skills\\internal-comms-anthropic"
+  },
+  {
+    "id": "internal-comms-community",
+    "name": "Internal Comms Community",
+    "description": "---",
+    "keywords": [
+      "internal comms community"
+    ],
+    "path": "skills\\internal-comms-community"
+  },
+  {
+    "id": "ios-developer",
+    "name": "Ios Developer",
+    "description": "---",
+    "keywords": [
+      "ios developer"
+    ],
+    "path": "skills\\ios-developer"
+  },
+  {
+    "id": "istio-traffic-management",
+    "name": "Istio Traffic Management",
+    "description": "---",
+    "keywords": [
+      "istio traffic management"
+    ],
+    "path": "skills\\istio-traffic-management"
+  },
+  {
+    "id": "iterate-pr",
+    "name": "Iterate Pr",
+    "description": "---",
+    "keywords": [
+      "iterate pr"
+    ],
+    "path": "skills\\iterate-pr"
+  },
+  {
+    "id": "java-pro",
+    "name": "Java Pro",
+    "description": "---",
+    "keywords": [
+      "java pro"
+    ],
+    "path": "skills\\java-pro"
+  },
+  {
+    "id": "javascript-mastery",
+    "name": "Javascript Mastery",
+    "description": "---",
+    "keywords": [
+      "javascript mastery"
+    ],
+    "path": "skills\\javascript-mastery"
+  },
+  {
+    "id": "javascript-pro",
+    "name": "Javascript Pro",
+    "description": "---",
+    "keywords": [
+      "javascript pro"
+    ],
+    "path": "skills\\javascript-pro"
+  },
+  {
+    "id": "javascript-testing-patterns",
+    "name": "Javascript Testing Patterns",
+    "description": "---",
+    "keywords": [
+      "javascript testing patterns"
+    ],
+    "path": "skills\\javascript-testing-patterns"
+  },
+  {
+    "id": "javascript-typescript-typescript-scaffold",
+    "name": "Javascript Typescript Typescript Scaffold",
+    "description": "---",
+    "keywords": [
+      "javascript typescript typescript scaffold"
+    ],
+    "path": "skills\\javascript-typescript-typescript-scaffold"
+  },
+  {
+    "id": "julia-pro",
+    "name": "Julia Pro",
+    "description": "---",
+    "keywords": [
+      "julia pro"
+    ],
+    "path": "skills\\julia-pro"
+  },
+  {
+    "id": "k8s-manifest-generator",
+    "name": "K8S Manifest Generator",
+    "description": "---",
+    "keywords": [
+      "k8s manifest generator"
+    ],
+    "path": "skills\\k8s-manifest-generator"
+  },
+  {
+    "id": "k8s-security-policies",
+    "name": "K8S Security Policies",
+    "description": "---",
+    "keywords": [
+      "k8s security policies"
+    ],
+    "path": "skills\\k8s-security-policies"
+  },
+  {
+    "id": "kaizen",
+    "name": "Kaizen",
+    "description": "---",
+    "keywords": [
+      "kaizen"
+    ],
+    "path": "skills\\kaizen"
+  },
+  {
+    "id": "kpi-dashboard-design",
+    "name": "Kpi Dashboard Design",
+    "description": "---",
+    "keywords": [
+      "kpi dashboard design"
+    ],
+    "path": "skills\\kpi-dashboard-design"
+  },
+  {
+    "id": "kubernetes-architect",
+    "name": "Kubernetes Architect",
+    "description": "---",
+    "keywords": [
+      "kubernetes architect"
+    ],
+    "path": "skills\\kubernetes-architect"
+  },
+  {
+    "id": "langchain-architecture",
+    "name": "Langchain Architecture",
+    "description": "---",
+    "keywords": [
+      "langchain architecture"
+    ],
+    "path": "skills\\langchain-architecture"
+  },
+  {
+    "id": "langfuse",
+    "name": "Langfuse",
+    "description": "---",
+    "keywords": [
+      "langfuse"
+    ],
+    "path": "skills\\langfuse"
+  },
+  {
+    "id": "langgraph",
+    "name": "Langgraph",
+    "description": "---",
+    "keywords": [
+      "langgraph"
+    ],
+    "path": "skills\\langgraph"
+  },
+  {
+    "id": "last30days",
+    "name": "Last30Days",
+    "description": "**The AI world reinvents itself every month. This Claude Code skill keeps you current.** /last30days researches your topic across Reddit, X, and the web from the last 30 days, finds what the community...",
+    "keywords": [
+      "keeps",
+      "itself",
+      "reddit,",
+      "topic",
+      "every",
+      "finds",
+      "claude",
+      "month.",
+      "/last30days",
+      "skill",
+      "current.**",
+      "days,",
+      "last30days",
+      "community...",
+      "reinvents",
+      "**the",
+      "world",
+      "researches",
+      "across"
+    ],
+    "path": "skills\\last30days"
+  },
+  {
+    "id": "launch-strategy",
+    "name": "Launch Strategy",
+    "description": "---",
+    "keywords": [
+      "launch strategy"
+    ],
+    "path": "skills\\launch-strategy"
+  },
+  {
+    "id": "legacy-modernizer",
+    "name": "Legacy Modernizer",
+    "description": "---",
+    "keywords": [
+      "legacy modernizer"
+    ],
+    "path": "skills\\legacy-modernizer"
+  },
+  {
+    "id": "legal-advisor",
+    "name": "Legal Advisor",
+    "description": "---",
+    "keywords": [
+      "legal advisor"
+    ],
+    "path": "skills\\legal-advisor"
+  },
+  {
+    "id": "linear-claude-skill",
+    "name": "Linear Claude Skill",
+    "description": "---",
+    "keywords": [
+      "linear claude skill"
+    ],
+    "path": "skills\\linear-claude-skill"
+  },
+  {
+    "id": "linkerd-patterns",
+    "name": "Linkerd Patterns",
+    "description": "---",
+    "keywords": [
+      "linkerd patterns"
+    ],
+    "path": "skills\\linkerd-patterns"
+  },
+  {
+    "id": "lint-and-validate",
+    "name": "Lint And Validate",
+    "description": "---",
+    "keywords": [
+      "lint and validate"
+    ],
+    "path": "skills\\lint-and-validate"
+  },
+  {
+    "id": "linux-privilege-escalation",
+    "name": "Linux Privilege Escalation",
+    "description": "---",
+    "keywords": [
+      "linux privilege escalation"
+    ],
+    "path": "skills\\linux-privilege-escalation"
+  },
+  {
+    "id": "linux-shell-scripting",
+    "name": "Linux Shell Scripting",
+    "description": "---",
+    "keywords": [
+      "linux shell scripting"
+    ],
+    "path": "skills\\linux-shell-scripting"
+  },
+  {
+    "id": "llm-app-patterns",
+    "name": "Llm App Patterns",
+    "description": "---",
+    "keywords": [
+      "llm app patterns"
+    ],
+    "path": "skills\\llm-app-patterns"
+  },
+  {
+    "id": "llm-application-dev-ai-assistant",
+    "name": "Llm Application Dev Ai Assistant",
+    "description": "---",
+    "keywords": [
+      "llm application dev ai assistant"
+    ],
+    "path": "skills\\llm-application-dev-ai-assistant"
+  },
+  {
+    "id": "llm-application-dev-langchain-agent",
+    "name": "Llm Application Dev Langchain Agent",
+    "description": "---",
+    "keywords": [
+      "llm application dev langchain agent"
+    ],
+    "path": "skills\\llm-application-dev-langchain-agent"
+  },
+  {
+    "id": "llm-application-dev-prompt-optimize",
+    "name": "Llm Application Dev Prompt Optimize",
+    "description": "---",
+    "keywords": [
+      "llm application dev prompt optimize"
+    ],
+    "path": "skills\\llm-application-dev-prompt-optimize"
+  },
+  {
+    "id": "llm-evaluation",
+    "name": "Llm Evaluation",
+    "description": "---",
+    "keywords": [
+      "llm evaluation"
+    ],
+    "path": "skills\\llm-evaluation"
+  },
+  {
+    "id": "loki-mode",
+    "name": "Loki Mode",
+    "description": "**The First Truly Autonomous Multi-Agent Startup System**",
+    "keywords": [
+      "multi-agent",
+      "system**",
+      "autonomous",
+      "truly",
+      "**the",
+      "startup",
+      "first",
+      "loki mode"
+    ],
+    "path": "skills\\loki-mode"
+  },
+  {
+    "id": "machine-learning-ops-ml-pipeline",
+    "name": "Machine Learning Ops Ml Pipeline",
+    "description": "---",
+    "keywords": [
+      "machine learning ops ml pipeline"
+    ],
+    "path": "skills\\machine-learning-ops-ml-pipeline"
+  },
+  {
+    "id": "makepad-skills",
+    "name": "Makepad Skills",
+    "description": "---",
+    "keywords": [
+      "makepad skills"
+    ],
+    "path": "skills\\makepad-skills"
+  },
+  {
+    "id": "malware-analyst",
+    "name": "Malware Analyst",
+    "description": "---",
+    "keywords": [
+      "malware analyst"
+    ],
+    "path": "skills\\malware-analyst"
+  },
+  {
+    "id": "market-sizing-analysis",
+    "name": "Market Sizing Analysis",
+    "description": "---",
+    "keywords": [
+      "market sizing analysis"
+    ],
+    "path": "skills\\market-sizing-analysis"
+  },
+  {
+    "id": "marketing-ideas",
+    "name": "Marketing Ideas",
+    "description": "---",
+    "keywords": [
+      "marketing ideas"
+    ],
+    "path": "skills\\marketing-ideas"
+  },
+  {
+    "id": "marketing-psychology",
+    "name": "Marketing Psychology",
+    "description": "---",
+    "keywords": [
+      "marketing psychology"
+    ],
+    "path": "skills\\marketing-psychology"
+  },
+  {
+    "id": "mcp-builder",
+    "name": "Mcp Builder",
+    "description": "---",
+    "keywords": [
+      "mcp builder"
+    ],
+    "path": "skills\\mcp-builder"
+  },
+  {
+    "id": "memory-forensics",
+    "name": "Memory Forensics",
+    "description": "---",
+    "keywords": [
+      "memory forensics"
+    ],
+    "path": "skills\\memory-forensics"
+  },
+  {
+    "id": "memory-safety-patterns",
+    "name": "Memory Safety Patterns",
+    "description": "---",
+    "keywords": [
+      "memory safety patterns"
+    ],
+    "path": "skills\\memory-safety-patterns"
+  },
+  {
+    "id": "memory-systems",
+    "name": "Memory Systems",
+    "description": "---",
+    "keywords": [
+      "memory systems"
+    ],
+    "path": "skills\\memory-systems"
+  },
+  {
+    "id": "mermaid-expert",
+    "name": "Mermaid Expert",
+    "description": "---",
+    "keywords": [
+      "mermaid expert"
+    ],
+    "path": "skills\\mermaid-expert"
+  },
+  {
+    "id": "metasploit-framework",
+    "name": "Metasploit Framework",
+    "description": "---",
+    "keywords": [
+      "metasploit framework"
+    ],
+    "path": "skills\\metasploit-framework"
+  },
+  {
+    "id": "micro-saas-launcher",
+    "name": "Micro Saas Launcher",
+    "description": "---",
+    "keywords": [
+      "micro saas launcher"
+    ],
+    "path": "skills\\micro-saas-launcher"
+  },
+  {
+    "id": "microservices-patterns",
+    "name": "Microservices Patterns",
+    "description": "---",
+    "keywords": [
+      "microservices patterns"
+    ],
+    "path": "skills\\microservices-patterns"
+  },
+  {
+    "id": "minecraft-bukkit-pro",
+    "name": "Minecraft Bukkit Pro",
+    "description": "---",
+    "keywords": [
+      "minecraft bukkit pro"
+    ],
+    "path": "skills\\minecraft-bukkit-pro"
+  },
+  {
+    "id": "ml-engineer",
+    "name": "Ml Engineer",
+    "description": "---",
+    "keywords": [
+      "ml engineer"
+    ],
+    "path": "skills\\ml-engineer"
+  },
+  {
+    "id": "ml-pipeline-workflow",
+    "name": "Ml Pipeline Workflow",
+    "description": "---",
+    "keywords": [
+      "ml pipeline workflow"
+    ],
+    "path": "skills\\ml-pipeline-workflow"
+  },
+  {
+    "id": "mlops-engineer",
+    "name": "Mlops Engineer",
+    "description": "---",
+    "keywords": [
+      "mlops engineer"
+    ],
+    "path": "skills\\mlops-engineer"
+  },
+  {
+    "id": "mobile-design",
+    "name": "Mobile Design",
+    "description": "---",
+    "keywords": [
+      "mobile design"
+    ],
+    "path": "skills\\mobile-design"
+  },
+  {
+    "id": "mobile-developer",
+    "name": "Mobile Developer",
+    "description": "---",
+    "keywords": [
+      "mobile developer"
+    ],
+    "path": "skills\\mobile-developer"
+  },
+  {
+    "id": "mobile-security-coder",
+    "name": "Mobile Security Coder",
+    "description": "---",
+    "keywords": [
+      "mobile security coder"
+    ],
+    "path": "skills\\mobile-security-coder"
+  },
+  {
+    "id": "modern-javascript-patterns",
+    "name": "Modern Javascript Patterns",
+    "description": "---",
+    "keywords": [
+      "modern javascript patterns"
+    ],
+    "path": "skills\\modern-javascript-patterns"
+  },
+  {
+    "id": "monorepo-architect",
+    "name": "Monorepo Architect",
+    "description": "---",
+    "keywords": [
+      "monorepo architect"
+    ],
+    "path": "skills\\monorepo-architect"
+  },
+  {
+    "id": "monorepo-management",
+    "name": "Monorepo Management",
+    "description": "---",
+    "keywords": [
+      "monorepo management"
+    ],
+    "path": "skills\\monorepo-management"
+  },
+  {
+    "id": "moodle-external-api-development",
+    "name": "Moodle External Api Development",
+    "description": "---",
+    "keywords": [
+      "moodle external api development"
+    ],
+    "path": "skills\\moodle-external-api-development"
+  },
+  {
+    "id": "mtls-configuration",
+    "name": "Mtls Configuration",
+    "description": "---",
+    "keywords": [
+      "mtls configuration"
+    ],
+    "path": "skills\\mtls-configuration"
+  },
+  {
+    "id": "multi-agent-brainstorming",
+    "name": "Multi Agent Brainstorming",
+    "description": "---",
+    "keywords": [
+      "multi agent brainstorming"
+    ],
+    "path": "skills\\multi-agent-brainstorming"
+  },
+  {
+    "id": "multi-agent-patterns",
+    "name": "Multi Agent Patterns",
+    "description": "---",
+    "keywords": [
+      "multi agent patterns"
+    ],
+    "path": "skills\\multi-agent-patterns"
+  },
+  {
+    "id": "multi-cloud-architecture",
+    "name": "Multi Cloud Architecture",
+    "description": "---",
+    "keywords": [
+      "multi cloud architecture"
+    ],
+    "path": "skills\\multi-cloud-architecture"
+  },
+  {
+    "id": "multi-platform-apps-multi-platform",
+    "name": "Multi Platform Apps Multi Platform",
+    "description": "---",
+    "keywords": [
+      "multi platform apps multi platform"
+    ],
+    "path": "skills\\multi-platform-apps-multi-platform"
+  },
+  {
+    "id": "n8n-code-python",
+    "name": "N8N Code Python",
+    "description": "---",
+    "keywords": [
+      "n8n code python"
+    ],
+    "path": "skills\\n8n-code-python"
+  },
+  {
+    "id": "n8n-mcp-tools-expert",
+    "name": "N8N Mcp Tools Expert",
+    "description": "---",
+    "keywords": [
+      "n8n mcp tools expert"
+    ],
+    "path": "skills\\n8n-mcp-tools-expert"
+  },
+  {
+    "id": "n8n-node-configuration",
+    "name": "N8N Node Configuration",
+    "description": "---",
+    "keywords": [
+      "n8n node configuration"
+    ],
+    "path": "skills\\n8n-node-configuration"
+  },
+  {
+    "id": "nanobanana-ppt-skills",
+    "name": "Nanobanana Ppt Skills",
+    "description": "---",
+    "keywords": [
+      "nanobanana ppt skills"
+    ],
+    "path": "skills\\nanobanana-ppt-skills"
+  },
+  {
+    "id": "neon-postgres",
+    "name": "Neon Postgres",
+    "description": "---",
+    "keywords": [
+      "neon postgres"
+    ],
+    "path": "skills\\neon-postgres"
+  },
+  {
+    "id": "nestjs-expert",
+    "name": "Nestjs Expert",
+    "description": "---",
+    "keywords": [
+      "nestjs expert"
+    ],
+    "path": "skills\\nestjs-expert"
+  },
+  {
+    "id": "network-101",
+    "name": "Network 101",
+    "description": "---",
+    "keywords": [
+      "network 101"
+    ],
+    "path": "skills\\network-101"
+  },
+  {
+    "id": "network-engineer",
+    "name": "Network Engineer",
+    "description": "---",
+    "keywords": [
+      "network engineer"
+    ],
+    "path": "skills\\network-engineer"
+  },
+  {
+    "id": "nextjs-app-router-patterns",
+    "name": "Nextjs App Router Patterns",
+    "description": "---",
+    "keywords": [
+      "nextjs app router patterns"
+    ],
+    "path": "skills\\nextjs-app-router-patterns"
+  },
+  {
+    "id": "nextjs-best-practices",
+    "name": "Nextjs Best Practices",
+    "description": "---",
+    "keywords": [
+      "nextjs best practices"
+    ],
+    "path": "skills\\nextjs-best-practices"
+  },
+  {
+    "id": "nextjs-supabase-auth",
+    "name": "Nextjs Supabase Auth",
+    "description": "---",
+    "keywords": [
+      "nextjs supabase auth"
+    ],
+    "path": "skills\\nextjs-supabase-auth"
+  },
+  {
+    "id": "nft-standards",
+    "name": "Nft Standards",
+    "description": "---",
+    "keywords": [
+      "nft standards"
+    ],
+    "path": "skills\\nft-standards"
+  },
+  {
+    "id": "nodejs-backend-patterns",
+    "name": "Nodejs Backend Patterns",
+    "description": "---",
+    "keywords": [
+      "nodejs backend patterns"
+    ],
+    "path": "skills\\nodejs-backend-patterns"
+  },
+  {
+    "id": "nodejs-best-practices",
+    "name": "Nodejs Best Practices",
+    "description": "---",
+    "keywords": [
+      "nodejs best practices"
+    ],
+    "path": "skills\\nodejs-best-practices"
+  },
+  {
+    "id": "nosql-expert",
+    "name": "Nosql Expert",
+    "description": "---",
+    "keywords": [
+      "nosql expert"
+    ],
+    "path": "skills\\nosql-expert"
+  },
+  {
+    "id": "notebooklm",
+    "name": "Notebooklm",
+    "description": "<div align=\"center\">",
+    "keywords": [
+      "notebooklm",
+      "align=\"center\">"
+    ],
+    "path": "skills\\notebooklm"
+  },
+  {
+    "id": "notion-template-business",
+    "name": "Notion Template Business",
+    "description": "---",
+    "keywords": [
+      "notion template business"
+    ],
+    "path": "skills\\notion-template-business"
+  },
+  {
+    "id": "nx-workspace-patterns",
+    "name": "Nx Workspace Patterns",
+    "description": "---",
+    "keywords": [
+      "nx workspace patterns"
+    ],
+    "path": "skills\\nx-workspace-patterns"
+  },
+  {
+    "id": "observability-engineer",
+    "name": "Observability Engineer",
+    "description": "---",
+    "keywords": [
+      "observability engineer"
+    ],
+    "path": "skills\\observability-engineer"
+  },
+  {
+    "id": "observability-monitoring-monitor-setup",
+    "name": "Observability Monitoring Monitor Setup",
+    "description": "---",
+    "keywords": [
+      "observability monitoring monitor setup"
+    ],
+    "path": "skills\\observability-monitoring-monitor-setup"
+  },
+  {
+    "id": "observability-monitoring-slo-implement",
+    "name": "Observability Monitoring Slo Implement",
+    "description": "---",
+    "keywords": [
+      "observability monitoring slo implement"
+    ],
+    "path": "skills\\observability-monitoring-slo-implement"
+  },
+  {
+    "id": "observe-whatsapp",
+    "name": "Observe Whatsapp",
+    "description": "---",
+    "keywords": [
+      "observe whatsapp"
+    ],
+    "path": "skills\\observe-whatsapp"
+  },
+  {
+    "id": "obsidian-clipper-template-creator",
+    "name": "Obsidian Clipper Template Creator",
+    "description": "---",
+    "keywords": [
+      "obsidian clipper template creator"
+    ],
+    "path": "skills\\obsidian-clipper-template-creator"
+  },
+  {
+    "id": "on-call-handoff-patterns",
+    "name": "On Call Handoff Patterns",
+    "description": "---",
+    "keywords": [
+      "on call handoff patterns"
+    ],
+    "path": "skills\\on-call-handoff-patterns"
+  },
+  {
+    "id": "onboarding-cro",
+    "name": "Onboarding Cro",
+    "description": "---",
+    "keywords": [
+      "onboarding cro"
+    ],
+    "path": "skills\\onboarding-cro"
+  },
+  {
+    "id": "openapi-spec-generation",
+    "name": "Openapi Spec Generation",
+    "description": "---",
+    "keywords": [
+      "openapi spec generation"
+    ],
+    "path": "skills\\openapi-spec-generation"
+  },
+  {
+    "id": "page-cro",
+    "name": "Page Cro",
+    "description": "---",
+    "keywords": [
+      "page cro"
+    ],
+    "path": "skills\\page-cro"
+  },
+  {
+    "id": "paid-ads",
+    "name": "Paid Ads",
+    "description": "---",
+    "keywords": [
+      "paid ads"
+    ],
+    "path": "skills\\paid-ads"
+  },
+  {
+    "id": "parallel-agents",
+    "name": "Parallel Agents",
+    "description": "---",
+    "keywords": [
+      "parallel agents"
+    ],
+    "path": "skills\\parallel-agents"
+  },
+  {
+    "id": "payment-integration",
+    "name": "Payment Integration",
+    "description": "---",
+    "keywords": [
+      "payment integration"
+    ],
+    "path": "skills\\payment-integration"
+  },
+  {
+    "id": "paypal-integration",
+    "name": "Paypal Integration",
+    "description": "---",
+    "keywords": [
+      "paypal integration"
+    ],
+    "path": "skills\\paypal-integration"
+  },
+  {
+    "id": "paywall-upgrade-cro",
+    "name": "Paywall Upgrade Cro",
+    "description": "---",
+    "keywords": [
+      "paywall upgrade cro"
+    ],
+    "path": "skills\\paywall-upgrade-cro"
+  },
+  {
+    "id": "pci-compliance",
+    "name": "Pci Compliance",
+    "description": "---",
+    "keywords": [
+      "pci compliance"
+    ],
+    "path": "skills\\pci-compliance"
+  },
+  {
+    "id": "pdf-official",
+    "name": "Pdf Official",
+    "description": "---",
+    "keywords": [
+      "pdf official"
+    ],
+    "path": "skills\\pdf-official"
+  },
+  {
+    "id": "pentest-checklist",
+    "name": "Pentest Checklist",
+    "description": "---",
+    "keywords": [
+      "pentest checklist"
+    ],
+    "path": "skills\\pentest-checklist"
+  },
+  {
+    "id": "pentest-commands",
+    "name": "Pentest Commands",
+    "description": "---",
+    "keywords": [
+      "pentest commands"
+    ],
+    "path": "skills\\pentest-commands"
+  },
+  {
+    "id": "performance-engineer",
+    "name": "Performance Engineer",
+    "description": "---",
+    "keywords": [
+      "performance engineer"
+    ],
+    "path": "skills\\performance-engineer"
+  },
+  {
+    "id": "performance-profiling",
+    "name": "Performance Profiling",
+    "description": "---",
+    "keywords": [
+      "performance profiling"
+    ],
+    "path": "skills\\performance-profiling"
+  },
+  {
+    "id": "performance-testing-review-ai-review",
+    "name": "Performance Testing Review Ai Review",
+    "description": "---",
+    "keywords": [
+      "performance testing review ai review"
+    ],
+    "path": "skills\\performance-testing-review-ai-review"
+  },
+  {
+    "id": "performance-testing-review-multi-agent-review",
+    "name": "Performance Testing Review Multi Agent Review",
+    "description": "---",
+    "keywords": [
+      "performance testing review multi agent review"
+    ],
+    "path": "skills\\performance-testing-review-multi-agent-review"
+  },
+  {
+    "id": "personal-tool-builder",
+    "name": "Personal Tool Builder",
+    "description": "---",
+    "keywords": [
+      "personal tool builder"
+    ],
+    "path": "skills\\personal-tool-builder"
+  },
+  {
+    "id": "php-pro",
+    "name": "Php Pro",
+    "description": "---",
+    "keywords": [
+      "php pro"
+    ],
+    "path": "skills\\php-pro"
+  },
+  {
+    "id": "plaid-fintech",
+    "name": "Plaid Fintech",
+    "description": "---",
+    "keywords": [
+      "plaid fintech"
+    ],
+    "path": "skills\\plaid-fintech"
+  },
+  {
+    "id": "plan-writing",
+    "name": "Plan Writing",
+    "description": "---",
+    "keywords": [
+      "plan writing"
+    ],
+    "path": "skills\\plan-writing"
+  },
+  {
+    "id": "planning-with-files",
+    "name": "Planning With Files",
+    "description": "---",
+    "keywords": [
+      "planning with files"
+    ],
+    "path": "skills\\planning-with-files"
+  },
+  {
+    "id": "playwright-skill",
+    "name": "Playwright Skill",
+    "description": "---",
+    "keywords": [
+      "playwright skill"
+    ],
+    "path": "skills\\playwright-skill"
+  },
+  {
+    "id": "popup-cro",
+    "name": "Popup Cro",
+    "description": "---",
+    "keywords": [
+      "popup cro"
+    ],
+    "path": "skills\\popup-cro"
+  },
+  {
+    "id": "posix-shell-pro",
+    "name": "Posix Shell Pro",
+    "description": "---",
+    "keywords": [
+      "posix shell pro"
+    ],
+    "path": "skills\\posix-shell-pro"
+  },
+  {
+    "id": "postgres-best-practices",
+    "name": "Postgres Best Practices",
+    "description": "This repository contains Postgres performance optimization rules optimized for",
+    "keywords": [
+      "performance",
+      "rules",
+      "contains",
+      "postgres best practices",
+      "postgres",
+      "repository",
+      "optimized",
+      "optimization"
+    ],
+    "path": "skills\\postgres-best-practices"
+  },
+  {
+    "id": "postgresql",
+    "name": "Postgresql",
+    "description": "---",
+    "keywords": [
+      "postgresql"
+    ],
+    "path": "skills\\postgresql"
+  },
+  {
+    "id": "postmortem-writing",
+    "name": "Postmortem Writing",
+    "description": "---",
+    "keywords": [
+      "postmortem writing"
+    ],
+    "path": "skills\\postmortem-writing"
+  },
+  {
+    "id": "powershell-windows",
+    "name": "Powershell Windows",
+    "description": "---",
+    "keywords": [
+      "powershell windows"
+    ],
+    "path": "skills\\powershell-windows"
+  },
+  {
+    "id": "pptx-official",
+    "name": "Pptx Official",
+    "description": "---",
+    "keywords": [
+      "pptx official"
+    ],
+    "path": "skills\\pptx-official"
+  },
+  {
+    "id": "pricing-strategy",
+    "name": "Pricing Strategy",
+    "description": "---",
+    "keywords": [
+      "pricing strategy"
+    ],
+    "path": "skills\\pricing-strategy"
+  },
+  {
+    "id": "prisma-expert",
+    "name": "Prisma Expert",
+    "description": "---",
+    "keywords": [
+      "prisma expert"
+    ],
+    "path": "skills\\prisma-expert"
+  },
+  {
+    "id": "privilege-escalation-methods",
+    "name": "Privilege Escalation Methods",
+    "description": "---",
+    "keywords": [
+      "privilege escalation methods"
+    ],
+    "path": "skills\\privilege-escalation-methods"
+  },
+  {
+    "id": "product-manager-toolkit",
+    "name": "Product Manager Toolkit",
+    "description": "---",
+    "keywords": [
+      "product manager toolkit"
+    ],
+    "path": "skills\\product-manager-toolkit"
+  },
+  {
+    "id": "production-code-audit",
+    "name": "Production Code Audit",
+    "description": "---",
+    "keywords": [
+      "production code audit"
+    ],
+    "path": "skills\\production-code-audit"
+  },
+  {
+    "id": "programmatic-seo",
+    "name": "Programmatic Seo",
+    "description": "---",
+    "keywords": [
+      "programmatic seo"
+    ],
+    "path": "skills\\programmatic-seo"
+  },
+  {
+    "id": "projection-patterns",
+    "name": "Projection Patterns",
+    "description": "---",
+    "keywords": [
+      "projection patterns"
+    ],
+    "path": "skills\\projection-patterns"
+  },
+  {
+    "id": "prometheus-configuration",
+    "name": "Prometheus Configuration",
+    "description": "---",
+    "keywords": [
+      "prometheus configuration"
+    ],
+    "path": "skills\\prometheus-configuration"
+  },
+  {
+    "id": "prompt-caching",
+    "name": "Prompt Caching",
+    "description": "---",
+    "keywords": [
+      "prompt caching"
+    ],
+    "path": "skills\\prompt-caching"
+  },
+  {
+    "id": "prompt-engineer",
+    "name": "Prompt Engineer",
+    "description": "---",
+    "keywords": [
+      "prompt engineer"
+    ],
+    "path": "skills\\prompt-engineer"
+  },
+  {
+    "id": "prompt-engineering",
+    "name": "Prompt Engineering",
+    "description": "---",
+    "keywords": [
+      "prompt engineering"
+    ],
+    "path": "skills\\prompt-engineering"
+  },
+  {
+    "id": "prompt-engineering-patterns",
+    "name": "Prompt Engineering Patterns",
+    "description": "---",
+    "keywords": [
+      "prompt engineering patterns"
+    ],
+    "path": "skills\\prompt-engineering-patterns"
+  },
+  {
+    "id": "prompt-library",
+    "name": "Prompt Library",
+    "description": "---",
+    "keywords": [
+      "prompt library"
+    ],
+    "path": "skills\\prompt-library"
+  },
+  {
+    "id": "protocol-reverse-engineering",
+    "name": "Protocol Reverse Engineering",
+    "description": "---",
+    "keywords": [
+      "protocol reverse engineering"
+    ],
+    "path": "skills\\protocol-reverse-engineering"
+  },
+  {
+    "id": "pypict-skill",
+    "name": "Pypict Skill",
+    "description": "---",
+    "keywords": [
+      "pypict skill"
+    ],
+    "path": "skills\\pypict-skill"
+  },
+  {
+    "id": "python-development-python-scaffold",
+    "name": "Python Development Python Scaffold",
+    "description": "---",
+    "keywords": [
+      "python development python scaffold"
+    ],
+    "path": "skills\\python-development-python-scaffold"
+  },
+  {
+    "id": "python-packaging",
+    "name": "Python Packaging",
+    "description": "---",
+    "keywords": [
+      "python packaging"
+    ],
+    "path": "skills\\python-packaging"
+  },
+  {
+    "id": "python-patterns",
+    "name": "Python Patterns",
+    "description": "---",
+    "keywords": [
+      "python patterns"
+    ],
+    "path": "skills\\python-patterns"
+  },
+  {
+    "id": "python-performance-optimization",
+    "name": "Python Performance Optimization",
+    "description": "---",
+    "keywords": [
+      "python performance optimization"
+    ],
+    "path": "skills\\python-performance-optimization"
+  },
+  {
+    "id": "python-pro",
+    "name": "Python Pro",
+    "description": "---",
+    "keywords": [
+      "python pro"
+    ],
+    "path": "skills\\python-pro"
+  },
+  {
+    "id": "python-testing-patterns",
+    "name": "Python Testing Patterns",
+    "description": "---",
+    "keywords": [
+      "python testing patterns"
+    ],
+    "path": "skills\\python-testing-patterns"
+  },
+  {
+    "id": "quant-analyst",
+    "name": "Quant Analyst",
+    "description": "---",
+    "keywords": [
+      "quant analyst"
+    ],
+    "path": "skills\\quant-analyst"
+  },
+  {
+    "id": "radix-ui-design-system",
+    "name": "Radix Ui Design System",
+    "description": "---",
+    "keywords": [
+      "radix ui design system"
+    ],
+    "path": "skills\\radix-ui-design-system"
+  },
+  {
+    "id": "rag-engineer",
+    "name": "Rag Engineer",
+    "description": "---",
+    "keywords": [
+      "rag engineer"
+    ],
+    "path": "skills\\rag-engineer"
+  },
+  {
+    "id": "rag-implementation",
+    "name": "Rag Implementation",
+    "description": "---",
+    "keywords": [
+      "rag implementation"
+    ],
+    "path": "skills\\rag-implementation"
+  },
+  {
+    "id": "react-best-practices",
+    "name": "React Best Practices",
+    "description": "A structured repository for creating and maintaining React Best Practices optimized for agents and LLMs.",
+    "keywords": [
+      "react",
+      "react best practices",
+      "structured",
+      "llms.",
+      "creating",
+      "repository",
+      "agents",
+      "maintaining",
+      "practices",
+      "optimized"
+    ],
+    "path": "skills\\react-best-practices"
+  },
+  {
+    "id": "react-modernization",
+    "name": "React Modernization",
+    "description": "---",
+    "keywords": [
+      "react modernization"
+    ],
+    "path": "skills\\react-modernization"
+  },
+  {
+    "id": "react-native-architecture",
+    "name": "React Native Architecture",
+    "description": "---",
+    "keywords": [
+      "react native architecture"
+    ],
+    "path": "skills\\react-native-architecture"
+  },
+  {
+    "id": "react-patterns",
+    "name": "React Patterns",
+    "description": "---",
+    "keywords": [
+      "react patterns"
+    ],
+    "path": "skills\\react-patterns"
+  },
+  {
+    "id": "react-state-management",
+    "name": "React State Management",
+    "description": "---",
+    "keywords": [
+      "react state management"
+    ],
+    "path": "skills\\react-state-management"
+  },
+  {
+    "id": "react-ui-patterns",
+    "name": "React Ui Patterns",
+    "description": "---",
+    "keywords": [
+      "react ui patterns"
+    ],
+    "path": "skills\\react-ui-patterns"
+  },
+  {
+    "id": "readme",
+    "name": "Readme",
+    "description": "---",
+    "keywords": [
+      "readme"
+    ],
+    "path": "skills\\readme"
+  },
+  {
+    "id": "receiving-code-review",
+    "name": "Receiving Code Review",
+    "description": "---",
+    "keywords": [
+      "receiving code review"
+    ],
+    "path": "skills\\receiving-code-review"
+  },
+  {
+    "id": "red-team-tactics",
+    "name": "Red Team Tactics",
+    "description": "---",
+    "keywords": [
+      "red team tactics"
+    ],
+    "path": "skills\\red-team-tactics"
+  },
+  {
+    "id": "red-team-tools",
+    "name": "Red Team Tools",
+    "description": "---",
+    "keywords": [
+      "red team tools"
+    ],
+    "path": "skills\\red-team-tools"
+  },
+  {
+    "id": "reference-builder",
+    "name": "Reference Builder",
+    "description": "---",
+    "keywords": [
+      "reference builder"
+    ],
+    "path": "skills\\reference-builder"
+  },
+  {
+    "id": "referral-program",
+    "name": "Referral Program",
+    "description": "---",
+    "keywords": [
+      "referral program"
+    ],
+    "path": "skills\\referral-program"
+  },
+  {
+    "id": "remotion-best-practices",
+    "name": "Remotion Best Practices",
+    "description": "---",
+    "keywords": [
+      "remotion best practices"
+    ],
+    "path": "skills\\remotion-best-practices"
+  },
+  {
+    "id": "requesting-code-review",
+    "name": "Requesting Code Review",
+    "description": "---",
+    "keywords": [
+      "requesting code review"
+    ],
+    "path": "skills\\requesting-code-review"
+  },
+  {
+    "id": "research-engineer",
+    "name": "Research Engineer",
+    "description": "---",
+    "keywords": [
+      "research engineer"
+    ],
+    "path": "skills\\research-engineer"
+  },
+  {
+    "id": "reverse-engineer",
+    "name": "Reverse Engineer",
+    "description": "---",
+    "keywords": [
+      "reverse engineer"
+    ],
+    "path": "skills\\reverse-engineer"
+  },
+  {
+    "id": "risk-manager",
+    "name": "Risk Manager",
+    "description": "---",
+    "keywords": [
+      "risk manager"
+    ],
+    "path": "skills\\risk-manager"
+  },
+  {
+    "id": "risk-metrics-calculation",
+    "name": "Risk Metrics Calculation",
+    "description": "---",
+    "keywords": [
+      "risk metrics calculation"
+    ],
+    "path": "skills\\risk-metrics-calculation"
+  },
+  {
+    "id": "ruby-pro",
+    "name": "Ruby Pro",
+    "description": "---",
+    "keywords": [
+      "ruby pro"
+    ],
+    "path": "skills\\ruby-pro"
+  },
+  {
+    "id": "rust-async-patterns",
+    "name": "Rust Async Patterns",
+    "description": "---",
+    "keywords": [
+      "rust async patterns"
+    ],
+    "path": "skills\\rust-async-patterns"
+  },
+  {
+    "id": "rust-pro",
+    "name": "Rust Pro",
+    "description": "---",
+    "keywords": [
+      "rust pro"
+    ],
+    "path": "skills\\rust-pro"
+  },
+  {
+    "id": "saga-orchestration",
+    "name": "Saga Orchestration",
+    "description": "---",
+    "keywords": [
+      "saga orchestration"
+    ],
+    "path": "skills\\saga-orchestration"
+  },
+  {
+    "id": "sales-automator",
+    "name": "Sales Automator",
+    "description": "---",
+    "keywords": [
+      "sales automator"
+    ],
+    "path": "skills\\sales-automator"
+  },
+  {
+    "id": "salesforce-development",
+    "name": "Salesforce Development",
+    "description": "---",
+    "keywords": [
+      "salesforce development"
+    ],
+    "path": "skills\\salesforce-development"
+  },
+  {
+    "id": "sast-configuration",
+    "name": "Sast Configuration",
+    "description": "---",
+    "keywords": [
+      "sast configuration"
+    ],
+    "path": "skills\\sast-configuration"
+  },
+  {
+    "id": "scala-pro",
+    "name": "Scala Pro",
+    "description": "---",
+    "keywords": [
+      "scala pro"
+    ],
+    "path": "skills\\scala-pro"
+  },
+  {
+    "id": "scanning-tools",
+    "name": "Scanning Tools",
+    "description": "---",
+    "keywords": [
+      "scanning tools"
+    ],
+    "path": "skills\\scanning-tools"
+  },
+  {
+    "id": "schema-markup",
+    "name": "Schema Markup",
+    "description": "---",
+    "keywords": [
+      "schema markup"
+    ],
+    "path": "skills\\schema-markup"
+  },
+  {
+    "id": "screen-reader-testing",
+    "name": "Screen Reader Testing",
+    "description": "---",
+    "keywords": [
+      "screen reader testing"
+    ],
+    "path": "skills\\screen-reader-testing"
+  },
+  {
+    "id": "screenshots",
+    "name": "Screenshots",
+    "description": "---",
+    "keywords": [
+      "screenshots"
+    ],
+    "path": "skills\\screenshots"
+  },
+  {
+    "id": "scroll-experience",
+    "name": "Scroll Experience",
+    "description": "---",
+    "keywords": [
+      "scroll experience"
+    ],
+    "path": "skills\\scroll-experience"
+  },
+  {
+    "id": "search-specialist",
+    "name": "Search Specialist",
+    "description": "---",
+    "keywords": [
+      "search specialist"
+    ],
+    "path": "skills\\search-specialist"
+  },
+  {
+    "id": "secrets-management",
+    "name": "Secrets Management",
+    "description": "---",
+    "keywords": [
+      "secrets management"
+    ],
+    "path": "skills\\secrets-management"
+  },
+  {
+    "id": "security-auditor",
+    "name": "Security Auditor",
+    "description": "---",
+    "keywords": [
+      "security auditor"
+    ],
+    "path": "skills\\security-auditor"
+  },
+  {
+    "id": "security-bluebook-builder",
+    "name": "Security Bluebook Builder",
+    "description": "---",
+    "keywords": [
+      "security bluebook builder"
+    ],
+    "path": "skills\\security-bluebook-builder"
+  },
+  {
+    "id": "security-compliance-compliance-check",
+    "name": "Security Compliance Compliance Check",
+    "description": "---",
+    "keywords": [
+      "security compliance compliance check"
+    ],
+    "path": "skills\\security-compliance-compliance-check"
+  },
+  {
+    "id": "security-requirement-extraction",
+    "name": "Security Requirement Extraction",
+    "description": "---",
+    "keywords": [
+      "security requirement extraction"
+    ],
+    "path": "skills\\security-requirement-extraction"
+  },
+  {
+    "id": "security-scanning-security-dependencies",
+    "name": "Security Scanning Security Dependencies",
+    "description": "---",
+    "keywords": [
+      "security scanning security dependencies"
+    ],
+    "path": "skills\\security-scanning-security-dependencies"
+  },
+  {
+    "id": "security-scanning-security-hardening",
+    "name": "Security Scanning Security Hardening",
+    "description": "---",
+    "keywords": [
+      "security scanning security hardening"
+    ],
+    "path": "skills\\security-scanning-security-hardening"
+  },
+  {
+    "id": "security-scanning-security-sast",
+    "name": "Security Scanning Security Sast",
+    "description": "---",
+    "keywords": [
+      "security scanning security sast"
+    ],
+    "path": "skills\\security-scanning-security-sast"
+  },
+  {
+    "id": "segment-cdp",
+    "name": "Segment Cdp",
+    "description": "---",
+    "keywords": [
+      "segment cdp"
+    ],
+    "path": "skills\\segment-cdp"
+  },
+  {
+    "id": "senior-architect",
+    "name": "Senior Architect",
+    "description": "---",
+    "keywords": [
+      "senior architect"
+    ],
+    "path": "skills\\senior-architect"
+  },
+  {
+    "id": "senior-fullstack",
+    "name": "Senior Fullstack",
+    "description": "---",
+    "keywords": [
+      "senior fullstack"
+    ],
+    "path": "skills\\senior-fullstack"
+  },
+  {
+    "id": "seo-audit",
+    "name": "Seo Audit",
+    "description": "---",
+    "keywords": [
+      "seo audit"
+    ],
+    "path": "skills\\seo-audit"
+  },
+  {
+    "id": "seo-authority-builder",
+    "name": "Seo Authority Builder",
+    "description": "---",
+    "keywords": [
+      "seo authority builder"
+    ],
+    "path": "skills\\seo-authority-builder"
+  },
+  {
+    "id": "seo-cannibalization-detector",
+    "name": "Seo Cannibalization Detector",
+    "description": "---",
+    "keywords": [
+      "seo cannibalization detector"
+    ],
+    "path": "skills\\seo-cannibalization-detector"
+  },
+  {
+    "id": "seo-content-auditor",
+    "name": "Seo Content Auditor",
+    "description": "---",
+    "keywords": [
+      "seo content auditor"
+    ],
+    "path": "skills\\seo-content-auditor"
+  },
+  {
+    "id": "seo-content-planner",
+    "name": "Seo Content Planner",
+    "description": "---",
+    "keywords": [
+      "seo content planner"
+    ],
+    "path": "skills\\seo-content-planner"
+  },
+  {
+    "id": "seo-content-refresher",
+    "name": "Seo Content Refresher",
+    "description": "---",
+    "keywords": [
+      "seo content refresher"
+    ],
+    "path": "skills\\seo-content-refresher"
+  },
+  {
+    "id": "seo-content-writer",
+    "name": "Seo Content Writer",
+    "description": "---",
+    "keywords": [
+      "seo content writer"
+    ],
+    "path": "skills\\seo-content-writer"
+  },
+  {
+    "id": "seo-fundamentals",
+    "name": "Seo Fundamentals",
+    "description": "---",
+    "keywords": [
+      "seo fundamentals"
+    ],
+    "path": "skills\\seo-fundamentals"
+  },
+  {
+    "id": "seo-keyword-strategist",
+    "name": "Seo Keyword Strategist",
+    "description": "---",
+    "keywords": [
+      "seo keyword strategist"
+    ],
+    "path": "skills\\seo-keyword-strategist"
+  },
+  {
+    "id": "seo-meta-optimizer",
+    "name": "Seo Meta Optimizer",
+    "description": "---",
+    "keywords": [
+      "seo meta optimizer"
+    ],
+    "path": "skills\\seo-meta-optimizer"
+  },
+  {
+    "id": "seo-snippet-hunter",
+    "name": "Seo Snippet Hunter",
+    "description": "---",
+    "keywords": [
+      "seo snippet hunter"
+    ],
+    "path": "skills\\seo-snippet-hunter"
+  },
+  {
+    "id": "seo-structure-architect",
+    "name": "Seo Structure Architect",
+    "description": "---",
+    "keywords": [
+      "seo structure architect"
+    ],
+    "path": "skills\\seo-structure-architect"
+  },
+  {
+    "id": "server-management",
+    "name": "Server Management",
+    "description": "---",
+    "keywords": [
+      "server management"
+    ],
+    "path": "skills\\server-management"
+  },
+  {
+    "id": "service-mesh-expert",
+    "name": "Service Mesh Expert",
+    "description": "---",
+    "keywords": [
+      "service mesh expert"
+    ],
+    "path": "skills\\service-mesh-expert"
+  },
+  {
+    "id": "service-mesh-observability",
+    "name": "Service Mesh Observability",
+    "description": "---",
+    "keywords": [
+      "service mesh observability"
+    ],
+    "path": "skills\\service-mesh-observability"
+  },
+  {
+    "id": "sharp-edges",
+    "name": "Sharp Edges",
+    "description": "---",
+    "keywords": [
+      "sharp edges"
+    ],
+    "path": "skills\\sharp-edges"
+  },
+  {
+    "id": "shellcheck-configuration",
+    "name": "Shellcheck Configuration",
+    "description": "---",
+    "keywords": [
+      "shellcheck configuration"
+    ],
+    "path": "skills\\shellcheck-configuration"
+  },
+  {
+    "id": "shodan-reconnaissance",
+    "name": "Shodan Reconnaissance",
+    "description": "---",
+    "keywords": [
+      "shodan reconnaissance"
+    ],
+    "path": "skills\\shodan-reconnaissance"
+  },
+  {
+    "id": "shopify-apps",
+    "name": "Shopify Apps",
+    "description": "---",
+    "keywords": [
+      "shopify apps"
+    ],
+    "path": "skills\\shopify-apps"
+  },
+  {
+    "id": "shopify-development",
+    "name": "Shopify Development",
+    "description": "Comprehensive skill for building on Shopify platform: apps, extensions, themes, and API integrations.",
+    "keywords": [
+      "apps,",
+      "themes,",
+      "building",
+      "shopify",
+      "shopify development",
+      "skill",
+      "integrations.",
+      "comprehensive",
+      "platform:",
+      "extensions,"
+    ],
+    "path": "skills\\shopify-development"
+  },
+  {
+    "id": "signup-flow-cro",
+    "name": "Signup Flow Cro",
+    "description": "---",
+    "keywords": [
+      "signup flow cro"
+    ],
+    "path": "skills\\signup-flow-cro"
+  },
+  {
+    "id": "similarity-search-patterns",
+    "name": "Similarity Search Patterns",
+    "description": "---",
+    "keywords": [
+      "similarity search patterns"
+    ],
+    "path": "skills\\similarity-search-patterns"
+  },
+  {
+    "id": "skill-creator",
+    "name": "Skill Creator",
+    "description": "---",
+    "keywords": [
+      "skill creator"
+    ],
+    "path": "skills\\skill-creator"
+  },
+  {
+    "id": "skill-developer",
+    "name": "Skill Developer",
+    "description": "---",
+    "keywords": [
+      "skill developer"
+    ],
+    "path": "skills\\skill-developer"
+  },
+  {
+    "id": "skill-rails-upgrade",
+    "name": "Skill Rails Upgrade",
+    "description": "---",
+    "keywords": [
+      "skill rails upgrade"
+    ],
+    "path": "skills\\skill-rails-upgrade"
+  },
+  {
+    "id": "skill-seekers",
+    "name": "Skill Seekers",
+    "description": "---",
+    "keywords": [
+      "skill seekers"
+    ],
+    "path": "skills\\skill-seekers"
+  },
+  {
+    "id": "slack-bot-builder",
+    "name": "Slack Bot Builder",
+    "description": "---",
+    "keywords": [
+      "slack bot builder"
+    ],
+    "path": "skills\\slack-bot-builder"
+  },
+  {
+    "id": "slack-gif-creator",
+    "name": "Slack Gif Creator",
+    "description": "---",
+    "keywords": [
+      "slack gif creator"
+    ],
+    "path": "skills\\slack-gif-creator"
+  },
+  {
+    "id": "slo-implementation",
+    "name": "Slo Implementation",
+    "description": "---",
+    "keywords": [
+      "slo implementation"
+    ],
+    "path": "skills\\slo-implementation"
+  },
+  {
+    "id": "smtp-penetration-testing",
+    "name": "Smtp Penetration Testing",
+    "description": "---",
+    "keywords": [
+      "smtp penetration testing"
+    ],
+    "path": "skills\\smtp-penetration-testing"
+  },
+  {
+    "id": "social-content",
+    "name": "Social Content",
+    "description": "---",
+    "keywords": [
+      "social content"
+    ],
+    "path": "skills\\social-content"
+  },
+  {
+    "id": "software-architecture",
+    "name": "Software Architecture",
+    "description": "---",
+    "keywords": [
+      "software architecture"
+    ],
+    "path": "skills\\software-architecture"
+  },
+  {
+    "id": "solidity-security",
+    "name": "Solidity Security",
+    "description": "---",
+    "keywords": [
+      "solidity security"
+    ],
+    "path": "skills\\solidity-security"
+  },
+  {
+    "id": "spark-optimization",
+    "name": "Spark Optimization",
+    "description": "---",
+    "keywords": [
+      "spark optimization"
+    ],
+    "path": "skills\\spark-optimization"
+  },
+  {
+    "id": "SPDD",
+    "name": "Spdd",
+    "description": "No description available.",
+    "keywords": [
+      "SPDD"
+    ],
+    "path": "skills\\SPDD"
+  },
+  {
+    "id": "sql-injection-testing",
+    "name": "Sql Injection Testing",
+    "description": "---",
+    "keywords": [
+      "sql injection testing"
+    ],
+    "path": "skills\\sql-injection-testing"
+  },
+  {
+    "id": "sql-optimization-patterns",
+    "name": "Sql Optimization Patterns",
+    "description": "---",
+    "keywords": [
+      "sql optimization patterns"
+    ],
+    "path": "skills\\sql-optimization-patterns"
+  },
+  {
+    "id": "sql-pro",
+    "name": "Sql Pro",
+    "description": "---",
+    "keywords": [
+      "sql pro"
+    ],
+    "path": "skills\\sql-pro"
+  },
+  {
+    "id": "sqlmap-database-pentesting",
+    "name": "Sqlmap Database Pentesting",
+    "description": "---",
+    "keywords": [
+      "sqlmap database pentesting"
+    ],
+    "path": "skills\\sqlmap-database-pentesting"
+  },
+  {
+    "id": "ssh-penetration-testing",
+    "name": "Ssh Penetration Testing",
+    "description": "---",
+    "keywords": [
+      "ssh penetration testing"
+    ],
+    "path": "skills\\ssh-penetration-testing"
+  },
+  {
+    "id": "startup-analyst",
+    "name": "Startup Analyst",
+    "description": "---",
+    "keywords": [
+      "startup analyst"
+    ],
+    "path": "skills\\startup-analyst"
+  },
+  {
+    "id": "startup-business-analyst-business-case",
+    "name": "Startup Business Analyst Business Case",
+    "description": "---",
+    "keywords": [
+      "startup business analyst business case"
+    ],
+    "path": "skills\\startup-business-analyst-business-case"
+  },
+  {
+    "id": "startup-business-analyst-financial-projections",
+    "name": "Startup Business Analyst Financial Projections",
+    "description": "---",
+    "keywords": [
+      "startup business analyst financial projections"
+    ],
+    "path": "skills\\startup-business-analyst-financial-projections"
+  },
+  {
+    "id": "startup-business-analyst-market-opportunity",
+    "name": "Startup Business Analyst Market Opportunity",
+    "description": "---",
+    "keywords": [
+      "startup business analyst market opportunity"
+    ],
+    "path": "skills\\startup-business-analyst-market-opportunity"
+  },
+  {
+    "id": "startup-financial-modeling",
+    "name": "Startup Financial Modeling",
+    "description": "---",
+    "keywords": [
+      "startup financial modeling"
+    ],
+    "path": "skills\\startup-financial-modeling"
+  },
+  {
+    "id": "startup-metrics-framework",
+    "name": "Startup Metrics Framework",
+    "description": "---",
+    "keywords": [
+      "startup metrics framework"
+    ],
+    "path": "skills\\startup-metrics-framework"
+  },
+  {
+    "id": "stitch-ui-design",
+    "name": "Stitch Ui Design",
+    "description": "Expert guidance for creating effective prompts in Google Stitch, the AI-powered UI design tool.",
+    "keywords": [
+      "expert",
+      "google",
+      "stitch,",
+      "tool.",
+      "creating",
+      "prompts",
+      "guidance",
+      "design",
+      "ai-powered",
+      "stitch ui design",
+      "effective"
+    ],
+    "path": "skills\\stitch-ui-design"
+  },
+  {
+    "id": "stride-analysis-patterns",
+    "name": "Stride Analysis Patterns",
+    "description": "---",
+    "keywords": [
+      "stride analysis patterns"
+    ],
+    "path": "skills\\stride-analysis-patterns"
+  },
+  {
+    "id": "stripe-integration",
+    "name": "Stripe Integration",
+    "description": "---",
+    "keywords": [
+      "stripe integration"
+    ],
+    "path": "skills\\stripe-integration"
+  },
+  {
+    "id": "subagent-driven-development",
+    "name": "Subagent Driven Development",
+    "description": "---",
+    "keywords": [
+      "subagent driven development"
+    ],
+    "path": "skills\\subagent-driven-development"
+  },
+  {
+    "id": "superpowers-lab",
+    "name": "Superpowers Lab",
+    "description": "---",
+    "keywords": [
+      "superpowers lab"
+    ],
+    "path": "skills\\superpowers-lab"
+  },
+  {
+    "id": "swiftui-expert-skill",
+    "name": "Swiftui Expert Skill",
+    "description": "---",
+    "keywords": [
+      "swiftui expert skill"
+    ],
+    "path": "skills\\swiftui-expert-skill"
+  },
+  {
+    "id": "systematic-debugging",
+    "name": "Systematic Debugging",
+    "description": "---",
+    "keywords": [
+      "systematic debugging"
+    ],
+    "path": "skills\\systematic-debugging"
+  },
+  {
+    "id": "systems-programming-rust-project",
+    "name": "Systems Programming Rust Project",
+    "description": "---",
+    "keywords": [
+      "systems programming rust project"
+    ],
+    "path": "skills\\systems-programming-rust-project"
+  },
+  {
+    "id": "tailwind-design-system",
+    "name": "Tailwind Design System",
+    "description": "---",
+    "keywords": [
+      "tailwind design system"
+    ],
+    "path": "skills\\tailwind-design-system"
+  },
+  {
+    "id": "tailwind-patterns",
+    "name": "Tailwind Patterns",
+    "description": "---",
+    "keywords": [
+      "tailwind patterns"
+    ],
+    "path": "skills\\tailwind-patterns"
+  },
+  {
+    "id": "tavily-web",
+    "name": "Tavily Web",
+    "description": "---",
+    "keywords": [
+      "tavily web"
+    ],
+    "path": "skills\\tavily-web"
+  },
+  {
+    "id": "tdd-orchestrator",
+    "name": "Tdd Orchestrator",
+    "description": "---",
+    "keywords": [
+      "tdd orchestrator"
+    ],
+    "path": "skills\\tdd-orchestrator"
+  },
+  {
+    "id": "tdd-workflow",
+    "name": "Tdd Workflow",
+    "description": "---",
+    "keywords": [
+      "tdd workflow"
+    ],
+    "path": "skills\\tdd-workflow"
+  },
+  {
+    "id": "tdd-workflows-tdd-cycle",
+    "name": "Tdd Workflows Tdd Cycle",
+    "description": "---",
+    "keywords": [
+      "tdd workflows tdd cycle"
+    ],
+    "path": "skills\\tdd-workflows-tdd-cycle"
+  },
+  {
+    "id": "tdd-workflows-tdd-green",
+    "name": "Tdd Workflows Tdd Green",
+    "description": "---",
+    "keywords": [
+      "tdd workflows tdd green"
+    ],
+    "path": "skills\\tdd-workflows-tdd-green"
+  },
+  {
+    "id": "tdd-workflows-tdd-red",
+    "name": "Tdd Workflows Tdd Red",
+    "description": "---",
+    "keywords": [
+      "tdd workflows tdd red"
+    ],
+    "path": "skills\\tdd-workflows-tdd-red"
+  },
+  {
+    "id": "tdd-workflows-tdd-refactor",
+    "name": "Tdd Workflows Tdd Refactor",
+    "description": "---",
+    "keywords": [
+      "tdd workflows tdd refactor"
+    ],
+    "path": "skills\\tdd-workflows-tdd-refactor"
+  },
+  {
+    "id": "team-collaboration-issue",
+    "name": "Team Collaboration Issue",
+    "description": "---",
+    "keywords": [
+      "team collaboration issue"
+    ],
+    "path": "skills\\team-collaboration-issue"
+  },
+  {
+    "id": "team-collaboration-standup-notes",
+    "name": "Team Collaboration Standup Notes",
+    "description": "---",
+    "keywords": [
+      "team collaboration standup notes"
+    ],
+    "path": "skills\\team-collaboration-standup-notes"
+  },
+  {
+    "id": "team-composition-analysis",
+    "name": "Team Composition Analysis",
+    "description": "---",
+    "keywords": [
+      "team composition analysis"
+    ],
+    "path": "skills\\team-composition-analysis"
+  },
+  {
+    "id": "telegram-bot-builder",
+    "name": "Telegram Bot Builder",
+    "description": "---",
+    "keywords": [
+      "telegram bot builder"
+    ],
+    "path": "skills\\telegram-bot-builder"
+  },
+  {
+    "id": "telegram-mini-app",
+    "name": "Telegram Mini App",
+    "description": "---",
+    "keywords": [
+      "telegram mini app"
+    ],
+    "path": "skills\\telegram-mini-app"
+  },
+  {
+    "id": "temporal-python-pro",
+    "name": "Temporal Python Pro",
+    "description": "---",
+    "keywords": [
+      "temporal python pro"
+    ],
+    "path": "skills\\temporal-python-pro"
+  },
+  {
+    "id": "temporal-python-testing",
+    "name": "Temporal Python Testing",
+    "description": "---",
+    "keywords": [
+      "temporal python testing"
+    ],
+    "path": "skills\\temporal-python-testing"
+  },
+  {
+    "id": "terraform-module-library",
+    "name": "Terraform Module Library",
+    "description": "---",
+    "keywords": [
+      "terraform module library"
+    ],
+    "path": "skills\\terraform-module-library"
+  },
+  {
+    "id": "terraform-skill",
+    "name": "Terraform Skill",
+    "description": "---",
+    "keywords": [
+      "terraform skill"
+    ],
+    "path": "skills\\terraform-skill"
+  },
+  {
+    "id": "terraform-specialist",
+    "name": "Terraform Specialist",
+    "description": "---",
+    "keywords": [
+      "terraform specialist"
+    ],
+    "path": "skills\\terraform-specialist"
+  },
+  {
+    "id": "test-automator",
+    "name": "Test Automator",
+    "description": "---",
+    "keywords": [
+      "test automator"
+    ],
+    "path": "skills\\test-automator"
+  },
+  {
+    "id": "test-driven-development",
+    "name": "Test Driven Development",
+    "description": "---",
+    "keywords": [
+      "test driven development"
+    ],
+    "path": "skills\\test-driven-development"
+  },
+  {
+    "id": "test-fixing",
+    "name": "Test Fixing",
+    "description": "---",
+    "keywords": [
+      "test fixing"
+    ],
+    "path": "skills\\test-fixing"
+  },
+  {
+    "id": "testing-patterns",
+    "name": "Testing Patterns",
+    "description": "---",
+    "keywords": [
+      "testing patterns"
+    ],
+    "path": "skills\\testing-patterns"
+  },
+  {
+    "id": "theme-factory",
+    "name": "Theme Factory",
+    "description": "---",
+    "keywords": [
+      "theme factory"
+    ],
+    "path": "skills\\theme-factory"
+  },
+  {
+    "id": "threat-mitigation-mapping",
+    "name": "Threat Mitigation Mapping",
+    "description": "---",
+    "keywords": [
+      "threat mitigation mapping"
+    ],
+    "path": "skills\\threat-mitigation-mapping"
+  },
+  {
+    "id": "threat-modeling-expert",
+    "name": "Threat Modeling Expert",
+    "description": "---",
+    "keywords": [
+      "threat modeling expert"
+    ],
+    "path": "skills\\threat-modeling-expert"
+  },
+  {
+    "id": "threejs-skills",
+    "name": "Threejs Skills",
+    "description": "---",
+    "keywords": [
+      "threejs skills"
+    ],
+    "path": "skills\\threejs-skills"
+  },
+  {
+    "id": "tool-design",
+    "name": "Tool Design",
+    "description": "---",
+    "keywords": [
+      "tool design"
+    ],
+    "path": "skills\\tool-design"
+  },
+  {
+    "id": "top-web-vulnerabilities",
+    "name": "Top Web Vulnerabilities",
+    "description": "---",
+    "keywords": [
+      "top web vulnerabilities"
+    ],
+    "path": "skills\\top-web-vulnerabilities"
+  },
+  {
+    "id": "track-management",
+    "name": "Track Management",
+    "description": "---",
+    "keywords": [
+      "track management"
+    ],
+    "path": "skills\\track-management"
+  },
+  {
+    "id": "trigger-dev",
+    "name": "Trigger Dev",
+    "description": "---",
+    "keywords": [
+      "trigger dev"
+    ],
+    "path": "skills\\trigger-dev"
+  },
+  {
+    "id": "turborepo-caching",
+    "name": "Turborepo Caching",
+    "description": "---",
+    "keywords": [
+      "turborepo caching"
+    ],
+    "path": "skills\\turborepo-caching"
+  },
+  {
+    "id": "tutorial-engineer",
+    "name": "Tutorial Engineer",
+    "description": "---",
+    "keywords": [
+      "tutorial engineer"
+    ],
+    "path": "skills\\tutorial-engineer"
+  },
+  {
+    "id": "twilio-communications",
+    "name": "Twilio Communications",
+    "description": "---",
+    "keywords": [
+      "twilio communications"
+    ],
+    "path": "skills\\twilio-communications"
+  },
+  {
+    "id": "typescript-advanced-types",
+    "name": "Typescript Advanced Types",
+    "description": "---",
+    "keywords": [
+      "typescript advanced types"
+    ],
+    "path": "skills\\typescript-advanced-types"
+  },
+  {
+    "id": "typescript-expert",
+    "name": "Typescript Expert",
+    "description": "---",
+    "keywords": [
+      "typescript expert"
+    ],
+    "path": "skills\\typescript-expert"
+  },
+  {
+    "id": "typescript-pro",
+    "name": "Typescript Pro",
+    "description": "---",
+    "keywords": [
+      "typescript pro"
+    ],
+    "path": "skills\\typescript-pro"
+  },
+  {
+    "id": "ui-skills",
+    "name": "Ui Skills",
+    "description": "---",
+    "keywords": [
+      "ui skills"
+    ],
+    "path": "skills\\ui-skills"
+  },
+  {
+    "id": "ui-ux-designer",
+    "name": "Ui Ux Designer",
+    "description": "---",
+    "keywords": [
+      "ui ux designer"
+    ],
+    "path": "skills\\ui-ux-designer"
+  },
+  {
+    "id": "ui-ux-pro-max",
+    "name": "Ui Ux Pro Max",
+    "description": "---",
+    "keywords": [
+      "ui ux pro max"
+    ],
+    "path": "skills\\ui-ux-pro-max"
+  },
+  {
+    "id": "ui-visual-validator",
+    "name": "Ui Visual Validator",
+    "description": "---",
+    "keywords": [
+      "ui visual validator"
+    ],
+    "path": "skills\\ui-visual-validator"
+  },
+  {
+    "id": "unit-testing-test-generate",
+    "name": "Unit Testing Test Generate",
+    "description": "---",
+    "keywords": [
+      "unit testing test generate"
+    ],
+    "path": "skills\\unit-testing-test-generate"
+  },
+  {
+    "id": "unity-developer",
+    "name": "Unity Developer",
+    "description": "---",
+    "keywords": [
+      "unity developer"
+    ],
+    "path": "skills\\unity-developer"
+  },
+  {
+    "id": "unity-ecs-patterns",
+    "name": "Unity Ecs Patterns",
+    "description": "---",
+    "keywords": [
+      "unity ecs patterns"
+    ],
+    "path": "skills\\unity-ecs-patterns"
+  },
+  {
+    "id": "unreal-engine-cpp-pro",
+    "name": "Unreal Engine Cpp Pro",
+    "description": "---",
+    "keywords": [
+      "unreal engine cpp pro"
+    ],
+    "path": "skills\\unreal-engine-cpp-pro"
+  },
+  {
+    "id": "upgrading-expo",
+    "name": "Upgrading Expo",
+    "description": "---",
+    "keywords": [
+      "upgrading expo"
+    ],
+    "path": "skills\\upgrading-expo"
+  },
+  {
+    "id": "upstash-qstash",
+    "name": "Upstash Qstash",
+    "description": "---",
+    "keywords": [
+      "upstash qstash"
+    ],
+    "path": "skills\\upstash-qstash"
+  },
+  {
+    "id": "using-git-worktrees",
+    "name": "Using Git Worktrees",
+    "description": "---",
+    "keywords": [
+      "using git worktrees"
+    ],
+    "path": "skills\\using-git-worktrees"
+  },
+  {
+    "id": "using-neon",
+    "name": "Using Neon",
+    "description": "---",
+    "keywords": [
+      "using neon"
+    ],
+    "path": "skills\\using-neon"
+  },
+  {
+    "id": "using-superpowers",
+    "name": "Using Superpowers",
+    "description": "---",
+    "keywords": [
+      "using superpowers"
+    ],
+    "path": "skills\\using-superpowers"
+  },
+  {
+    "id": "uv-package-manager",
+    "name": "Uv Package Manager",
+    "description": "---",
+    "keywords": [
+      "uv package manager"
+    ],
+    "path": "skills\\uv-package-manager"
+  },
+  {
+    "id": "varlock-claude-skill",
+    "name": "Varlock Claude Skill",
+    "description": "---",
+    "keywords": [
+      "varlock claude skill"
+    ],
+    "path": "skills\\varlock-claude-skill"
+  },
+  {
+    "id": "vector-database-engineer",
+    "name": "Vector Database Engineer",
+    "description": "---",
+    "keywords": [
+      "vector database engineer"
+    ],
+    "path": "skills\\vector-database-engineer"
+  },
+  {
+    "id": "vector-index-tuning",
+    "name": "Vector Index Tuning",
+    "description": "---",
+    "keywords": [
+      "vector index tuning"
+    ],
+    "path": "skills\\vector-index-tuning"
+  },
+  {
+    "id": "vercel-deploy-claimable",
+    "name": "Vercel Deploy Claimable",
+    "description": "---",
+    "keywords": [
+      "vercel deploy claimable"
+    ],
+    "path": "skills\\vercel-deploy-claimable"
+  },
+  {
+    "id": "vercel-deployment",
+    "name": "Vercel Deployment",
+    "description": "---",
+    "keywords": [
+      "vercel deployment"
+    ],
+    "path": "skills\\vercel-deployment"
+  },
+  {
+    "id": "verification-before-completion",
+    "name": "Verification Before Completion",
+    "description": "---",
+    "keywords": [
+      "verification before completion"
+    ],
+    "path": "skills\\verification-before-completion"
+  },
+  {
+    "id": "vexor",
+    "name": "Vexor",
+    "description": "---",
+    "keywords": [
+      "vexor"
+    ],
+    "path": "skills\\vexor"
+  },
+  {
+    "id": "viral-generator-builder",
+    "name": "Viral Generator Builder",
+    "description": "---",
+    "keywords": [
+      "viral generator builder"
+    ],
+    "path": "skills\\viral-generator-builder"
+  },
+  {
+    "id": "voice-agents",
+    "name": "Voice Agents",
+    "description": "---",
+    "keywords": [
+      "voice agents"
+    ],
+    "path": "skills\\voice-agents"
+  },
+  {
+    "id": "voice-ai-development",
+    "name": "Voice Ai Development",
+    "description": "---",
+    "keywords": [
+      "voice ai development"
+    ],
+    "path": "skills\\voice-ai-development"
+  },
+  {
+    "id": "voice-ai-engine-development",
+    "name": "Voice Ai Engine Development",
+    "description": "Build production-ready real-time conversational AI voice engines with async worker pipelines, streaming transcription, LLM agents, and TTS synthesis.",
+    "keywords": [
+      "worker",
+      "voice",
+      "synthesis.",
+      "build",
+      "real-time",
+      "pipelines,",
+      "production-ready",
+      "async",
+      "transcription,",
+      "voice ai engine development",
+      "streaming",
+      "conversational",
+      "agents,",
+      "engines"
+    ],
+    "path": "skills\\voice-ai-engine-development"
+  },
+  {
+    "id": "vulnerability-scanner",
+    "name": "Vulnerability Scanner",
+    "description": "---",
+    "keywords": [
+      "vulnerability scanner"
+    ],
+    "path": "skills\\vulnerability-scanner"
+  },
+  {
+    "id": "wcag-audit-patterns",
+    "name": "Wcag Audit Patterns",
+    "description": "---",
+    "keywords": [
+      "wcag audit patterns"
+    ],
+    "path": "skills\\wcag-audit-patterns"
+  },
+  {
+    "id": "web-artifacts-builder",
+    "name": "Web Artifacts Builder",
+    "description": "---",
+    "keywords": [
+      "web artifacts builder"
+    ],
+    "path": "skills\\web-artifacts-builder"
+  },
+  {
+    "id": "web-design-guidelines",
+    "name": "Web Design Guidelines",
+    "description": "---",
+    "keywords": [
+      "web design guidelines"
+    ],
+    "path": "skills\\web-design-guidelines"
+  },
+  {
+    "id": "web-performance-optimization",
+    "name": "Web Performance Optimization",
+    "description": "---",
+    "keywords": [
+      "web performance optimization"
+    ],
+    "path": "skills\\web-performance-optimization"
+  },
+  {
+    "id": "web3-testing",
+    "name": "Web3 Testing",
+    "description": "---",
+    "keywords": [
+      "web3 testing"
+    ],
+    "path": "skills\\web3-testing"
+  },
+  {
+    "id": "webapp-testing",
+    "name": "Webapp Testing",
+    "description": "---",
+    "keywords": [
+      "webapp testing"
+    ],
+    "path": "skills\\webapp-testing"
+  },
+  {
+    "id": "windows-privilege-escalation",
+    "name": "Windows Privilege Escalation",
+    "description": "---",
+    "keywords": [
+      "windows privilege escalation"
+    ],
+    "path": "skills\\windows-privilege-escalation"
+  },
+  {
+    "id": "wireshark-analysis",
+    "name": "Wireshark Analysis",
+    "description": "---",
+    "keywords": [
+      "wireshark analysis"
+    ],
+    "path": "skills\\wireshark-analysis"
+  },
+  {
+    "id": "wordpress-penetration-testing",
+    "name": "Wordpress Penetration Testing",
+    "description": "---",
+    "keywords": [
+      "wordpress penetration testing"
+    ],
+    "path": "skills\\wordpress-penetration-testing"
+  },
+  {
+    "id": "workflow-automation",
+    "name": "Workflow Automation",
+    "description": "---",
+    "keywords": [
+      "workflow automation"
+    ],
+    "path": "skills\\workflow-automation"
+  },
+  {
+    "id": "workflow-orchestration-patterns",
+    "name": "Workflow Orchestration Patterns",
+    "description": "---",
+    "keywords": [
+      "workflow orchestration patterns"
+    ],
+    "path": "skills\\workflow-orchestration-patterns"
+  },
+  {
+    "id": "workflow-patterns",
+    "name": "Workflow Patterns",
+    "description": "---",
+    "keywords": [
+      "workflow patterns"
+    ],
+    "path": "skills\\workflow-patterns"
+  },
+  {
+    "id": "writing-plans",
+    "name": "Writing Plans",
+    "description": "---",
+    "keywords": [
+      "writing plans"
+    ],
+    "path": "skills\\writing-plans"
+  },
+  {
+    "id": "writing-skills",
+    "name": "Writing Skills",
+    "description": "---",
+    "keywords": [
+      "writing skills"
+    ],
+    "path": "skills\\writing-skills"
+  },
+  {
+    "id": "x-article-publisher-skill",
+    "name": "X Article Publisher Skill",
+    "description": "---",
+    "keywords": [
+      "x article publisher skill"
+    ],
+    "path": "skills\\x-article-publisher-skill"
+  },
+  {
+    "id": "xlsx-official",
+    "name": "Xlsx Official",
+    "description": "---",
+    "keywords": [
+      "xlsx official"
+    ],
+    "path": "skills\\xlsx-official"
+  },
+  {
+    "id": "xss-html-injection",
+    "name": "Xss Html Injection",
+    "description": "---",
+    "keywords": [
+      "xss html injection"
+    ],
+    "path": "skills\\xss-html-injection"
+  },
+  {
+    "id": "zapier-make-patterns",
+    "name": "Zapier Make Patterns",
+    "description": "---",
+    "keywords": [
+      "zapier make patterns"
+    ],
+    "path": "skills\\zapier-make-patterns"
+  }
+]

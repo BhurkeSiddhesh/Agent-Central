@@ -1,5 +1,5 @@
 import typer
-from agent_central.commands import init, hire, ops
+from agent_central.commands import init, hire, ops, skills
 
 app = typer.Typer(
     name="ai-ops",
@@ -10,6 +10,7 @@ app = typer.Typer(
 app.add_typer(init.app, name="init")
 app.add_typer(hire.app, name="hire")
 app.add_typer(ops.app, name="ops")
+app.add_typer(skills.app, name="skills")
 
 if __name__ == "__main__":
     app()

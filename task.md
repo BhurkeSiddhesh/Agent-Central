@@ -32,6 +32,12 @@
     - [x] Implement `ops learn` command
     - [x] Update `AGENTS.md` template with "Learned" section
     - [x] Implement Intelligence Layer (Synthesized Protocols)
+    
+- [ ] Smart Hiring (Protocol v3.0)
+    - [ ] Create `agency-hq/skills/skills.json` registry (Manifest)
+    - [ ] Implement `SkillService` (Registry Builder + Matcher)
+    - [ ] Refactor `ai hire` to use Semantic Matching
+    - [ ] VERIFY: Hire minimal set for a test project
 
 
 

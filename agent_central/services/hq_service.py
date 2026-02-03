@@ -89,16 +89,38 @@ class HQService:
         # Check Roles
         for role in self.list_roles():
             tokens = get_tokens(role)
-            if any(t in req_lower for t in tokens):
-                suggested_roles.append(role)
+            for t in tokens:
+                if t in req_lower:
+                    suggested_roles.append(role)
+                    print(f"  🔍 [Proof] Inferred Role '{role}' from keyword '{t}'")
+                    break
         
-        # Check Skills
+        # Check Skills (Smart Search)
+        from agent_central.services.skill_service import SkillService
+        skill_service = SkillService(self.hq_path)
+        
+        # Aggregate all requirements into a single query string for semantic matching
+        # (This is a simplified approach; ideally we'd extract key phrases)
+        
+        # 1. Direct Keyword Matching (Legacy + Precision)
         for skill in self.list_skills():
             tokens = get_tokens(skill)
-            if any(t in req_lower for t in tokens):
-                suggested_skills.append(skill)
+            for t in tokens:
+                if t in req_lower:
+                    suggested_skills.append(skill)
+                    print(f"  🔍 [Proof] Inferred Skill '{skill}' from keyword '{t}'")
+                    break
         
-        return suggested_roles, suggested_skills
+        # 2. Semantic/Registry Matching (Expansion)
+        # Only search if we have requirements text
+        if requirements:
+            semantic_matches = skill_service.search_skills(requirements, top_k=3)
+            for skill_obj in semantic_matches:
+                if skill_obj['id'] not in suggested_skills:
+                   suggested_skills.append(skill_obj['id'])
+                   print(f"  🧠 [Smart-Match] Inferred Skill '{skill_obj['id']}' from intent.")
+
+        return list(set(suggested_roles)), list(set(suggested_skills))
 
     def hire_from_config(self, config_path: str):
         """Hires agents and skills based on a configuration file."""

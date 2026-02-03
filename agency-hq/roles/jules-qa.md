@@ -61,3 +61,26 @@ For every task assigned to you:
 **Jules**:
 > "It failed in the CI environment.
 > Logs show `ModuleNotFoundError`. I am adding a check to `pyproject.toml` to ensure dependencies are explicit."
+
+
+## 7. Learned Protocols
+
+### 🧠 Learned Protocol: **Real-Time Ux**: Implementing
+> **Rule**: **Real-time UX**: Implementing Server-Sent Events (SSE) requires wrapping blocking calls in `run_in_threadpool` (in FastAPI) to avoid blocking the event loop and ensure smooth UI updates.
+> **Context**: Derived from project experience.
+
+
+### 🧠 Learned Protocol: **Visual Feedback**: Pulsing
+> **Rule**: **Visual Feedback**: Pulsing animations and gradient transitions significantly improve the perceived quality of asynchronous file operations.
+> **Context**: Derived from project experience.
+
+
+### 🧠 Learned Protocol: **Agency Configuration**: Using
+> **Rule**: **Agency Configuration**: Using descriptive natural language in `agency.yaml` helps in better role definition and task alignment for specialized agents.
+> **Context**: Derived from project experience.
+
+
+### 🧠 Learned Protocol: **Git Hygiene**: Regular
+> **Rule**: **Git Hygiene**: Regular branch sweeping and testing loops (Jules Watchdog) are critical for maintaining code integrity in collaborative/agentic environments.
+> **Context**: Derived from project experience.
+
