@@ -34,6 +34,13 @@ class HQService:
             raise ValueError(f"Role {role_name} not found in HQ.")
         return role_file.read_text(encoding="utf-8")
 
+    def get_skill_content(self, skill_name: str) -> str:
+        """Retrieves content for a given skill."""
+        skill_file = self.hq_path / "skills" / skill_name / "SKILL.md"
+        if not skill_file.exists():
+            raise ValueError(f"Skill {skill_name} not found in HQ.")
+        return skill_file.read_text(encoding="utf-8")
+
     def set_active_persona(self, role_name: str):
         """Sets the ACTIVE_PERSONA.md to the specified role."""
         content = self.get_role_content(role_name)
@@ -48,8 +55,40 @@ class HQService:
             return []
         return [f.stem for f in roles_dir.glob("*.md")]
 
+    def list_skills(self):
+        """Lists available skills in HQ."""
+        skills_dir = self.hq_path / "skills"
+        if not skills_dir.exists():
+            return []
+        return [d.name for d in skills_dir.iterdir() if d.is_dir()]
+
+    def infer_assets(self, requirements: str):
+        """Simple keyword-based inference for roles and skills."""
+        if not requirements:
+            return [], []
+        
+        req_lower = requirements.lower()
+        suggested_roles = []
+        suggested_skills = []
+
+        # Check Roles
+        for role in self.list_roles():
+            role_clean = role.lower()
+            role_spaced = role_clean.replace("-", " ")
+            if role_clean in req_lower or role_spaced in req_lower:
+                suggested_roles.append(role)
+        
+        # Check Skills
+        for skill in self.list_skills():
+            skill_clean = skill.lower()
+            skill_spaced = skill_clean.replace("-", " ")
+            if skill_clean in req_lower or skill_spaced in req_lower:
+                suggested_skills.append(skill)
+        
+        return suggested_roles, suggested_skills
+
     def hire_from_config(self, config_path: str):
-        """Hires agents based on a configuration file."""
+        """Hires agents and skills based on a configuration file."""
         config_file = Path(config_path).resolve()
         if not config_file.exists():
             raise FileNotFoundError(f"Configuration file not found at {config_file}")
@@ -60,32 +99,58 @@ class HQService:
         except Exception as e:
             raise ValueError(f"Failed to parse agency config: {e}")
 
-        required_agents = config.get("required_agents", [])
-        if not required_agents:
-            print("⚠️  No agents listed in 'required_agents'.")
+        project_requirements = config.get("project_requirements", "")
+        required_agents = set(config.get("required_agents", []))
+        required_skills = set(config.get("required_skills", []))
+
+        # Perform Inference
+        if project_requirements:
+            inf_roles, inf_skills = self.infer_assets(project_requirements)
+            required_agents.update(inf_roles)
+            required_skills.update(inf_skills)
+
+        if not required_agents and not required_skills:
+            print("⚠️  No agents or skills listed/inferred.")
             return
 
-        team_dir = config_file.parent / ".ai-context" / "team"
-        team_dir.mkdir(parents=True, exist_ok=True)
+        context_root = config_file.parent / ".ai-context"
+        team_dir = context_root / "team"
+        skills_dir = context_root / "skills"
         
-        missing_agents = []
-        hired_count = 0
+        team_dir.mkdir(parents=True, exist_ok=True)
+        skills_dir.mkdir(parents=True, exist_ok=True)
+        
+        missing_assets = []
+        hired_roles = 0
+        hired_skills = 0
 
+        # Hire Roles
         for agent in required_agents:
             try:
                 content = self.get_role_content(agent)
                 (team_dir / f"{agent}.md").write_text(content, encoding="utf-8")
-                hired_count += 1
+                hired_roles += 1
             except ValueError:
-                missing_agents.append(agent)
+                missing_assets.append(f"role:{agent}")
 
-        print(f"✅ Hired {hired_count} agents to {team_dir}")
+        # Hire Skills
+        for skill in required_skills:
+            try:
+                content = self.get_skill_content(skill)
+                # Create skill directory in destination
+                (skills_dir / skill).mkdir(exist_ok=True)
+                (skills_dir / skill / "SKILL.md").write_text(content, encoding="utf-8")
+                hired_skills += 1
+            except ValueError:
+                missing_assets.append(f"skill:{skill}")
+
+        print(f"✅ Hired {hired_roles} roles and {hired_skills} skills to {context_root}")
         
-        if missing_agents:
-            self._log_missing_agents(missing_agents, config_file.parent / ".ai-context")
+        if missing_assets:
+            self._log_missing_agents(missing_assets, context_root)
             
-    def _log_missing_agents(self, agents: list, context_path: Path = None):
-        """Logs missing agents to HQ_REQUESTS.md"""
+    def _log_missing_agents(self, assets: list, context_path: Path = None):
+        """Logs missing assets to HQ_REQUESTS.md"""
         target_path = context_path if context_path else self.context_path
         request_file = target_path / "HQ_REQUESTS.md"
         request_file.parent.mkdir(parents=True, exist_ok=True)
@@ -96,15 +161,14 @@ class HQService:
             lines = request_file.read_text().splitlines()
             existing_requests = {line.strip("- ").strip() for line in lines if line.strip().startswith("-")}
 
-        new_requests = [a for a in agents if a not in existing_requests]
+        new_requests = [a for a in assets if a not in existing_requests]
         
         if new_requests:
             with open(request_file, "a") as f:
-                if request_file.stat().st_size == 0:
-                    f.write("# HQ Agent Requests\n\n")
-                for agent in new_requests:
-                    f.write(f"- {agent}\n")
+                if not request_file.exists() or request_file.stat().st_size == 0:
+                    f.write("# HQ Asset Requests\n\n")
+                for asset in new_requests:
+                    f.write(f"- {asset}\n")
             
-            print(f"⚠️  Logged {len(new_requests)} missing agents to {request_file}")
+            print(f"⚠️  Logged {len(new_requests)} missing assets to {request_file}")
             print("👉 Run 'ai ops sync' (future) or contact HQ to fulfil these requests.")
-
