@@ -101,14 +101,13 @@ required_skills:
   - brainstorming
 ```
 
-**Step 2:** Run the hire command from your Agent-Central directory using the `--project` flag:
+**Step 2:** Run the hire command from your project folder:
 ```bash
-# Windows Example
-cd Agent-Central
-python -m src.main hire role --project "C:\Users\siddh\Desktop\Projects\File Converter"
+# Assuming you have an alias or specific path
+python -m Agent-Central.src.main hire role
 ```
 
-*This will automatically find `agency.yaml`, infer any missing assets from your requirements, and copy agent personas into `team/` and modular skills into `skills/`.*
+*This will automatically find `agency.yaml` in your current folder, reach back to the central Agent-Central HQ for personas and skills, and copy them into `team/` and `skills/`.*
 
 ---
 

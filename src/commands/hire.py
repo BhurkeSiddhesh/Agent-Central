@@ -20,16 +20,16 @@ def role(
     """
     service = HQService()
     
-    # Resolve config from project if provided
-    if project:
-        project_path = Path(project).resolve()
-        potential_config = project_path / "agency.yaml"
-        if potential_config.exists():
-            config = str(potential_config)
-            typer.echo(f"📂 Detected project config: {config}")
-        else:
-            typer.echo(f"❌ No 'agency.yaml' found in project: {project_path}", err=True)
-            return
+    # If no project path is specified, default to current directory
+    project_path = Path(project).resolve() if project else Path(".").resolve()
+    potential_config = project_path / "agency.yaml"
+    
+    if potential_config.exists():
+        config = str(potential_config)
+        typer.echo(f"📂 Detected project config: {config}")
+    elif project: # Only error if project was explicitly requested and missing config
+        typer.echo(f"❌ No 'agency.yaml' found in project: {project_path}", err=True)
+        return
 
     if config:
         try:

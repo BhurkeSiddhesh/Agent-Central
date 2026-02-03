@@ -6,7 +6,19 @@ import yaml
 class HQService:
     def __init__(self, project_root: str = "."):
         self.project_root = Path(project_root).resolve()
-        self.hq_path = self.project_root / ".agency-hq"
+        
+        # Central HQ is located relative to this source file
+        self.central_hq_path = Path(__file__).parent.parent.parent / "agency-hq"
+        
+        # Local HQ is an optional override in the project
+        self.local_hq_path = self.project_root / ".agency-hq"
+        
+        # Determine which HQ to use (prefer local if exists, else central)
+        if self.local_hq_path.exists():
+            self.hq_path = self.local_hq_path
+        else:
+            self.hq_path = self.central_hq_path
+
         self.context_path = self.project_root / ".ai-context"
         self.active_persona_file = self.context_path / "ACTIVE_PERSONA.md"
 
