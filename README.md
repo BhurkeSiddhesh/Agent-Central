@@ -87,14 +87,14 @@ required_agents:
   - jules-qa
 ```
 
-**Step 2:** Run the hire command from your Agent-Central directory, pointing to the external config:
+**Step 2:** Run the hire command from your Agent-Central directory using the `--project` flag:
 ```bash
 # Windows Example
 cd Agent-Central
-python -m src.main hire role --config "C:\Users\siddh\Desktop\Projects\File Converter\agency.yaml"
+python -m src.main hire role --project "C:\Users\siddh\Desktop\Projects\File Converter"
 ```
 
-*This will copy the agent personas into `File Converter/.ai-context/team/`.*
+*This will automatically find `agency.yaml` in that folder and copy the agent personas into `File Converter/.ai-context/team/`.*
 
 ---
 

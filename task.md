@@ -7,9 +7,16 @@
 - [x] Implement "Missing Agent" Request Mechanism
 - [x] Verification w/ Mock Project
 
+- [x] Design Configuration File Schema (`agency.yaml`)
+- [x] Update `HQService` to support remote/local HQ lookup
+- [x] Implement `hire --from-config` command
+- [x] Implement "Missing Agent" Request Mechanism
+- [x] Verification w/ Mock Project
+- [x] Refactor `hire` to support `--project` argument
+
 ## Steps
-- [x] **Step 1: Planning & Design**
-    - [x] Create `implementation_plan.md`
-    - [x] Define `agency.yaml` structure
-    - [x] VERIFY: Design covers all user constraints.
+- [ ] **Step 1: Planning & Design**
+    - [ ] Update `implementation_plan.md`
+    - [ ] VERIFY: Design meets user request.
+
 
