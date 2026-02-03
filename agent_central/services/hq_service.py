@@ -1,4 +1,4 @@
-import shutil
+﻿import shutil
 import os
 from pathlib import Path
 import yaml
@@ -58,7 +58,7 @@ class HQService:
         content = self.get_role_content(role_name)
         self.active_persona_file.parent.mkdir(parents=True, exist_ok=True)
         self.active_persona_file.write_text(content, encoding="utf-8")
-        print(f"✅ Active Persona switched to: {role_name}")
+        print(f"âœ… Active Persona switched to: {role_name}")
 
     def list_roles(self):
         """Lists available roles in HQ."""
@@ -75,7 +75,7 @@ class HQService:
         return [d.name for d in skills_dir.iterdir() if d.is_dir()]
 
     def infer_assets(self, requirements: str):
-        """Simple keyword-based inference for roles and skills."""
+        """Token-based inference for roles and skills."""
         if not requirements:
             return [], []
         
@@ -83,18 +83,19 @@ class HQService:
         suggested_roles = []
         suggested_skills = []
 
+        def get_tokens(name):
+            return [w for w in name.lower().replace("-", " ").split() if len(w) >= 2]
+
         # Check Roles
         for role in self.list_roles():
-            role_clean = role.lower()
-            role_spaced = role_clean.replace("-", " ")
-            if role_clean in req_lower or role_spaced in req_lower:
+            tokens = get_tokens(role)
+            if any(t in req_lower for t in tokens):
                 suggested_roles.append(role)
         
         # Check Skills
         for skill in self.list_skills():
-            skill_clean = skill.lower()
-            skill_spaced = skill_clean.replace("-", " ")
-            if skill_clean in req_lower or skill_spaced in req_lower:
+            tokens = get_tokens(skill)
+            if any(t in req_lower for t in tokens):
                 suggested_skills.append(skill)
         
         return suggested_roles, suggested_skills
@@ -112,17 +113,46 @@ class HQService:
             raise ValueError(f"Failed to parse agency config: {e}")
 
         project_requirements = config.get("project_requirements", "")
-        required_agents = set(config.get("required_agents", []))
-        required_skills = set(config.get("required_skills", []))
+        required_agents_raw = config.get("required_agents", [])
+        required_skills_raw = config.get("required_skills", [])
+        
+        required_agents = set()
+        required_skills = set()
 
-        # Perform Inference
+        # Helper to extract and infer from mixed list
+        def process_raw_list(raw_list, is_role=True):
+            names = set()
+            for item in raw_list:
+                if isinstance(item, str):
+                    names.add(item)
+                    # Also infer from the string itself in case it's a descriptive name
+                    inf_r, inf_s = self.infer_assets(item)
+                    required_agents.update(inf_r)
+                    required_skills.update(inf_s)
+                elif isinstance(item, dict):
+                    # Use 'role'/'skill' key as the primary name if it exists
+                    val = item.get("role") if is_role else item.get("skill")
+                    val = val or item.get("name")
+                    if val:
+                        names.add(val)
+                    # Infer from the entire dictionary content (description, etc.)
+                    inf_r, inf_s = self.infer_assets(str(item))
+                    required_agents.update(inf_r)
+                    required_skills.update(inf_s)
+            return names
+
+        required_agents.update(process_raw_list(required_agents_raw, is_role=True))
+        required_skills.update(process_raw_list(required_skills_raw, is_role=False))
+
+        # Perform Global Inference
         if project_requirements:
             inf_roles, inf_skills = self.infer_assets(project_requirements)
             required_agents.update(inf_roles)
             required_skills.update(inf_skills)
 
+
         if not required_agents and not required_skills:
-            print("⚠️  No agents or skills listed/inferred.")
+            print("âš ï¸  No agents or skills listed/inferred.")
             return
 
         context_root = config_file.parent / ".ai-context"
@@ -156,7 +186,7 @@ class HQService:
             except ValueError:
                 missing_assets.append(f"skill:{skill}")
 
-        print(f"✅ Hired {hired_roles} roles and {hired_skills} skills to {context_root}")
+        print(f"âœ… Hired {hired_roles} roles and {hired_skills} skills to {context_root}")
         
         if missing_assets:
             self._log_missing_agents(missing_assets, context_root)
@@ -182,5 +212,5 @@ class HQService:
                 for asset in new_requests:
                     f.write(f"- {asset}\n")
             
-            print(f"⚠️  Logged {len(new_requests)} missing assets to {request_file}")
-            print("👉 Run 'ai ops sync' (future) or contact HQ to fulfil these requests.")
+            print(f"âš ï¸  Logged {len(new_requests)} missing assets to {request_file}")
+            print("ðŸ‘‰ Run 'ai ops sync' (future) or contact HQ to fulfil these requests.")
