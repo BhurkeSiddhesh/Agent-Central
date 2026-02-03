@@ -24,7 +24,14 @@
     - [ ] Rewrite `task-assigner.md` (Protocol Enforcement)
     - [ ] Rewrite `jules-qa.md` (Zero Regression)
     - [ ] Rewrite `architect.md` (System Design)
-    - [ ] Rewrite `backend-dev.md` & `frontend-dev.md`
+    - [x] Rewrite `frontend-dev.md`
+
+- [x] Knowledge Feedback Loop (Protocol v2.3)
+    - [x] Create `agency-hq/knowledge/` structure
+    - [x] Update `HQService` with `learn_from_project`
+    - [x] Implement `ops learn` command
+    - [x] Update `AGENTS.md` template with "Learned" section
+
 
 
 

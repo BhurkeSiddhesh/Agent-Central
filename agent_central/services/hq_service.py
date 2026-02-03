@@ -58,7 +58,7 @@ class HQService:
         content = self.get_role_content(role_name)
         self.active_persona_file.parent.mkdir(parents=True, exist_ok=True)
         self.active_persona_file.write_text(content, encoding="utf-8")
-        print(f"âœ… Active Persona switched to: {role_name}")
+        print(f"✅ Active Persona switched to: {role_name}")
 
     def list_roles(self):
         """Lists available roles in HQ."""
@@ -150,9 +150,8 @@ class HQService:
             required_agents.update(inf_roles)
             required_skills.update(inf_skills)
 
-
         if not required_agents and not required_skills:
-            print("âš ï¸  No agents or skills listed/inferred.")
+            print("⚠️  No agents or skills listed/inferred.")
             return
 
         context_root = config_file.parent / ".ai-context"
@@ -186,7 +185,7 @@ class HQService:
             except ValueError:
                 missing_assets.append(f"skill:{skill}")
 
-        print(f"âœ… Hired {hired_roles} roles and {hired_skills} skills to {context_root}")
+        print(f"✅ Hired {hired_roles} roles and {hired_skills} skills to {context_root}")
         
         if missing_assets:
             self._log_missing_agents(missing_assets, context_root)
@@ -212,5 +211,51 @@ class HQService:
                 for asset in new_requests:
                     f.write(f"- {asset}\n")
             
-            print(f"âš ï¸  Logged {len(new_requests)} missing assets to {request_file}")
-            print("ðŸ‘‰ Run 'ai ops sync' (future) or contact HQ to fulfil these requests.")
+            print(f"⚠️  Logged {len(new_requests)} missing assets to {request_file}")
+            print("👉 Run 'ai ops sync' (future) or contact HQ to fulfil these requests.")
+
+    def learn_from_project(self, project_path: str = "."):
+        """Extracts learned patterns from project and syncs to HQ."""
+        project_root = Path(project_path).resolve()
+        agents_file = project_root / "AGENTS.md"
+        
+        if not agents_file.exists():
+            print(f"⚠️  No AGENTS.md found at {project_root}")
+            return
+
+        import re
+        content = agents_file.read_text(encoding="utf-8")
+        
+        # Regex to find "## Learned" or "## <number>. Learned"
+        pattern = r"##\s+(?:\d+\.\s*)?Learned"
+        match = re.search(pattern, content)
+        
+        if not match:
+            print("ℹ️  No '## Learned' section found in AGENTS.md.")
+            return
+
+        # Get text starting from the matched header
+        start_index = match.end()
+        text_after = content[start_index:]
+        
+        # Stop at next "## " header
+        next_header_match = re.search(r"\n##\s+", text_after)
+        if next_header_match:
+            learned_content = text_after[:next_header_match.start()].strip()
+        else:
+            learned_content = text_after.strip()
+
+        if not learned_content:
+            print("ℹ️  '## Learned' section is empty.")
+            return
+
+        import datetime
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        project_name = project_root.name
+        
+        # Save to HQ Knowledge
+        knowledge_file = self.hq_path / "knowledge" / "patterns" / f"learning_{project_name}_{timestamp}.md"
+        knowledge_file.parent.mkdir(parents=True, exist_ok=True)
+        
+        knowledge_file.write_text(f"# Learning from {project_name}\n\n{learned_content}", encoding="utf-8")
+        print(f"📢 Synced new knowledge to: {knowledge_file.name}")

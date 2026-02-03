@@ -44,3 +44,13 @@ def status():
         typer.echo(f"👤 Active Agent: {title}")
     except:
         typer.echo("👤 Active Agent: None")
+
+@app.command()
+def learn():
+    """
+    Scans project for new patterns and syncs to HQ.
+    Look for '## Learned' section in AGENTS.md.
+    """
+    hq = HQService()
+    typer.echo("🧠 Initiating Knowledge Feedback Loop...")
+    hq.learn_from_project(".")
