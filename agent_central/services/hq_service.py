@@ -2,6 +2,8 @@
 import os
 from pathlib import Path
 import yaml
+from typing import List, Union
+from collections import defaultdict
 
 class HQService:
     def __init__(self, project_root: str = "."):
@@ -298,6 +300,8 @@ class HQService:
             return
 
         roles = self.list_roles()
+        role_updates = defaultdict(list)
+        files_to_archive = defaultdict(list)
         
         for k_file in knowledge_files:
             content = k_file.read_text(encoding="utf-8")
@@ -317,11 +321,20 @@ class HQService:
                 target_role = "task-assigner" # Default to manager for generic patterns
 
             if target_role in roles:
-                self._upskill_role(target_role, content)
-                # Archive the processed file
-                shutil.move(str(k_file), str(archive_dir / k_file.name))
-                print(f"🚀 Upskilled '{target_role}' with knowledge from {k_file.name}")
+                # Extract new wisdom (skip header of knowledge file)
+                raw_wisdom_lines = content.split("\n\n", 1)[-1].strip().splitlines()
+                role_updates[target_role].extend(raw_wisdom_lines)
+                files_to_archive[target_role].append(k_file)
 
+        # Batch update roles
+        for role, lines in role_updates.items():
+            if lines:
+                self._upskill_role(role, lines)
+                print(f"🚀 Upskilled '{role}' with knowledge from {len(files_to_archive[role])} files")
+
+            # Archive files after successful update (or if they were processed but had no content)
+            for k_file in files_to_archive[role]:
+                shutil.move(str(k_file), str(archive_dir / k_file.name))
     def _synthesize_wisdom(self, raw_text: str) -> str:
         """
         Simulates an LLM to structure raw text into a Protocol.
@@ -360,7 +373,7 @@ class HQService:
 """
         return synthesized
 
-    def _upskill_role(self, role_name: str, knowledge_content: str):
+    def _upskill_role(self, role_name: str, knowledge_content: Union[str, List[str]]):
         """Appends knowledge to a specific role's Learned Protocols section."""
         role_file = self.hq_path / "roles" / f"{role_name}.md"
         if not role_file.exists():
@@ -368,8 +381,11 @@ class HQService:
 
         current_content = role_file.read_text(encoding="utf-8")
         
-        # Extract new wisdom (skip header of knowledge file)
-        raw_wisdom_lines = knowledge_content.split("\n\n", 1)[-1].strip().splitlines()
+        if isinstance(knowledge_content, list):
+            raw_wisdom_lines = knowledge_content
+        else:
+            # Extract new wisdom (skip header of knowledge file)
+            raw_wisdom_lines = knowledge_content.split("\n\n", 1)[-1].strip().splitlines()
         
         # Synthesize each line (assuming bullet points)
         synthesized_block = ""
