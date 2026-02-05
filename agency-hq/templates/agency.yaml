@@ -1,12 +1,36 @@
 project_name: "My Gen-AI Project"
 project_description: "A brief description of what this project does."
 
-# Natural Language Requirements
-# Describe what you need, and the tool will attempt to infer missing agents/skills.
+# Natural Language Requirements (legacy but supported)
 project_requirements: "A web application with authentication and a PostgreSQL database"
 
+# Structured Project Profile
+project_profile:
+  domains:
+    - web-apps
+  tech_stack:
+    languages:
+      - python
+    frameworks:
+      - fastapi
+    datastores:
+      - postgres
+    infra:
+      - docker
+  constraints:
+    - "Must pass SOC2"
+
+# Capabilities & Requirements
+capabilities:
+  - authentication
+  - billing
+requirements:
+  functional: "User login, billing, and admin dashboard"
+  nonfunctional:
+    - reliability
+    - observability
+
 # List of agents required for this project
-# These names must match the filenames in your HQ's 'roles' directory (e.g., 'backend-dev' -> 'backend-dev.md')
 required_agents:
   - architect
   - backend-dev
@@ -16,3 +40,20 @@ required_agents:
 required_skills:
   - brainstorming
   - writing-plans
+
+# Skill Selection Policy
+skill_policy:
+  mode: balanced # minimal | balanced | safety_first
+  max_skills: 25
+  min_score: 0.35
+  include_skills: []
+  exclude_skills: []
+  guardrail_skills:
+    - security-basics
+    - testing-basics
+    - code-review-checklist
+
+# Role Policy
+role_policy:
+  required_roles: []
+  optional_roles: []

@@ -4,6 +4,7 @@ from agent_central.services.git_service import GitService
 
 app = typer.Typer()
 
+
 @app.command()
 def sync():
     """
@@ -13,24 +14,25 @@ def sync():
     hq = HQService()
     git = GitService()
 
-    typer.echo("🔄 Syncing Agency Logic...")
-    
+    typer.echo("ðŸ”„ Syncing Agency Logic...")
+
     # 1. Switch to Task Assigner
     try:
         hq.set_active_persona("task-assigner")
-        typer.echo("✅ Activated 'Task Assigner' persona.")
+        typer.echo("âœ… Activated 'Task Assigner' persona.")
     except Exception as e:
-        typer.echo(f"❌ Failed to activate manager: {e}")
+        typer.echo(f"âŒ Failed to activate manager: {e}")
         return
 
     # 2. Basic git status check (Simulation of "Looking at PRs")
     if git.is_git_repo():
         branch = git.get_current_branch()
-        typer.echo(f"ℹ️  Current Branch: {branch}")
+        typer.echo(f"â„¹ï¸  Current Branch: {branch}")
         # In a real implementation, we would list PRs here
         pass
-    
-    typer.echo("📋 Agency synced. Check SQUAD_GOAL.md for assignments.")
+
+    typer.echo("ðŸ“‹ Agency synced. Check SQUAD_GOAL.md for assignments.")
+
 
 @app.command()
 def status():
@@ -40,10 +42,11 @@ def status():
     try:
         content = hq.active_persona_file.read_text()
         # Extract first line (Title)
-        title = content.split('\n')[0]
-        typer.echo(f"👤 Active Agent: {title}")
-    except:
-        typer.echo("👤 Active Agent: None")
+        title = content.split("\n")[0]
+        typer.echo(f"ðŸ‘¤ Active Agent: {title}")
+    except Exception:
+        typer.echo("ðŸ‘¤ Active Agent: None")
+
 
 @app.command()
 def learn():
@@ -52,9 +55,10 @@ def learn():
     Look for '## Learned' section in AGENTS.md.
     """
     hq = HQService()
-    typer.echo("🧠 Initiating Knowledge Feedback Loop...")
+    typer.echo("ðŸ§  Initiating Knowledge Feedback Loop...")
     hq.learn_from_project(".")
-    typer.echo("💡 New knowledge synced. Run 'ai ops upskill' to consolidate into master roles.")
+    typer.echo("ðŸ’¡ New knowledge synced. Run 'ai ops upskill' to consolidate into master roles.")
+
 
 @app.command()
 def upskill():
@@ -63,6 +67,21 @@ def upskill():
     Updates personas with learned protocols.
     """
     hq = HQService()
-    typer.echo("🚀 Initiating Upskill Protocol (v2.4)...")
+    typer.echo("ðŸš€ Initiating Upskill Protocol (v2.4)...")
     hq.consolidate_knowledge()
-    typer.echo("✨ Agency upskilled and evolved.")
+    typer.echo("âœ¨ Agency upskilled and evolved.")
+
+
+@app.command()
+def feedback(
+    skill: str = typer.Option(..., "--skill", help="Skill ID to provide feedback on"),
+    result: str = typer.Option(..., "--result", help="helpful | neutral | harmful"),
+    note: str = typer.Option("", "--note", help="Optional context or note"),
+):
+    """Records skill feedback for learning and upskill."""
+    result = result.lower().strip()
+    if result not in {"helpful", "neutral", "harmful"}:
+        typer.echo("âŒ Invalid result. Use: helpful | neutral | harmful")
+        return
+    hq = HQService()
+    hq.record_skill_feedback(skill, result, note)
