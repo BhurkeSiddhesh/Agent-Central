@@ -10,7 +10,9 @@ dependencies = [
     "typer",
     "rich",
     "gitpython",
-    "pyyaml"
+    "pyyaml",
+    "pydantic",
+    "sentence-transformers"
 ]
 
 [project.scripts]

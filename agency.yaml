@@ -1,0 +1,4 @@
+project_name: "Agent-Central"
+project_requirements: "A robust AI-Ops CLI engine. Needs strong backend architecture, CLI command management, and automated testing."
+required_agents: []
+required_skills: []
