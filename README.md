@@ -150,6 +150,17 @@ Agent-Central operates under the **Durable Agent Protocol v2.1**, ensuring:
 
 ---
 
+## 📊 Feasibility & Competitive Analysis
+
+Wondering if Agent-Central has what it takes to compete in 2026's AI-powered development landscape?
+
+- **[Executive Summary](./EXECUTIVE_SUMMARY.md)** - Quick overview of capabilities, tech stack, and competitive positioning
+- **[Full Feasibility Analysis](./FEASIBILITY_ANALYSIS.md)** - Comprehensive technical assessment, gap analysis, and strategic roadmap
+
+**TL;DR**: Agent-Central has excellent fundamentals (630+ skills, protocol-driven architecture, knowledge feedback loop) but needs LLM integration to achieve full autonomy. We're uniquely positioned as the "Enterprise Agent Operating System" with a clear path to market leadership.
+
+---
+
 ## 📄 License
 
 MIT License. See `LICENSE` (if available) for details.
