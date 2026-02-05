@@ -6,41 +6,21 @@ for transcription, LLM, and TTS services.
 """
 
 from typing import Dict, Any
-from abc import ABC, abstractmethod
 import logging
+import os
+import sys
+
+# Try relative imports (when used as package)
+try:
+    from .interfaces import TranscriberProvider, LLMProvider, TTSProvider
+    from .synthesizers.polly import PollySynthesizer
+except (ImportError, ValueError):
+    # Fallback for direct execution
+    sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+    from interfaces import TranscriberProvider, LLMProvider, TTSProvider
+    from synthesizers.polly import PollySynthesizer
 
 logger = logging.getLogger(__name__)
-
-
-# ============================================================================
-# Provider Interfaces
-# ============================================================================
-
-class TranscriberProvider(ABC):
-    """Abstract base class for transcriber providers"""
-    
-    @abstractmethod
-    async def transcribe_stream(self, audio_stream):
-        """Transcribe streaming audio"""
-        pass
-
-
-class LLMProvider(ABC):
-    """Abstract base class for LLM providers"""
-    
-    @abstractmethod
-    async def generate_response(self, messages, stream=True):
-        """Generate response from messages"""
-        pass
-
-
-class TTSProvider(ABC):
-    """Abstract base class for TTS providers"""
-    
-    @abstractmethod
-    async def synthesize_speech(self, text):
-        """Synthesize speech from text"""
-        pass
 
 
 # ============================================================================
@@ -239,8 +219,14 @@ class VoiceComponentFactory:
     
     def _create_polly_synthesizer(self, config: Dict[str, Any]):
         """Create Amazon Polly synthesizer"""
-        # TODO: Implement Polly synthesizer
-        raise NotImplementedError("Polly synthesizer not implemented")
+        return PollySynthesizer(
+            aws_access_key_id=config.get("pollyAccessKey"),
+            aws_secret_access_key=config.get("pollySecretKey"),
+            region_name=config.get("pollyRegion", "us-east-1"),
+            voice_id=config.get("pollyVoiceId", "Joanna"),
+            engine=config.get("pollyEngine", "neural"),
+            sample_rate=config.get("sampleRate", "16000")
+        )
     
     def _create_playht_synthesizer(self, config: Dict[str, Any]):
         """Create Play.ht synthesizer"""
