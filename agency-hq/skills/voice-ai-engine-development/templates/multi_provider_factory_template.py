@@ -6,41 +6,19 @@ for transcription, LLM, and TTS services.
 """
 
 from typing import Dict, Any
-from abc import ABC, abstractmethod
 import logging
 
+# Import interfaces
+try:
+    from .interfaces import TranscriberProvider, LLMProvider, TTSProvider
+except ImportError:
+    try:
+        from interfaces import TranscriberProvider, LLMProvider, TTSProvider
+    except ImportError:
+        # Fallback if imported from elsewhere
+        pass
+
 logger = logging.getLogger(__name__)
-
-
-# ============================================================================
-# Provider Interfaces
-# ============================================================================
-
-class TranscriberProvider(ABC):
-    """Abstract base class for transcriber providers"""
-    
-    @abstractmethod
-    async def transcribe_stream(self, audio_stream):
-        """Transcribe streaming audio"""
-        pass
-
-
-class LLMProvider(ABC):
-    """Abstract base class for LLM providers"""
-    
-    @abstractmethod
-    async def generate_response(self, messages, stream=True):
-        """Generate response from messages"""
-        pass
-
-
-class TTSProvider(ABC):
-    """Abstract base class for TTS providers"""
-    
-    @abstractmethod
-    async def synthesize_speech(self, text):
-        """Synthesize speech from text"""
-        pass
 
 
 # ============================================================================
@@ -173,8 +151,18 @@ class VoiceComponentFactory:
     
     def _create_azure_transcriber(self, config: Dict[str, Any]):
         """Create Azure Speech transcriber"""
-        # TODO: Implement Azure transcriber
-        raise NotImplementedError("Azure transcriber not implemented")
+        try:
+            from .transcribers.azure_transcriber import AzureTranscriber
+        except ImportError:
+            try:
+                # Try import if running as script from templates dir
+                from transcribers.azure_transcriber import AzureTranscriber
+            except ImportError:
+                # Log error or raise
+                logger.error("Could not import AzureTranscriber")
+                raise
+
+        return AzureTranscriber(config)
     
     def _create_google_transcriber(self, config: Dict[str, Any]):
         """Create Google Cloud Speech transcriber"""
