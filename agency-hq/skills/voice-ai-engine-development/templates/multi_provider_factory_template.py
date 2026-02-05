@@ -39,7 +39,12 @@ class TTSProvider(ABC):
     
     @abstractmethod
     async def synthesize_speech(self, text):
-        """Synthesize speech from text"""
+        """
+        Synthesize speech from text
+
+        Returns:
+            SynthesisResult (or similar) containing chunk_generator and interrupt handler
+        """
         pass
 
 
@@ -229,8 +234,8 @@ class VoiceComponentFactory:
     
     def _create_azure_synthesizer(self, config: Dict[str, Any]):
         """Create Azure TTS synthesizer"""
-        # TODO: Implement Azure synthesizer
-        raise NotImplementedError("Azure synthesizer not implemented")
+        from .synthesizers.azure import AzureSynthesizer
+        return AzureSynthesizer(config)
     
     def _create_google_synthesizer(self, config: Dict[str, Any]):
         """Create Google Cloud TTS synthesizer"""
@@ -261,9 +266,9 @@ def example_usage():
         "deepgramApiKey": "your-api-key",
         "llmProvider": "gemini",
         "geminiApiKey": "your-api-key",
-        "voiceProvider": "elevenlabs",
-        "elevenlabsApiKey": "your-api-key",
-        "elevenlabsVoiceId": "your-voice-id",
+        "voiceProvider": "azure",
+        "azureSpeechKey": "your-azure-key",
+        "azureSpeechRegion": "eastus",
         "prompt": "You are a helpful AI assistant."
     }
     
@@ -272,11 +277,11 @@ def example_usage():
     
     try:
         # Create components
-        transcriber = factory.create_transcriber(config)
-        agent = factory.create_agent(config)
+        # transcriber = factory.create_transcriber(config) # Will raise NotImplemented
+        # agent = factory.create_agent(config)             # Will raise NotImplemented
         synthesizer = factory.create_synthesizer(config)
         
-        print("✅ All components created successfully!")
+        print("✅ Azure synthesizer created successfully!")
         
     except ValueError as e:
         print(f"❌ Configuration error: {e}")
