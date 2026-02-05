@@ -14,7 +14,11 @@ app = typer.Typer()
 
 @app.command()
 def index():
-    """Scans and indexes all skills into skills.index.json + embeddings."""
+    """
+    Scan and index all skills into the HQ skills registry and build corresponding embeddings.
+    
+    Writes or updates the skills registry file (skills.index.json) and generates or updates embeddings in the HQ storage.
+    """
     hq = HQService()
     service = SkillService(hq.hq_path)
     service.build_registry()
@@ -26,7 +30,15 @@ def index():
 
 @app.command()
 def search(query: str):
-    """Semantic search for skills."""
+    """
+    Perform a semantic search for skills matching the provided query and print the results.
+    
+    Parameters:
+        query (str): The search query used to find relevant skills.
+    
+    Detailed behavior:
+        Prints a header with the number of matching skills and then each matched skill's `id` with a high score indicator. If no skills match, prints a message indicating no matches were found.
+    """
     hq = HQService()
     service = SkillService(hq.hq_path)
     results = service.search_skills(query)
@@ -44,7 +56,15 @@ def suggest(
     project: str = typer.Option(".", "--project", help="Path to the project root"),
     dry_run: bool = typer.Option(False, "--dry-run", help="Only print results"),
 ):
-    """Suggests a skill set for a project without copying files."""
+    """
+    Suggest a set of skills for a project based on its agency.yaml and optionally persist the selection to .ai-context.
+    
+    Attempts to read and validate `agency.yaml` in the given project root, performs skill selection, and prints the suggested skills and their scores. If `dry_run` is False, writes the selected profile, manifest, and lockfile into the project's `.ai-context` directory. Exits early and prints a message if the config file is missing or invalid.
+    
+    Parameters:
+        project (str): Path to the project root containing `agency.yaml`.
+        dry_run (bool): If True, only print suggestions without writing files.
+    """
     project_path = Path(project).resolve()
     config_path = project_path / "agency.yaml"
     if not config_path.exists():

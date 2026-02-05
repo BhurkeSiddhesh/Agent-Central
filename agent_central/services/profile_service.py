@@ -7,14 +7,46 @@ from agent_central.models.agency_config import AgencyConfig
 
 
 def _normalize(items: List[str]) -> List[str]:
+    """
+    Normalize a list of strings by trimming whitespace, converting to lowercase, removing empty entries, deduplicating, and returning them in sorted order.
+    
+    Parameters:
+        items (List[str]): Strings to normalize.
+    
+    Returns:
+        List[str]: Sorted, deduplicated, lowercase strings with surrounding whitespace removed; empty or whitespace-only entries are omitted.
+    """
     return sorted({i.strip().lower() for i in items if i and i.strip()})
 
 
 class ProfileService:
     def __init__(self, project_root: Union[str, Path]):
+        """
+        Initialize the service with the project root path.
+        
+        Parameters:
+            project_root (Union[str, Path]): Path to the project's root directory; converted to a Path and resolved to an absolute path.
+        """
         self.project_root = Path(project_root).resolve()
 
     def build_profile(self, config: AgencyConfig) -> Dict:
+        """
+        Builds a normalized project profile dictionary by combining values from the provided AgencyConfig with repository-derived scan results.
+        
+        Parameters:
+            config (AgencyConfig): Project configuration containing metadata, profile fields (domains, tech_stack, constraints), capabilities, and requirements.
+        
+        Returns:
+            dict: Profile with the following keys:
+                - project_name: project name from config
+                - project_description: project description from config
+                - domains: normalized list of domains
+                - tech_stack: dict with normalized lists for `languages`, `frameworks`, `datastores`, and `infra`
+                - constraints: normalized list of constraints
+                - capabilities: normalized list of capabilities
+                - requirements: dict containing `functional` (from config) and `nonfunctional` (normalized) requirements
+                - sources: dict with `repo_scan` listing repository file paths that contributed to the scan
+        """
         scan = self._scan_repo()
 
         profile = {
@@ -49,12 +81,30 @@ class ProfileService:
         return profile
 
     def write_profile(self, profile: Dict, context_root: Path) -> Path:
+        """
+        Write a profile dictionary as formatted JSON to a file named `project.profile.json` inside the given context directory.
+        
+        Parameters:
+            profile (Dict): The profile data to serialize to JSON.
+            context_root (Path): Directory to create (if needed) and place the output file.
+        
+        Returns:
+            out_path (Path): Path to the written `project.profile.json` file.
+        """
         context_root.mkdir(parents=True, exist_ok=True)
         out_path = context_root / "project.profile.json"
         out_path.write_text(json.dumps(profile, indent=2), encoding="utf-8")
         return out_path
 
     def _scan_repo(self) -> Dict[str, List[str]]:
+        """
+        Scan the project root for languages, frameworks, datastores, infrastructure, and source file references.
+        
+        Detects languages by presence of common manifest files (e.g., pyproject.toml, package.json, go.mod, pom.xml, Cargo.toml), discovers frameworks and datastores by searching dependency files for well-known keywords, and detects infra artifacts (Docker, docker-compose, GitHub Actions, Kubernetes) by checking for typical files and directories. Unreadable files are ignored. Returns normalized, deduplicated, lowercased, sorted lists for each category.
+        
+        Returns:
+            Dict[str, List[str]]: A mapping with keys "languages", "frameworks", "datastores", "infra", and "sources", each containing a list of detected values.
+        """
         languages: List[str] = []
         frameworks: List[str] = []
         datastores: List[str] = []
@@ -62,6 +112,15 @@ class ProfileService:
         sources: List[str] = []
 
         def add_from_file(path: Path, keywords: Dict[str, List[str]]):
+            """
+            Scan a file for dependency keywords and record any detected frameworks, datastores, or infra along with the file source.
+            
+            Reads the file at `path` (UTF-8, ignoring read errors). For each keyword group in `keywords`, performs a whole-word, case-insensitive search for each value; when a value is found it is appended to the corresponding outer-scope list (`frameworks`, `datastores`, or `infra`). Regardless of matches, the file's path relative to `self.project_root` is appended to the outer-scope `sources` list. Read errors are ignored silently.
+            
+            Parameters:
+                path (Path): Path to the file to scan.
+                keywords (Dict[str, List[str]]): Mapping of keyword groups to lists of keyword strings to search for. Expected keys include `"frameworks"`, `"datastores"`, and `"infra"`.
+            """
             try:
                 text = path.read_text(encoding="utf-8", errors="ignore").lower()
             except Exception:
