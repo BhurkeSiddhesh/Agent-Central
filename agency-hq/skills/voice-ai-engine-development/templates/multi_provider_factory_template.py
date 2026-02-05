@@ -8,39 +8,9 @@ for transcription, LLM, and TTS services.
 from typing import Dict, Any
 from abc import ABC, abstractmethod
 import logging
+from .interfaces import TranscriberProvider, LLMProvider, TTSProvider
 
 logger = logging.getLogger(__name__)
-
-
-# ============================================================================
-# Provider Interfaces
-# ============================================================================
-
-class TranscriberProvider(ABC):
-    """Abstract base class for transcriber providers"""
-    
-    @abstractmethod
-    async def transcribe_stream(self, audio_stream):
-        """Transcribe streaming audio"""
-        pass
-
-
-class LLMProvider(ABC):
-    """Abstract base class for LLM providers"""
-    
-    @abstractmethod
-    async def generate_response(self, messages, stream=True):
-        """Generate response from messages"""
-        pass
-
-
-class TTSProvider(ABC):
-    """Abstract base class for TTS providers"""
-    
-    @abstractmethod
-    async def synthesize_speech(self, text):
-        """Synthesize speech from text"""
-        pass
 
 
 # ============================================================================
@@ -187,14 +157,12 @@ class VoiceComponentFactory:
     
     def _create_openai_agent(self, config: Dict[str, Any]):
         """Create OpenAI agent"""
-        # TODO: Implement OpenAI agent
-        # from .agents.openai import OpenAIAgent
-        # return OpenAIAgent(
-        #     api_key=config.get("openaiApiKey"),
-        #     model=config.get("openaiModel", "gpt-4"),
-        #     system_prompt=config.get("prompt", "You are a helpful assistant.")
-        # )
-        raise NotImplementedError("OpenAI agent not implemented")
+        from .agents.openai import OpenAIAgent
+        return OpenAIAgent(
+            api_key=config.get("openaiApiKey"),
+            model=config.get("openaiModel", "gpt-4"),
+            system_prompt=config.get("prompt", "You are a helpful assistant.")
+        )
     
     def _create_gemini_agent(self, config: Dict[str, Any]):
         """Create Google Gemini agent"""
@@ -259,8 +227,8 @@ def example_usage():
     config = {
         "transcriberProvider": "deepgram",
         "deepgramApiKey": "your-api-key",
-        "llmProvider": "gemini",
-        "geminiApiKey": "your-api-key",
+        "llmProvider": "openai",
+        "openaiApiKey": "your-api-key",
         "voiceProvider": "elevenlabs",
         "elevenlabsApiKey": "your-api-key",
         "elevenlabsVoiceId": "your-voice-id",
@@ -272,11 +240,11 @@ def example_usage():
     
     try:
         # Create components
-        transcriber = factory.create_transcriber(config)
+        # transcriber = factory.create_transcriber(config)
         agent = factory.create_agent(config)
-        synthesizer = factory.create_synthesizer(config)
+        # synthesizer = factory.create_synthesizer(config)
         
-        print("✅ All components created successfully!")
+        print("✅ OpenAI agent created successfully!")
         
     except ValueError as e:
         print(f"❌ Configuration error: {e}")
