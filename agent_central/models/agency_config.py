@@ -24,8 +24,14 @@ class Requirements(BaseModel):
 
 class SkillPolicy(BaseModel):
     mode: Literal["minimal", "balanced", "safety_first"] = "balanced"
-    max_skills: int = 25
-    min_score: float = 0.35
+    max_skills: int = Field(25, ge=1)
+    min_score: float = Field(0.35, ge=0.0, le=1.0)
+    embedding_weight: float = 0.45
+    keyword_weight: float = 0.35
+    affinity_weight: float = 0.20
+    tech_boost: float = 0.15
+    domain_boost: float = 0.10
+    guardrail_boost: float = 0.20
     include_skills: List[str] = Field(default_factory=list)
     exclude_skills: List[str] = Field(default_factory=list)
     guardrail_skills: List[str] = Field(default_factory=list)

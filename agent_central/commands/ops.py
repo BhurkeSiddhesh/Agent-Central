@@ -14,24 +14,23 @@ def sync():
     hq = HQService()
     git = GitService()
 
-    typer.echo("ðŸ”„ Syncing Agency Logic...")
+    typer.echo("🔄 Syncing Agency Logic...")
 
     # 1. Switch to Task Assigner
     try:
         hq.set_active_persona("task-assigner")
-        typer.echo("âœ… Activated 'Task Assigner' persona.")
+        typer.echo("✔ Activated 'Task Assigner' persona.")
     except Exception as e:
-        typer.echo(f"âŒ Failed to activate manager: {e}")
+        typer.echo(f"❌ Failed to activate manager: {e}")
         return
 
     # 2. Basic git status check (Simulation of "Looking at PRs")
     if git.is_git_repo():
         branch = git.get_current_branch()
-        typer.echo(f"â„¹ï¸  Current Branch: {branch}")
+        typer.echo(f"ℹ️ Current Branch: {branch}")
         # In a real implementation, we would list PRs here
-        pass
 
-    typer.echo("ðŸ“‹ Agency synced. Check SQUAD_GOAL.md for assignments.")
+    typer.echo("📋 Agency synced. Check SQUAD_GOAL.md for assignments.")
 
 
 @app.command()
@@ -43,9 +42,11 @@ def status():
         content = hq.active_persona_file.read_text()
         # Extract first line (Title)
         title = content.split("\n")[0]
-        typer.echo(f"ðŸ‘¤ Active Agent: {title}")
-    except Exception:
-        typer.echo("ðŸ‘¤ Active Agent: None")
+        typer.echo(f"👤 Active Agent: {title}")
+    except (FileNotFoundError, IsADirectoryError):
+        typer.echo("👤 Active Agent: None")
+    except Exception as e:
+        typer.echo(f"Error reading active persona: {e}", err=True)
 
 
 @app.command()

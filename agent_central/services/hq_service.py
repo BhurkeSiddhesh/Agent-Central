@@ -228,7 +228,7 @@ class HQService:
         learning_dir.mkdir(parents=True, exist_ok=True)
 
         payload = {
-            "timestamp": datetime.datetime.utcnow().isoformat(),
+            "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat(),
             "project": self.project_root.name,
             "skill_id": skill_id,
             "result": result,
@@ -316,7 +316,7 @@ class HQService:
             print("ℹ️  No learnings or feedback found to sync.")
             return
 
-        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        timestamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%d_%H%M%S")
         project_name = project_root.name
 
         # Save to HQ Knowledge
@@ -449,14 +449,15 @@ class HQService:
             return
 
         quality_file = self.hq_path / "knowledge" / "skill_quality.json"
-        quality = {"updated_at": None, "skills": {}}
+        quality = {"updated_at": None, "skills": {}, "processed_events": []}
         if quality_file.exists():
             try:
                 quality = json.loads(quality_file.read_text(encoding="utf-8"))
             except Exception:
-                quality = {"updated_at": None, "skills": {}}
+                quality = {"updated_at": None, "skills": {}, "processed_events": []}
 
         skills = quality.get("skills", {})
+        processed_events = set(quality.get("processed_events", []))
         events = feedback_log.read_text(encoding="utf-8").splitlines()
         if not events:
             return
@@ -464,7 +465,11 @@ class HQService:
         for line in events:
             try:
                 event = json.loads(line)
-            except Exception:
+            except Exception as e:
+                print(f"Error parsing feedback line: {e}, line: {line}")
+                continue
+            event_hash = hashlib.sha256(json.dumps(event, sort_keys=True).encode("utf-8")).hexdigest()
+            if event_hash in processed_events:
                 continue
             skill_id = event.get("skill_id")
             if not skill_id:
@@ -478,16 +483,18 @@ class HQService:
             elif result == "harmful":
                 entry["harmful_count"] += 1
             skills[skill_id] = entry
+            processed_events.add(event_hash)
 
         quality["skills"] = skills
-        quality["updated_at"] = datetime.datetime.utcnow().isoformat()
+        quality["processed_events"] = list(processed_events)
+        quality["updated_at"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
         quality_file.parent.mkdir(parents=True, exist_ok=True)
         quality_file.write_text(json.dumps(quality, indent=2), encoding="utf-8")
 
         # Archive processed feedback
         archive_dir = self.hq_path / "knowledge" / "archive"
         archive_dir.mkdir(parents=True, exist_ok=True)
-        stamp = datetime.datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+        stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%d_%H%M%S")
         archived = archive_dir / f"skill_feedback_{stamp}.jsonl"
         shutil.move(str(feedback_log), str(archived))
 
@@ -563,5 +570,5 @@ class HQService:
             with open(config_file, "r", encoding="utf-8") as f:
                 raw = yaml.safe_load(f) or {}
         except Exception as e:
-            raise ValueError(f"Failed to parse agency config: {e}")
+            raise ValueError(f"Failed to parse agency config: {e}") from e
         return AgencyConfig.model_validate(raw)

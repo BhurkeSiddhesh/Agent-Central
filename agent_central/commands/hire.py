@@ -47,10 +47,7 @@ def role(
             typer.echo(f"❌ Error: {e}", err=True)
             typer.echo("Available roles: " + ", ".join(service.list_roles()))
     else:
-        if not role_name:
-             typer.echo("❌ No 'agency.yaml' found in current directory.")
-             typer.echo("💡 Tip: Create one or run 'ai hire --project [PATH]'")
-             return
-             
-        typer.echo("ℹ️  Usage: ai hire [ROLE_NAME] or ai hire --project [PATH]")
+        typer.echo("❌ No 'agency.yaml' found in current directory.")
+        typer.echo("💡 Tip: Create one or run 'ai hire --project [PATH]'")
+        return
 

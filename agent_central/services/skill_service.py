@@ -1,3 +1,4 @@
+import datetime
 import json
 from pathlib import Path
 import yaml
@@ -16,7 +17,7 @@ class SkillService:
     def build_registry(self):
         """Scans all skills and builds a JSON manifest."""
         registry = []
-        print(f"ðŸ”„ Scanning skills in {self.skills_dir}...")
+        print(f"🔍 Scanning skills in {self.skills_dir}...")
 
         # Iterate over immediate subdirectories
         for skill_path in self.skills_dir.iterdir():
@@ -75,7 +76,7 @@ class SkillService:
                             ]:
                                 metadata[key] = self._ensure_list(metadata.get(key))
 
-                        lines = [l.strip() for l in body.splitlines() if l.strip()]
+                        lines = [line.strip() for line in body.splitlines() if line.strip()]
                         # Extract description (first non-header line usually)
                         for line in lines:
                             if not line.startswith("#"):
@@ -100,26 +101,28 @@ class SkillService:
                         keywords.extend([str(t) for t in metadata.get("provides", [])])
 
                     except Exception as e:
-                        print(f"âš ï¸  Error reading {skill_id}: {e}")
+                        print(f"⚠️  Error reading {skill_id}: {e}")
+
+                normalized_metadata = self._normalize_dates(metadata)
 
                 registry.append(
                     {
-                        "id": metadata.get("id", skill_id),
-                        "name": metadata.get(
+                        "id": normalized_metadata.get("id", skill_id),
+                        "name": normalized_metadata.get(
                             "name", skill_id.replace("-", " ").title()
                         ),
-                        "description": metadata.get("description", description),
-                        "version": metadata.get("version", "0.0.0"),
-                        "tags": metadata.get("tags", []),
-                        "domains": metadata.get("domains", []),
-                        "tech": metadata.get("tech", []),
-                        "role_affinity": metadata.get("role_affinity", []),
-                        "provides": metadata.get("provides", []),
-                        "requires": metadata.get("requires", []),
-                        "conflicts": metadata.get("conflicts", []),
-                        "guardrail": metadata.get("guardrail", False),
-                        "risk_level": metadata.get("risk_level", "low"),
-                        "last_updated": metadata.get("last_updated"),
+                        "description": normalized_metadata.get("description", description),
+                        "version": normalized_metadata.get("version", "0.0.0"),
+                        "tags": normalized_metadata.get("tags", []),
+                        "domains": normalized_metadata.get("domains", []),
+                        "tech": normalized_metadata.get("tech", []),
+                        "role_affinity": normalized_metadata.get("role_affinity", []),
+                        "provides": normalized_metadata.get("provides", []),
+                        "requires": normalized_metadata.get("requires", []),
+                        "conflicts": normalized_metadata.get("conflicts", []),
+                        "guardrail": normalized_metadata.get("guardrail", False),
+                        "risk_level": normalized_metadata.get("risk_level", "low"),
+                        "last_updated": normalized_metadata.get("last_updated"),
                         "keywords": list(set(keywords)),  # Deduplicate
                         "path": str(skill_path.relative_to(self.hq_path)),
                     }
@@ -129,7 +132,7 @@ class SkillService:
         with open(self.registry_file, "w", encoding="utf-8") as f:
             json.dump(registry, f, indent=2)
 
-        print(f"âœ… skills.index.json built with {len(registry)} skills.")
+        print(f"✅ skills.index.json built with {len(registry)} skills.")
         return registry
 
     def load_registry(self):
@@ -209,3 +212,12 @@ class SkillService:
         if isinstance(value, list):
             return value
         return [value]
+
+    def _normalize_dates(self, value):
+        if isinstance(value, dict):
+            return {k: self._normalize_dates(v) for k, v in value.items()}
+        if isinstance(value, list):
+            return [self._normalize_dates(v) for v in value]
+        if isinstance(value, (datetime.date, datetime.datetime)):
+            return value.isoformat()
+        return value

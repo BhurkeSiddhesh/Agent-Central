@@ -41,6 +41,18 @@ class EmbeddingService:
         return payload.get("skills", {})
 
     def build_embeddings(self, registry: List[Dict]) -> Optional[Dict[str, List[float]]]:
+        if not registry:
+            skills = {}
+            payload = {
+                "model": self.model_name,
+                "dimension": 0,
+                "created_at": datetime.datetime.utcnow().isoformat(),
+                "skills": skills,
+            }
+            self.embeddings_file.parent.mkdir(parents=True, exist_ok=True)
+            self.embeddings_file.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+            return skills
+
         model = self._load_model()
         if model is None:
             return None
@@ -82,7 +94,7 @@ class EmbeddingService:
 
     def load_or_build(self, registry: List[Dict]) -> Optional[Dict[str, List[float]]]:
         existing = self.load_embeddings()
-        if existing:
+        if existing is not None:
             return existing
         return self.build_embeddings(registry)
 

@@ -134,9 +134,14 @@ class SelectionService:
 
         # Resolve conflicts
         excluded = []
+        processed_conflicts = set()
         for skill_id in list(selected):
             conflicts = scored[skill_id]["skill"].get("conflicts", [])
             for conflict in conflicts:
+                pair = frozenset({skill_id, conflict})
+                if pair in processed_conflicts:
+                    continue
+                processed_conflicts.add(pair)
                 if conflict in selected:
                     left = scored[skill_id]
                     right = scored[conflict]
@@ -216,7 +221,7 @@ class SelectionService:
                 }
             )
         lock = {
-            "generated_at": datetime.datetime.utcnow().isoformat(),
+            "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
             "skills": skills,
         }
         context_root.mkdir(parents=True, exist_ok=True)
@@ -254,20 +259,20 @@ class SelectionService:
             reasons.append(f"affinity:{affinity_score:.2f}")
 
         score = (
-            0.45 * embedding_score + 0.35 * keyword_score + 0.2 * affinity_score
+            policy.embedding_weight * embedding_score + policy.keyword_weight * keyword_score + policy.affinity_weight * affinity_score
         )
 
         # Boosts
         if self._tech_match(skill, profile):
-            score += 0.15
+            score += policy.tech_boost
             reasons.append("tech_match")
         if self._domain_match(skill, profile):
-            score += 0.10
+            score += policy.domain_boost
             reasons.append("domain_match")
         if policy.mode == "safety_first" and (
             skill.get("guardrail") or skill.get("id") in guardrails
         ):
-            score += 0.20
+            score += policy.guardrail_boost
             reasons.append("guardrail_boost")
 
         # Quality penalties/boosts
@@ -332,7 +337,6 @@ class SelectionService:
             return selected
 
         kept = set(protected).intersection(selected)
-        remaining_slots = max(0, max_skills - len(kept))
 
         coverage_terms = _safe_set(
             (profile.get("capabilities") or [])
@@ -400,7 +404,7 @@ class SelectionService:
 
         return {
             "project": config.project_name,
-            "generated_at": datetime.datetime.utcnow().isoformat(),
+            "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
             "policy": {
                 "mode": policy.mode,
                 "max_skills": policy.max_skills,
@@ -439,7 +443,7 @@ class SelectionService:
     def _cosine_similarity(self, a: List[float], b: List[float]) -> float:
         if not a or not b or len(a) != len(b):
             return 0.0
-        return sum(x * y for x, y in zip(a, b))
+        return sum(x * y for x, y in zip(a, b, strict=True))
 
     def _load_skill_quality(self) -> Dict:
         quality_file = self.hq_path / "knowledge" / "skill_quality.json"

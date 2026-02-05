@@ -6,8 +6,11 @@ from typing import Dict, List, Union
 from agent_central.models.agency_config import AgencyConfig
 
 
-def _normalize(items: List[str]) -> List[str]:
-    return sorted({i.strip().lower() for i in items if i and i.strip()})
+def _normalize(items: List[str], preserve_case: bool = False) -> List[str]:
+    normalized = {i.strip() for i in items if i and i.strip()}
+    if not preserve_case:
+        normalized = {i.lower() for i in normalized}
+    return sorted(normalized)
 
 
 class ProfileService:
@@ -129,11 +132,14 @@ class ProfileService:
         if (self.project_root / "Dockerfile").exists():
             infra.append("docker")
             sources.append("Dockerfile")
-        if (self.project_root / "docker-compose.yml").exists() or (
-            self.project_root / "docker-compose.yaml"
-        ).exists():
+        docker_compose_yml = self.project_root / "docker-compose.yml"
+        docker_compose_yaml = self.project_root / "docker-compose.yaml"
+        if docker_compose_yml.exists():
             infra.append("docker-compose")
             sources.append("docker-compose.yml")
+        elif docker_compose_yaml.exists():
+            infra.append("docker-compose")
+            sources.append("docker-compose.yaml")
         if (self.project_root / ".github" / "workflows").exists():
             infra.append("github-actions")
             sources.append(".github/workflows")
@@ -148,5 +154,5 @@ class ProfileService:
             "frameworks": _normalize(frameworks),
             "datastores": _normalize(datastores),
             "infra": _normalize(infra),
-            "sources": _normalize(sources),
+            "sources": _normalize(sources, preserve_case=True),
         }
