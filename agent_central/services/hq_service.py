@@ -15,6 +15,22 @@ from agent_central.services.skill_service import SkillService
 
 class HQService:
     def __init__(self, project_root: str = "."):
+        """
+        Initialize HQService path configuration for a given project root.
+        
+        Sets up filesystem paths used by the service and selects the HQ source to use (prefers a local project-level `.agency-hq` if present, otherwise uses the repository-central `agency-hq`). Also initializes the AI context directory path and the active persona file path.
+        
+        Parameters:
+            project_root (str): Path to the project root where `.agency-hq` and `.ai-context` may live. Defaults to the current directory.
+        
+        Attributes set:
+            project_root (Path): Resolved project root path.
+            central_hq_path (Path): Repository-relative central HQ location.
+            local_hq_path (Path): Project-local HQ override path (`.agency-hq`).
+            hq_path (Path): Chosen HQ path (local if it exists, else central).
+            context_path (Path): Path to the project's `.ai-context` directory.
+            active_persona_file (Path): Path to the active persona file within the context directory.
+        """
         self.project_root = Path(project_root).resolve()
 
         # Central HQ is located relative to this source file
@@ -33,7 +49,17 @@ class HQService:
         self.active_persona_file = self.context_path / "ACTIVE_PERSONA.md"
 
     def setup_hq(self, source_hq_path: str):
-        """Copies the HQ template to the project."""
+        """
+        Install or replace the project's HQ template from a source directory.
+        
+        Copies the contents of the provided source HQ directory into the service's selected HQ path (overwriting any existing HQ), and ensures the project `.ai-context` structure exists with SQUAD_GOAL.md and QA_REPORT.md placeholders.
+        
+        Parameters:
+            source_hq_path (str): Filesystem path to the source HQ template directory to copy.
+        
+        Raises:
+            FileNotFoundError: If the provided source_hq_path does not exist.
+        """
         source = Path(source_hq_path).resolve()
         if not source.exists():
             raise FileNotFoundError(f"HQ Source not found at {source}")
@@ -85,7 +111,19 @@ class HQService:
         return [d.name for d in skills_dir.iterdir() if d.is_dir()]
 
     def infer_assets(self, requirements: str):
-        """Token-based inference for roles and skills."""
+        """
+        Infer relevant HQ roles and skills from a natural-language requirements string.
+        
+        Given a free-text requirements description, return two lists with suggested role names and suggested skill IDs that are likely relevant to the project. The method may print short proof messages for each inferred item (keyword matches and semantic matches).
+        
+        Parameters:
+            requirements (str): Natural-language requirements or project brief to infer from.
+        
+        Returns:
+            tuple:
+                - roles (List[str]): Unique suggested role names inferred from keywords in the requirements.
+                - skills (List[str]): Unique suggested skill IDs inferred from keyword matches and semantic registry search.
+        """
         if not requirements:
             return [], []
 
@@ -146,6 +184,22 @@ class HQService:
 
         # Helper to extract and infer from mixed list
         def process_raw_list(raw_list) -> set:
+            """
+            Extract a set of agent role/name identifiers from a mixed list of raw descriptors and update required agent inferences.
+            
+            Processes each element of `raw_list`, accepting strings and dictionaries:
+            - For string items, adds the string to the returned set and calls `self.infer_assets` on the string to extend the external `required_agents` set.
+            - For dict items, extracts the value of the "role" or "name" key (if present) to add to the returned set, and calls `self.infer_assets` on the stringified dict to extend the external `required_agents` set.
+            
+            Parameters:
+                raw_list (Iterable[Union[str, dict]]): Sequence of agent descriptors where each item is either a role/name string or a dictionary containing role/name and possibly other metadata.
+            
+            Returns:
+                set: A set of extracted role/name strings present in `raw_list`.
+            
+            Side effects:
+                Calls `self.infer_assets(...)` for each item and updates an external `required_agents` collection via those inferences.
+            """
             names = set()
             for item in raw_list:
                 if isinstance(item, str):
@@ -223,7 +277,19 @@ class HQService:
             self._log_missing_agents(missing_assets, context_root)
 
     def record_skill_feedback(self, skill_id: str, result: str, note: str = ""):
-        """Record feedback for a skill selection."""
+        """
+        Append a structured feedback event for a skill to the project's learning events log.
+        
+        Parameters:
+            skill_id (str): Identifier of the skill being evaluated.
+            result (str): Outcome of the evaluation (e.g., "helpful", "harmful", "neutral").
+            note (str): Optional free-text note providing additional context about the feedback.
+        
+        Description:
+            Creates the `.ai-context/learning` directory if necessary and appends a JSON line
+            containing a timestamp, project name, `skill_id`, `result`, `note`, and a
+            short `context_hash` to `events.jsonl`.
+        """
         learning_dir = self.context_path / "learning"
         learning_dir.mkdir(parents=True, exist_ok=True)
 
@@ -246,7 +312,16 @@ class HQService:
         print(f"📝 Recorded feedback for skill '{skill_id}'")
 
     def _log_missing_agents(self, assets: list, context_path: Path = None):
-        """Logs missing assets to HQ_REQUESTS.md"""
+        """
+        Append missing HQ asset names to an HQ_REQUESTS.md file, avoiding duplicate entries.
+        
+        Parameters:
+            assets (list): Iterable of asset identifiers (strings) to record as requests.
+            context_path (Path | None): Directory in which to place HQ_REQUESTS.md. If None, uses the service's default context path.
+        
+        Description:
+            Ensures the parent directory exists, writes a header if the file is new or empty, and appends each asset as a list item ("- <asset>") only if it is not already present in the file. Prints a brief confirmation and guidance message when new requests are logged.
+        """
         target_path = context_path if context_path else self.context_path
         request_file = target_path / "HQ_REQUESTS.md"
         request_file.parent.mkdir(parents=True, exist_ok=True)
@@ -274,7 +349,14 @@ class HQService:
             print("👉 Run 'ai ops sync' (future) or contact HQ to fulfil these requests.")
 
     def learn_from_project(self, project_path: str = "."):
-        """Extracts learned patterns from project and syncs to HQ."""
+        """
+        Collect learned insights from a project and synchronize them into the HQ knowledge store.
+        
+        This reads the project's AGENTS.md for a "## Learned" section (if present), merges any collected skill feedback from the project's .ai-context/learning events, and writes the combined content as a timestamped file into the HQ's knowledge/patterns directory.
+        
+        Parameters:
+            project_path (str): Path to the project root to read AGENTS.md and project-local learning events. Defaults to the current directory.
+        """
         project_root = Path(project_path).resolve()
         agents_file = project_root / "AGENTS.md"
 
@@ -335,7 +417,11 @@ class HQService:
         print(f"📢 Synced new knowledge to: {knowledge_file.name}")
 
     def consolidate_knowledge(self):
-        """Processes raw knowledge and updates master roles/skills."""
+        """
+        Consolidates HQ knowledge patterns into role knowledge and updates skill quality.
+        
+        Reads markdown files from the HQ knowledge patterns directory, maps each pattern to a target role using keyword heuristics, appends synthesized knowledge to existing role files via _upskill_role when the role exists, moves processed pattern files to the HQ knowledge archive, and prints summaries. Also invokes _update_skill_quality before processing and prints informational messages if there are no patterns to process.
+        """
         self._update_skill_quality()
 
         patterns_dir = self.hq_path / "knowledge" / "patterns"
@@ -389,7 +475,14 @@ class HQService:
                 print(f"🚀 Upskilled '{target_role}' with knowledge from {k_file.name}")
 
     def _collect_skill_feedback(self, project_root: Path) -> List[str]:
-        """Collects skill feedback events and writes them to HQ logs."""
+        """
+        Collect human-readable skill feedback from a project's learning events and persist unseen events to HQ logs.
+        
+        Reads events from <project_root>/.ai-context/learning/events.jsonl, appends any unseen events to HQ/knowledge/skill_feedback.jsonl, updates HQ/knowledge/events_index.json to mark processed events, and returns a list of formatted feedback lines suitable for inclusion in learned summaries. Malformed event lines are ignored; if no events file is present, an empty list is returned.
+        
+        Returns:
+            List[str]: Formatted feedback lines such as "- [SkillFeedback][helpful] skill-id: optional note".
+        """
         events_file = project_root / ".ai-context" / "learning" / "events.jsonl"
         if not events_file.exists():
             return []
@@ -444,6 +537,11 @@ class HQService:
         return feedback_lines
 
     def _update_skill_quality(self):
+        """
+        Aggregate recent skill feedback into the HQ skill quality index and archive processed feedback.
+        
+        Reads `knowledge/skill_feedback.jsonl` from the HQ path, tallies per-skill usage and verdict counts (`use_count`, `helpful_count`, `harmful_count`), updates or creates `knowledge/skill_quality.json` with the aggregated data and an `updated_at` timestamp, and moves the processed feedback log into `knowledge/archive/` with a timestamped filename. Malformed JSON lines or events missing `skill_id` are ignored; an event `result` defaults to `"neutral"` when absent.
+        """
         feedback_log = self.hq_path / "knowledge" / "skill_feedback.jsonl"
         if not feedback_log.exists():
             return
@@ -493,8 +591,15 @@ class HQService:
 
     def _synthesize_wisdom(self, raw_text: str) -> str:
         """
-        Simulates an LLM to structure raw text into a Protocol.
-        Extracts 'Topic', 'Rule', and 'Type'.
+        Synthesize a concise Markdown "Protocol" block from raw project text.
+        
+        Extracts a Topic from a bracketed tag (e.g., `[Topic]`) or the first three words, removes that tag from the Rule text, selects a protocol type based on keywords (defaults to "🧠 Learned Protocol", or uses "🛠️ Verification Protocol" / "📐 Design Standard" when matches are found), and formats a Markdown-styled protocol that includes Topic, Rule, and Context.
+        
+        Parameters:
+            raw_text (str): Source text containing a potential topic tag and the rule or observation to synthesize.
+        
+        Returns:
+            str: A Markdown-formatted protocol string with a header showing the protocol type and topic, followed by quoted "Rule" and "Context" lines.
         """
         import re
 
@@ -530,7 +635,15 @@ class HQService:
         return synthesized
 
     def _upskill_role(self, role_name: str, knowledge_content: str):
-        """Appends knowledge to a specific role's Learned Protocols section."""
+        """
+        Append synthesized knowledge blocks to a role's "Learned Protocols" section in the HQ role file.
+        
+        This reads the existing role markdown at HQ/roles/{role_name}.md (no action if the file is missing), extracts the body of the provided knowledge_content (skipping its header), synthesizes each non-empty, non-heading line into a wisdom block via the service's _synthesize_wisdom method, and appends the resulting blocks to the role file. If the role file lacks a "## 7. Learned Protocols" section, the section header is inserted before appending.
+        
+        Parameters:
+            role_name (str): The name (stem) of the role markdown file to update (without extension).
+            knowledge_content (str): Raw knowledge text to process; header is ignored and subsequent lines are treated as items to synthesize.
+        """
         role_file = self.hq_path / "roles" / f"{role_name}.md"
         if not role_file.exists():
             return
@@ -559,6 +672,18 @@ class HQService:
         role_file.write_text(updated_content, encoding="utf-8")
 
     def _load_config(self, config_file: Path) -> AgencyConfig:
+        """
+        Load and validate an agency configuration from a YAML file.
+        
+        Parameters:
+            config_file (Path): Path to the YAML configuration file to read.
+        
+        Returns:
+            AgencyConfig: Parsed and validated configuration model.
+        
+        Raises:
+            ValueError: If the file cannot be read or the YAML cannot be parsed.
+        """
         try:
             with open(config_file, "r", encoding="utf-8") as f:
                 raw = yaml.safe_load(f) or {}

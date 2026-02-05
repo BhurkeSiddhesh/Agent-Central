@@ -8,8 +8,9 @@ app = typer.Typer()
 @app.command()
 def sync():
     """
-    Runs the 'Task Assigner' protocol (formerly ai sync).
-    Checks for PRs/branches and updates the Board.
+    Syncs agency state by activating the Task Assigner persona, inspecting repository state, and updating board assignments.
+    
+    Activates the "task-assigner" persona in HQ; if activation fails the command exits early. When executed inside a Git repository, it reads the current branch. Emits CLI status messages and updates the assignment board (e.g., SQUAD_GOAL.md) as part of the sync process.
     """
     hq = HQService()
     git = GitService()
@@ -51,8 +52,9 @@ def status():
 @app.command()
 def learn():
     """
-    Scans project for new patterns and syncs to HQ.
-    Look for '## Learned' section in AGENTS.md.
+    Scan the project for learned patterns and sync them to HQ.
+    
+    Searches the project root for learnable artifacts — including the "## Learned" section in AGENTS.md — and sends discovered knowledge to the HQ service.
     """
     hq = HQService()
     typer.echo("ðŸ§  Initiating Knowledge Feedback Loop...")
@@ -63,8 +65,9 @@ def learn():
 @app.command()
 def upskill():
     """
-    Consolidates raw knowledge from patterns/ into master roles.
-    Updates personas with learned protocols.
+    Consolidate collected project knowledge into canonical master roles and update agency personas.
+    
+    Runs the knowledge consolidation process so learned patterns from the repository are merged into master roles and persona definitions are refreshed.
     """
     hq = HQService()
     typer.echo("ðŸš€ Initiating Upskill Protocol (v2.4)...")
@@ -78,7 +81,14 @@ def feedback(
     result: str = typer.Option(..., "--result", help="helpful | neutral | harmful"),
     note: str = typer.Option("", "--note", help="Optional context or note"),
 ):
-    """Records skill feedback for learning and upskill."""
+    """
+    Record feedback about a skill for HQ learning and upskilling.
+    
+    Parameters:
+        skill (str): Skill ID to provide feedback for.
+        result (str): One of "helpful", "neutral", or "harmful" indicating the feedback outcome.
+        note (str): Optional context or note associated with the feedback.
+    """
     result = result.lower().strip()
     if result not in {"helpful", "neutral", "harmful"}:
         typer.echo("âŒ Invalid result. Use: helpful | neutral | harmful")

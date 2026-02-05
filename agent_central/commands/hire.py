@@ -12,11 +12,14 @@ def role(
     project: Annotated[str, typer.Option("--project", help="Path to the project root (looks for agency.yaml)")] = None
 ):
     """
-    Hires an agent or a full team.
+    Hire a single persona or a set of agents from a project configuration.
     
-    - If `role_name` is provided: Activates that specific persona.
-    - If `--config` is provided: Hires all agents listed in the config file.
-    - If `--project` is provided: Hires agents from `project/agency.yaml`.
+    When a role name is provided, activates that persona. When a config file is provided or an agency.yaml is found in the given project path (or current directory), hires agents listed in that config. If a project path is given but contains no agency.yaml, the command exits with an error.
+    
+    Parameters:
+    	role_name (str): Optional name of the role/persona to hire.
+    	config (str): Optional path to an agency.yaml configuration file to hire all agents from.
+    	project (str): Optional path to the project root; if provided, the command looks for an agency.yaml in this directory.
     """
     service = HQService()
     
@@ -53,4 +56,3 @@ def role(
              return
              
         typer.echo("ℹ️  Usage: ai hire [ROLE_NAME] or ai hire --project [PATH]")
-
