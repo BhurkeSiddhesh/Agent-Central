@@ -7,6 +7,7 @@ class SkillService:
         self.hq_path = hq_path
         self.skills_dir = self.hq_path / "skills"
         self.registry_file = self.skills_dir / "skills.json"
+        self._registry_cache = None
         
         if not self.skills_dir.exists():
             raise FileNotFoundError(f"Skills directory not found at {self.skills_dir}")
@@ -69,11 +70,24 @@ class SkillService:
 
     def load_registry(self):
         """Loads the registry from JSON."""
+        if self._registry_cache is not None:
+            return self._registry_cache
+
         if not self.registry_file.exists():
-            return self.build_registry()
+            registry = self.build_registry()
+        else:
+            with open(self.registry_file, "r", encoding="utf-8") as f:
+                registry = json.load(f)
         
-        with open(self.registry_file, "r", encoding="utf-8") as f:
-            return json.load(f)
+        # Pre-calculate tokens for performance
+        for skill in registry:
+            skill['_name_tokens'] = set(skill['name'].lower().split())
+            skill['_keyword_tokens'] = set([k.lower() for k in skill['keywords']])
+            # Pre-lowercase description for faster substring check
+            skill['_desc_lower'] = skill['description'].lower()
+
+        self._registry_cache = registry
+        return registry
 
     def search_skills(self, query: str, top_k: int = 5):
         """
@@ -103,18 +117,28 @@ class SkillService:
         score = 0
         
         # Check ID/Name (High weight)
-        skill_name_tokens = set(skill['name'].lower().split())
+        # Use pre-calculated tokens if available
+        skill_name_tokens = skill.get('_name_tokens')
+        if skill_name_tokens is None:
+             skill_name_tokens = set(skill['name'].lower().split())
+
         name_match = len(query_tokens.intersection(skill_name_tokens))
         score += name_match * 10
         
         # Check Keywords (Medium weight)
-        skill_keywords = set([k.lower() for k in skill['keywords']])
+        skill_keywords = skill.get('_keyword_tokens')
+        if skill_keywords is None:
+            skill_keywords = set([k.lower() for k in skill['keywords']])
+
         keyword_match = len(query_tokens.intersection(skill_keywords))
         score += keyword_match * 5
         
         # Check Description (Low weight)
         # Simple existence check
-        desc_lower = skill['description'].lower()
+        desc_lower = skill.get('_desc_lower')
+        if desc_lower is None:
+            desc_lower = skill['description'].lower()
+
         for token in query_tokens:
             if token in desc_lower:
                 score += 1
