@@ -7,6 +7,7 @@ for transcription, LLM, and TTS services.
 
 from typing import Dict, Any
 from abc import ABC, abstractmethod
+import asyncio
 import logging
 
 logger = logging.getLogger(__name__)
@@ -46,6 +47,84 @@ class TTSProvider(ABC):
 # ============================================================================
 # Multi-Provider Factory
 # ============================================================================
+
+
+class GoogleTranscriber(TranscriberProvider):
+    """Google Cloud Speech-to-Text transcriber implementation"""
+
+    def __init__(self, config: Dict[str, Any]):
+        self.config = config
+        self.language_code = config.get("language", "en-US")
+        self.sample_rate_hertz = config.get("sampleRate", 16000)
+
+        # Check if google-cloud-speech is available
+        try:
+            from google.cloud import speech
+            self.speech = speech
+        except ImportError:
+            logger.error("google-cloud-speech not installed. Please install with: pip install google-cloud-speech")
+            raise
+
+    async def transcribe_stream(self, audio_stream):
+        """
+        Transcribe streaming audio using Google Cloud Speech-to-Text
+
+        Args:
+            audio_stream: Async generator yielding audio bytes
+
+        Yields:
+            Dict containing 'text' and 'is_final' boolean
+        """
+        try:
+            client = self.speech.SpeechAsyncClient()
+        except Exception as e:
+            logger.error(f"Failed to create Google Speech client: {e}")
+            raise
+
+        config = self.speech.RecognitionConfig(
+            encoding=self.speech.RecognitionConfig.AudioEncoding.LINEAR16,
+            sample_rate_hertz=self.sample_rate_hertz,
+            language_code=self.language_code,
+        )
+
+        streaming_config = self.speech.StreamingRecognitionConfig(
+            config=config,
+            interim_results=True
+        )
+
+        # Bridge: Adapter to convert async generator of bytes to requests
+        async def request_generator():
+            # First request contains config
+            yield self.speech.StreamingRecognizeRequest(streaming_config=streaming_config)
+
+            # Subsequent requests contain audio
+            async for chunk in audio_stream:
+                if chunk:
+                    yield self.speech.StreamingRecognizeRequest(audio_content=chunk)
+
+        try:
+            # Call streaming_recognize
+            responses = await client.streaming_recognize(requests=request_generator())
+
+            async for response in responses:
+                if not response.results:
+                    continue
+
+                result = response.results[0]
+                if not result.alternatives:
+                    continue
+
+                transcript = result.alternatives[0].transcript
+                is_final = result.is_final
+
+                yield {
+                    "text": transcript,
+                    "is_final": is_final
+                }
+        except Exception as e:
+            logger.error(f"Error during Google transcription: {e}")
+            raise
+
 
 class VoiceComponentFactory:
     """
@@ -178,8 +257,7 @@ class VoiceComponentFactory:
     
     def _create_google_transcriber(self, config: Dict[str, Any]):
         """Create Google Cloud Speech transcriber"""
-        # TODO: Implement Google transcriber
-        raise NotImplementedError("Google transcriber not implemented")
+        return GoogleTranscriber(config)
     
     # ========================================================================
     # LLM Agent Implementations
