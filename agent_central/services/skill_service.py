@@ -7,6 +7,8 @@ class SkillService:
         self.hq_path = hq_path
         self.skills_dir = self.hq_path / "skills"
         self.registry_file = self.skills_dir / "skills.json"
+        self._registry_cache = None
+        self._index = None
         
         if not self.skills_dir.exists():
             raise FileNotFoundError(f"Skills directory not found at {self.skills_dir}")
@@ -69,11 +71,41 @@ class SkillService:
 
     def load_registry(self):
         """Loads the registry from JSON."""
+        if self._registry_cache:
+            return self._registry_cache
+
         if not self.registry_file.exists():
             return self.build_registry()
         
         with open(self.registry_file, "r", encoding="utf-8") as f:
-            return json.load(f)
+            self._registry_cache = json.load(f)
+            return self._registry_cache
+
+    def _build_index(self, registry):
+        """Builds an inverted index for faster search."""
+        index = {} # token -> set of skill indices
+
+        for idx, skill in enumerate(registry):
+            # Index Name
+            name_tokens = skill['name'].lower().split()
+            for token in name_tokens:
+                if token not in index: index[token] = set()
+                index[token].add(idx)
+
+            # Index Keywords
+            for kw in skill['keywords']:
+                kw_tokens = kw.lower().split()
+                for token in kw_tokens:
+                    if token not in index: index[token] = set()
+                    index[token].add(idx)
+
+            # Index Description (words)
+            desc_tokens = skill['description'].lower().split()
+            for token in desc_tokens:
+                if token not in index: index[token] = set()
+                index[token].add(idx)
+
+        self._index = index
 
     def search_skills(self, query: str, top_k: int = 5):
         """
@@ -84,10 +116,27 @@ class SkillService:
         if not query:
             return registry[:top_k] # Return random/first ones if no query
             
+        if self._index is None:
+            self._build_index(registry)
+
         scored_skills = []
         query_tokens = set(query.lower().split())
+        candidate_indices = set()
         
-        for skill in registry:
+        # Use inverted index to find candidates
+        # 1. Exact matches and Substring matches (simulated via vocabulary scan)
+        vocab_keys = self._index.keys()
+
+        for q_token in query_tokens:
+            # Check all indexed tokens to see if they contain the query token
+            # This handles both exact matches (q_token == vocab_token)
+            # and substring matches (q_token in vocab_token)
+            for vocab_token in vocab_keys:
+                if q_token in vocab_token:
+                    candidate_indices.update(self._index[vocab_token])
+
+        for idx in sorted(candidate_indices):
+            skill = registry[idx]
             score = self._calculate_score(skill, query_tokens)
             if score > 0:
                 scored_skills.append((score, skill))
