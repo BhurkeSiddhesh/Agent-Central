@@ -1,47 +1,9 @@
-"""
-Template: Multi-Provider Factory
-
-Use this template to create a factory that supports multiple providers
-for transcription, LLM, and TTS services.
-"""
-
-from typing import Dict, Any
-from abc import ABC, abstractmethod
 import logging
+from typing import Any, Dict
+from .interfaces import TranscriberProvider, LLMProvider, TTSProvider
+from .synthesizers.playht_synthesizer import PlayHTSynthesizer
 
 logger = logging.getLogger(__name__)
-
-
-# ============================================================================
-# Provider Interfaces
-# ============================================================================
-
-class TranscriberProvider(ABC):
-    """Abstract base class for transcriber providers"""
-    
-    @abstractmethod
-    async def transcribe_stream(self, audio_stream):
-        """Transcribe streaming audio"""
-        pass
-
-
-class LLMProvider(ABC):
-    """Abstract base class for LLM providers"""
-    
-    @abstractmethod
-    async def generate_response(self, messages, stream=True):
-        """Generate response from messages"""
-        pass
-
-
-class TTSProvider(ABC):
-    """Abstract base class for TTS providers"""
-    
-    @abstractmethod
-    async def synthesize_speech(self, text):
-        """Synthesize speech from text"""
-        pass
-
 
 # ============================================================================
 # Multi-Provider Factory
@@ -244,8 +206,7 @@ class VoiceComponentFactory:
     
     def _create_playht_synthesizer(self, config: Dict[str, Any]):
         """Create Play.ht synthesizer"""
-        # TODO: Implement Play.ht synthesizer
-        raise NotImplementedError("Play.ht synthesizer not implemented")
+        return PlayHTSynthesizer(config)
 
 
 # ============================================================================
