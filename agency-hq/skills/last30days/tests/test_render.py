@@ -22,7 +22,7 @@ class TestRenderCompact(unittest.TestCase):
             xai_model_used="grok-4-latest",
         )
 
-        result = render.render_compact(report)
+        result = render.render_compact(report, missing_keys="x")
 
         self.assertIn("test topic", result)
         self.assertIn("2026-01-01", result)
@@ -50,7 +50,7 @@ class TestRenderCompact(unittest.TestCase):
             ],
         )
 
-        result = render.render_compact(report)
+        result = render.render_compact(report, missing_keys="x")
 
         self.assertIn("R1", result)
         self.assertIn("Test Thread", result)
@@ -65,9 +65,9 @@ class TestRenderCompact(unittest.TestCase):
             mode="reddit-only",
         )
 
-        result = render.render_compact(report)
+        result = render.render_compact(report, missing_keys="x")
 
-        self.assertIn("xAI key", result)
+        self.assertIn("XAI_API_KEY", result)
 
 
 class TestRenderContextSnippet(unittest.TestCase):

@@ -1,8 +1,10 @@
 import typer
-from agent_central.services.hq_service import HQService
+
 from agent_central.services.git_service import GitService
+from agent_central.services.hq_service import HQService
 
 app = typer.Typer()
+
 
 @app.command()
 def sync():
@@ -14,7 +16,7 @@ def sync():
     git = GitService()
 
     typer.echo("🔄 Syncing Agency Logic...")
-    
+
     # 1. Switch to Task Assigner
     try:
         hq.set_active_persona("task-assigner")
@@ -29,8 +31,9 @@ def sync():
         typer.echo(f"ℹ️  Current Branch: {branch}")
         # In a real implementation, we would list PRs here
         pass
-    
+
     typer.echo("📋 Agency synced. Check SQUAD_GOAL.md for assignments.")
+
 
 @app.command()
 def status():
@@ -40,10 +43,11 @@ def status():
     try:
         content = hq.active_persona_file.read_text()
         # Extract first line (Title)
-        title = content.split('\n')[0]
+        title = content.split("\n")[0]
         typer.echo(f"👤 Active Agent: {title}")
     except:
         typer.echo("👤 Active Agent: None")
+
 
 @app.command()
 def learn():
@@ -54,7 +58,10 @@ def learn():
     hq = HQService()
     typer.echo("🧠 Initiating Knowledge Feedback Loop...")
     hq.learn_from_project(".")
-    typer.echo("💡 New knowledge synced. Run 'ai ops upskill' to consolidate into master roles.")
+    typer.echo(
+        "💡 New knowledge synced. Run 'ai ops upskill' to consolidate into master roles."
+    )
+
 
 @app.command()
 def upskill():
