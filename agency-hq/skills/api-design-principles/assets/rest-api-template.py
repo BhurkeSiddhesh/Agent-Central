@@ -3,6 +3,7 @@ Production-ready REST API template using FastAPI.
 Includes pagination, filtering, error handling, and best practices.
 """
 
+import os
 from fastapi import FastAPI, HTTPException, Query, Path, Depends, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
@@ -20,15 +21,21 @@ app = FastAPI(
 
 # Security Middleware
 # Trusted Host: Prevents HTTP Host Header attacks
+# Configure allowed_hosts in production using environment variable, e.g., ALLOWED_HOSTS="api.example.com"
+allowed_hosts = os.getenv("ALLOWED_HOSTS", "*").split(",")
+
 app.add_middleware(
     TrustedHostMiddleware,
-    allowed_hosts=["*"] # TODO: Configure this in production, e.g. ["api.example.com"]
+    allowed_hosts=allowed_hosts
 )
 
 # CORS: Configures Cross-Origin Resource Sharing
+# Configure allowed_origins in production using environment variable, e.g., ALLOWED_ORIGINS="https://example.com,https://api.example.com"
+allowed_origins = os.getenv("ALLOWED_ORIGINS", "*").split(",")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # TODO: Update this with specific origins in production
+    allow_origins=allowed_origins,
     allow_credentials=False, # TODO: Set to True if you need cookies/auth headers, but restrict origins
     allow_methods=["*"],
     allow_headers=["*"],
