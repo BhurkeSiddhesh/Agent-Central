@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def minSubArraySum(nums):
     """
     Given an array of integers nums, find the minimum sum of any non-empty sub-array

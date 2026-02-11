@@ -11,7 +11,7 @@ def histogram(test):
     histogram('') == {}
 
     """
-    if not test or test.strip() == "":
+    if not test or test.strip() == '':
         return {}
 
     letters = test.split()

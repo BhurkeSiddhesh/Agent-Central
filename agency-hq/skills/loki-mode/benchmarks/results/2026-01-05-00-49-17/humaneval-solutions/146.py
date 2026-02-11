@@ -7,7 +7,7 @@ def specialFilter(nums):
     specialFilter([33, -2, -3, 45, 21, 109]) => 2
     """
     count = 0
-    odd_digits = {"1", "3", "5", "7", "9"}
+    odd_digits = {'1', '3', '5', '7', '9'}
 
     for num in nums:
         if num > 10:

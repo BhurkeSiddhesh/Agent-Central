@@ -42,7 +42,7 @@ def minPath(grid, k):
 
     # Find the minimum neighbor of cell containing 1
     i, j = pos_1
-    min_neighbor = float("inf")
+    min_neighbor = float('inf')
     directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
     for di, dj in directions:
         ni, nj = i + di, j + dj

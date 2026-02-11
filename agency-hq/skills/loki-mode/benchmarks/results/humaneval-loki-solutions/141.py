@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def file_name_check(file_name):
     """Create a function which takes a string representing a file's name, and returns
     'Yes' if the the file's name is valid, and returns 'No' otherwise.
@@ -19,25 +18,25 @@ def file_name_check(file_name):
     file_name_check("1example.dll") # => 'No' (the name should start with a latin alphapet letter)
     """
     # Check for exactly one dot
-    if file_name.count(".") != 1:
-        return "No"
+    if file_name.count('.') != 1:
+        return 'No'
 
     # Split by dot
-    parts = file_name.split(".")
+    parts = file_name.split('.')
     prefix = parts[0]
     suffix = parts[1]
 
     # Check prefix is non-empty and starts with a letter
     if len(prefix) == 0 or not prefix[0].isalpha():
-        return "No"
+        return 'No'
 
     # Check suffix is valid
-    if suffix not in ["txt", "exe", "dll"]:
-        return "No"
+    if suffix not in ['txt', 'exe', 'dll']:
+        return 'No'
 
     # Count digits in entire filename
     digit_count = sum(1 for c in file_name if c.isdigit())
     if digit_count > 3:
-        return "No"
+        return 'No'
 
-    return "Yes"
+    return 'Yes'

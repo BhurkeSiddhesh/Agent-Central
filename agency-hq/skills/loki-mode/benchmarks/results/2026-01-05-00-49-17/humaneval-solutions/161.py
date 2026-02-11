@@ -21,4 +21,4 @@ def solve(s):
         else:
             result.append(c)
 
-    return "".join(result)
+    return ''.join(result)

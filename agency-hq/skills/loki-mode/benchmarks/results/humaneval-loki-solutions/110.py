@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def exchange(lst1, lst2):
     """In this problem, you will implement a function that takes two lists of numbers,
     and determines whether it is possible to perform an exchange of elements

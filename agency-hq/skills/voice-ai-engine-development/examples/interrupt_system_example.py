@@ -6,10 +6,10 @@ that allows users to interrupt the bot mid-sentence.
 """
 
 import asyncio
-import logging
 import threading
-from dataclasses import dataclass
 from typing import Any
+from dataclasses import dataclass
+import logging
 
 logger = logging.getLogger(__name__)
 
@@ -17,7 +17,6 @@ logger = logging.getLogger(__name__)
 # ============================================================================
 # InterruptibleEvent Pattern
 # ============================================================================
-
 
 class InterruptibleEvent:
     """
@@ -59,7 +58,6 @@ class InterruptibleEvent:
 # ============================================================================
 # Conversation with Interrupt Support
 # ============================================================================
-
 
 class ConversationWithInterrupts:
     """
@@ -118,7 +116,6 @@ class ConversationWithInterrupts:
 # Synthesis Worker with Interrupt Support
 # ============================================================================
 
-
 class SynthesisWorkerWithInterrupts:
     """
     Synthesis worker that supports interrupts
@@ -139,7 +136,7 @@ class SynthesisWorkerWithInterrupts:
         message: str,
         synthesis_result,
         stop_event: threading.Event,
-        seconds_per_chunk: float = 0.1,
+        seconds_per_chunk: float = 0.1
     ) -> tuple[str, bool]:
         """
         Send synthesized speech to output with interrupt support
@@ -197,7 +194,6 @@ class SynthesisWorkerWithInterrupts:
 # Transcription Worker with Interrupt Detection
 # ============================================================================
 
-
 class TranscriptionWorkerWithInterrupts:
     """
     Transcription worker that detects interrupts
@@ -238,7 +234,6 @@ class TranscriptionWorkerWithInterrupts:
 # Example Usage
 # ============================================================================
 
-
 @dataclass
 class MockTranscription:
     message: str
@@ -251,13 +246,11 @@ class MockSynthesisResult:
         """Generate mock audio chunks"""
         for i in range(10):
             await asyncio.sleep(0.1)
-            yield type("obj", (object,), {"chunk": b"\x00" * 1024})()
+            yield type('obj', (object,), {'chunk': b'\x00' * 1024})()
 
     def get_message_up_to(self, seconds: float) -> str:
         """Get partial message up to specified seconds"""
-        full_message = (
-            "I think the weather will be nice today and tomorrow and the day after."
-        )
+        full_message = "I think the weather will be nice today and tomorrow and the day after."
         chars_per_second = len(full_message) / 1.0  # Assume 1 second total
         char_index = int(seconds * chars_per_second)
         return full_message[:char_index]
@@ -296,14 +289,13 @@ async def example_interrupt_scenario():
     # Create interruptible event
     stop_event = threading.Event()
     interruptible_event = InterruptibleEvent(
-        payload="Bot is speaking...", is_interruptible=True
+        payload="Bot is speaking...",
+        is_interruptible=True
     )
     conversation.add_interruptible_event(interruptible_event)
 
     # Start bot speaking
-    print(
-        "🤖 Bot starts speaking: 'I think the weather will be nice today and tomorrow and the day after.'\n"
-    )
+    print("🤖 Bot starts speaking: 'I think the weather will be nice today and tomorrow and the day after.'\n")
     conversation.is_human_speaking = False
 
     # Simulate synthesis in background
@@ -313,7 +305,7 @@ async def example_interrupt_scenario():
             message="I think the weather will be nice today and tomorrow and the day after.",
             synthesis_result=synthesis_result,
             stop_event=stop_event,
-            seconds_per_chunk=0.1,
+            seconds_per_chunk=0.1
         )
     )
 

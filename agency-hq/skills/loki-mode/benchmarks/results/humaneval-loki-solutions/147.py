@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def get_max_triples(n):
     """
     You are given a positive integer n. You have to create an integer array a of length n.

@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def encode(message):
     """
     Write a function that takes a message, and encodes in such a
@@ -18,7 +17,7 @@ def encode(message):
     >>> encode('This is a message')
     'tHKS KS C MGSSCGG'
     """
-    vowels = "aeiouAEIOU"
+    vowels = 'aeiouAEIOU'
     result = []
 
     for char in message:
@@ -28,4 +27,4 @@ def encode(message):
         else:
             result.append(swapped)
 
-    return "".join(result)
+    return ''.join(result)

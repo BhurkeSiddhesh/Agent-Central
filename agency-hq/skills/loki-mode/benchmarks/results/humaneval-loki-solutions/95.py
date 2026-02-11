@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def check_dict_case(dict):
     """
     Given a dictionary, return True if all keys are strings in lower

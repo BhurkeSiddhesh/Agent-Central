@@ -6,8 +6,8 @@ in your voice AI pipeline.
 """
 
 import asyncio
-import logging
 from typing import Any
+import logging
 
 logger = logging.getLogger(__name__)
 
@@ -69,7 +69,7 @@ class BaseWorker:
                 # Log error but don't crash the worker
                 logger.error(
                     f"❌ [{self.__class__.__name__}] Error processing item: {e}",
-                    exc_info=True,
+                    exc_info=True
                 )
                 # Continue processing next item
 
@@ -82,7 +82,9 @@ class BaseWorker:
         Args:
             item: The item to process
         """
-        raise NotImplementedError(f"{self.__class__.__name__} must implement process()")
+        raise NotImplementedError(
+            f"{self.__class__.__name__} must implement process()"
+        )
 
     def terminate(self):
         """
@@ -109,7 +111,6 @@ class BaseWorker:
 # ============================================================================
 # Example: Custom Worker Implementation
 # ============================================================================
-
 
 class ExampleWorker(BaseWorker):
     """
@@ -153,7 +154,6 @@ class ExampleWorker(BaseWorker):
 # ============================================================================
 # Example Usage
 # ============================================================================
-
 
 async def example_usage():
     """Example of how to use the worker"""

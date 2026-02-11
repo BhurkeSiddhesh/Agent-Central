@@ -16,7 +16,7 @@ def hex_key(num):
     For num = "123456789ABCDEF0" the output should be 6.
     For num = "2020" the output should be 2.
     """
-    prime_hex_digits = {"2", "3", "5", "7", "B", "D"}
+    prime_hex_digits = {'2', '3', '5', '7', 'B', 'D'}
     count = 0
     for digit in num:
         if digit in prime_hex_digits:

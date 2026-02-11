@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def next_smallest(lst):
     """
     You are given a list of integers.

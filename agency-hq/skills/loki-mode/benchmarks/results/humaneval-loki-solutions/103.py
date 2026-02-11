@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def rounded_avg(n, m):
     """You are given two positive integers n and m, and your task is to compute the
     average of the integers from n through m (including n and m).

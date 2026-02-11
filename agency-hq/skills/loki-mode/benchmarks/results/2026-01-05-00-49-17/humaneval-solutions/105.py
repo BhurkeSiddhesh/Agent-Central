@@ -29,7 +29,7 @@ def by_length(arr):
         6: "Six",
         7: "Seven",
         8: "Eight",
-        9: "Nine",
+        9: "Nine"
     }
 
     filtered = [x for x in arr if 1 <= x <= 9]

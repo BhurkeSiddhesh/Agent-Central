@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def solve(s):
     """You are given a string s.
     if s[i] is a letter, reverse its case from lower to upper or vise versa,
@@ -27,4 +26,4 @@ def solve(s):
         else:
             result.append(c)
 
-    return "".join(result)
+    return ''.join(result)

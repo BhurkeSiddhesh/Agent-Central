@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def prime_fib(n: int):
     """
     prime_fib returns n-th number that is a Fibonacci number and it's also prime.
@@ -18,7 +17,6 @@ def prime_fib(n: int):
     >>> prime_fib(5)
     89
     """
-
     def is_prime(num):
         if num < 2:
             return False
@@ -26,7 +24,7 @@ def prime_fib(n: int):
             return True
         if num % 2 == 0:
             return False
-        for i in range(3, int(num**0.5) + 1, 2):
+        for i in range(3, int(num ** 0.5) + 1, 2):
             if num % i == 0:
                 return False
         return True

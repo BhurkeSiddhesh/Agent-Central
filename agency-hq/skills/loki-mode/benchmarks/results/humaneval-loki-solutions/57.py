@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def monotonic(l: list):
     """Return True is list elements are monotonically increasing or decreasing.
     >>> monotonic([1, 2, 4, 20])

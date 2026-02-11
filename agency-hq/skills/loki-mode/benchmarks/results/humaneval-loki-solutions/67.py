@@ -3,8 +3,7 @@
 # Attempts: 1
 # Passed: True
 
-
-def fruit_distribution(s, n):
+def fruit_distribution(s,n):
     """
     In this task, you will be given a string that represents a number of apples and oranges
     that are distributed in a basket of fruit this basket contains
@@ -18,7 +17,6 @@ def fruit_distribution(s, n):
     fruit_distribution("100 apples and 1 oranges",120) -> 120 - 100 - 1 = 19
     """
     import re
-
-    numbers = re.findall(r"\d+", s)
+    numbers = re.findall(r'\d+', s)
     apples_and_oranges = sum(int(num) for num in numbers)
     return n - apples_and_oranges

@@ -14,9 +14,9 @@ def encrypt(s):
         if char.isalpha():
             shift = 2 * 2  # two multiplied to two = 4
             if char.islower():
-                new_char = chr((ord(char) - ord("a") + shift) % 26 + ord("a"))
+                new_char = chr((ord(char) - ord('a') + shift) % 26 + ord('a'))
             else:
-                new_char = chr((ord(char) - ord("A") + shift) % 26 + ord("A"))
+                new_char = chr((ord(char) - ord('A') + shift) % 26 + ord('A'))
             result += new_char
         else:
             result += char

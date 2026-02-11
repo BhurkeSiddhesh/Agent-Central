@@ -13,7 +13,6 @@ def _log_error(msg: str):
     sys.stderr.write(f"[X ERROR] {msg}\n")
     sys.stderr.flush()
 
-
 # xAI uses responses endpoint with Agent Tools API
 XAI_RESPONSES_URL = "https://api.x.ai/v1/responses"
 
@@ -95,7 +94,9 @@ def search_x(
     # Use Agent Tools API with x_search tool
     payload = {
         "model": model,
-        "tools": [{"type": "x_search"}],
+        "tools": [
+            {"type": "x_search"}
+        ],
         "input": [
             {
                 "role": "user",
@@ -127,9 +128,7 @@ def parse_x_response(response: Dict[str, Any]) -> List[Dict[str, Any]]:
     # Check for API errors first
     if "error" in response and response["error"]:
         error = response["error"]
-        err_msg = (
-            error.get("message", str(error)) if isinstance(error, dict) else str(error)
-        )
+        err_msg = error.get("message", str(error)) if isinstance(error, dict) else str(error)
         _log_error(f"xAI API error: {err_msg}")
         if http.DEBUG:
             _log_error(f"Full error response: {json.dumps(response, indent=2)[:1000]}")
@@ -192,15 +191,9 @@ def parse_x_response(response: Dict[str, Any]) -> List[Dict[str, Any]]:
         if isinstance(eng_raw, dict):
             engagement = {
                 "likes": int(eng_raw.get("likes", 0)) if eng_raw.get("likes") else None,
-                "reposts": (
-                    int(eng_raw.get("reposts", 0)) if eng_raw.get("reposts") else None
-                ),
-                "replies": (
-                    int(eng_raw.get("replies", 0)) if eng_raw.get("replies") else None
-                ),
-                "quotes": (
-                    int(eng_raw.get("quotes", 0)) if eng_raw.get("quotes") else None
-                ),
+                "reposts": int(eng_raw.get("reposts", 0)) if eng_raw.get("reposts") else None,
+                "replies": int(eng_raw.get("replies", 0)) if eng_raw.get("replies") else None,
+                "quotes": int(eng_raw.get("quotes", 0)) if eng_raw.get("quotes") else None,
             }
 
         clean_item = {
@@ -216,7 +209,7 @@ def parse_x_response(response: Dict[str, Any]) -> List[Dict[str, Any]]:
 
         # Validate date format
         if clean_item["date"]:
-            if not re.match(r"^\d{4}-\d{2}-\d{2}$", str(clean_item["date"])):
+            if not re.match(r'^\d{4}-\d{2}-\d{2}$', str(clean_item["date"])):
                 clean_item["date"] = None
 
         clean_items.append(clean_item)

@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def is_multiply_prime(a):
     """Write a function that returns true if the given number is the multiplication of 3 prime numbers
     and false otherwise.
@@ -12,7 +11,6 @@ def is_multiply_prime(a):
     is_multiply_prime(30) == True
     30 = 2 * 3 * 5
     """
-
     def is_prime(n):
         if n < 2:
             return False

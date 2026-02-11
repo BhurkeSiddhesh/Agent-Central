@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def vowels_count(s):
     """Write a function vowels_count which takes a string representing
     a word as input and returns the number of vowels in the string.
@@ -24,7 +23,7 @@ def vowels_count(s):
         if char in vowels:
             count += 1
 
-    if s_lower and s_lower[-1] == "y":
+    if s_lower and s_lower[-1] == 'y':
         count += 1
 
     return count

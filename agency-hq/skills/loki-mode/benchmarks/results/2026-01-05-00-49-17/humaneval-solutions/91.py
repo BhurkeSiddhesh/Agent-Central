@@ -11,11 +11,10 @@ def is_bored(S):
     1
     """
     import re
-
-    sentences = re.split(r"[.?!]", S)
+    sentences = re.split(r'[.?!]', S)
     count = 0
     for sentence in sentences:
         stripped = sentence.lstrip()
-        if stripped.startswith("I ") or stripped == "I":
+        if stripped.startswith('I ') or stripped == 'I':
             count += 1
     return count

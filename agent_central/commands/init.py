@@ -1,19 +1,14 @@
-import os
-from pathlib import Path
-
 import typer
 from typing_extensions import Annotated
-
 from agent_central.services.hq_service import HQService
+from pathlib import Path
+import os
 
 app = typer.Typer()
 
-
 @app.command()
 def project(
-    hq_source: Annotated[
-        str, typer.Option("--hq", help="Path to the HQ source (local path)")
-    ] = "agency-hq",
+    hq_source: Annotated[str, typer.Option("--hq", help="Path to the HQ source (local path)")] = "agency-hq"
 ):
     """
     Initializes the AI-Ops project structure.

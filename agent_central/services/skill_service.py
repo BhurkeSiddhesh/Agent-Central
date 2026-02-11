@@ -1,7 +1,6 @@
 import json
-import os
 from pathlib import Path
-
+import os
 
 class SkillService:
     def __init__(self, hq_path: Path):
@@ -26,7 +25,7 @@ class SkillService:
 
                 # Heuristic: Read first few lines of README or SKILL.md for description
                 description = "No description available."
-                keywords = [skill_id.replace("-", " ")]  # Default keywords from ID
+                keywords = [skill_id.replace("-", " ")] # Default keywords from ID
 
                 content_source = None
                 if readme_path.exists():
@@ -41,9 +40,7 @@ class SkillService:
                         # Extract description (first non-header line usually)
                         for line in lines:
                             if not line.startswith("#"):
-                                description = (
-                                    line[:200] + "..." if len(line) > 200 else line
-                                )
+                                description = line[:200] + "..." if len(line) > 200 else line
                                 break
 
                         # Extract keywords/tags if present (e.g., Tags: python, backend)
@@ -55,15 +52,13 @@ class SkillService:
                     except Exception as e:
                         print(f"⚠️  Error reading {skill_id}: {e}")
 
-                registry.append(
-                    {
-                        "id": skill_id,
-                        "name": skill_id.replace("-", " ").title(),
-                        "description": description,
-                        "keywords": list(set(keywords)),  # Deduplicate
-                        "path": str(skill_path.relative_to(self.hq_path)),
-                    }
-                )
+                registry.append({
+                    "id": skill_id,
+                    "name": skill_id.replace("-", " ").title(),
+                    "description": description,
+                    "keywords": list(set(keywords)), # Deduplicate
+                    "path": str(skill_path.relative_to(self.hq_path))
+                })
 
         # Save registry
         with open(self.registry_file, "w", encoding="utf-8") as f:
@@ -87,7 +82,7 @@ class SkillService:
         """
         registry = self.load_registry()
         if not query:
-            return registry[:top_k]  # Return random/first ones if no query
+            return registry[:top_k] # Return random/first ones if no query
 
         scored_skills = []
         query_tokens = set(query.lower().split())
@@ -108,18 +103,18 @@ class SkillService:
         score = 0
 
         # Check ID/Name (High weight)
-        skill_name_tokens = set(skill["name"].lower().split())
+        skill_name_tokens = set(skill['name'].lower().split())
         name_match = len(query_tokens.intersection(skill_name_tokens))
         score += name_match * 10
 
         # Check Keywords (Medium weight)
-        skill_keywords = set([k.lower() for k in skill["keywords"]])
+        skill_keywords = set([k.lower() for k in skill['keywords']])
         keyword_match = len(query_tokens.intersection(skill_keywords))
         score += keyword_match * 5
 
         # Check Description (Low weight)
         # Simple existence check
-        desc_lower = skill["description"].lower()
+        desc_lower = skill['description'].lower()
         for token in query_tokens:
             if token in desc_lower:
                 score += 1

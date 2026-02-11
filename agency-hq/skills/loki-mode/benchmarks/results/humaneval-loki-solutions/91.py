@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def is_bored(S):
     """
     You'll be given a string of words, and your task is to count the number
@@ -21,7 +20,7 @@ def is_bored(S):
     if not S:
         return 0
 
-    sentences = re.split(r"[.?!]", S)
+    sentences = re.split(r'[.?!]', S)
     count = 0
 
     for sentence in sentences:

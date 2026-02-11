@@ -4,7 +4,7 @@ import re
 from typing import Any, Dict, List, Optional
 from urllib.parse import urlparse
 
-from . import dates, http
+from . import http, dates
 
 
 def extract_reddit_path(url: str) -> Optional[str]:
@@ -25,9 +25,7 @@ def extract_reddit_path(url: str) -> Optional[str]:
         return None
 
 
-def fetch_thread_data(
-    url: str, mock_data: Optional[Dict] = None
-) -> Optional[Dict[str, Any]]:
+def fetch_thread_data(url: str, mock_data: Optional[Dict] = None) -> Optional[Dict[str, Any]]:
     """Fetch Reddit thread JSON data.
 
     Args:
@@ -144,17 +142,17 @@ def extract_comment_insights(comments: List[Dict], limit: int = 7) -> List[str]:
     """
     insights = []
 
-    for comment in comments[: limit * 2]:  # Look at more comments than we need
+    for comment in comments[:limit * 2]:  # Look at more comments than we need
         body = comment.get("body", "").strip()
         if not body or len(body) < 30:
             continue
 
         # Skip low-value patterns
         skip_patterns = [
-            r"^(this|same|agreed|exactly|yep|nope|yes|no|thanks|thank you)\.?$",
-            r"^lol|lmao|haha",
-            r"^\[deleted\]",
-            r"^\[removed\]",
+            r'^(this|same|agreed|exactly|yep|nope|yes|no|thanks|thank you)\.?$',
+            r'^lol|lmao|haha',
+            r'^\[deleted\]',
+            r'^\[removed\]',
         ]
         if any(re.match(p, body.lower()) for p in skip_patterns):
             continue
@@ -164,8 +162,8 @@ def extract_comment_insights(comments: List[Dict], limit: int = 7) -> List[str]:
         if len(body) > 150:
             # Try to find a sentence boundary
             for i, char in enumerate(insight):
-                if char in ".!?" and i > 50:
-                    insight = insight[: i + 1]
+                if char in '.!?' and i > 50:
+                    insight = insight[:i+1]
                     break
             else:
                 insight = insight.rstrip() + "..."
@@ -220,15 +218,13 @@ def enrich_reddit_item(
     for c in top_comments:
         permalink = c.get("permalink", "")
         comment_url = f"https://reddit.com{permalink}" if permalink else ""
-        item["top_comments"].append(
-            {
-                "score": c.get("score", 0),
-                "date": dates.timestamp_to_date(c.get("created_utc")),
-                "author": c.get("author", ""),
-                "excerpt": c.get("body", "")[:200],
-                "url": comment_url,
-            }
-        )
+        item["top_comments"].append({
+            "score": c.get("score", 0),
+            "date": dates.timestamp_to_date(c.get("created_utc")),
+            "author": c.get("author", ""),
+            "excerpt": c.get("body", "")[:200],
+            "url": comment_url,
+        })
 
     # Extract insights
     item["comment_insights"] = extract_comment_insights(top_comments)

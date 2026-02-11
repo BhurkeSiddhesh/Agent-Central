@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def even_odd_palindrome(n):
     """
     Given a positive integer n, return a tuple that has the number of even and odd

@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def count_up_to(n):
     """Implement a function that takes an non-negative integer and returns an array of the first n
     integers that are prime numbers and less than n.

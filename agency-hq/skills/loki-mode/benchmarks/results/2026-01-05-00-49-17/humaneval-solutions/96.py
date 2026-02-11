@@ -9,7 +9,6 @@ def count_up_to(n):
     count_up_to(1) => []
     count_up_to(18) => [2,3,5,7,11,13,17]
     """
-
     def is_prime(num):
         if num < 2:
             return False
@@ -17,7 +16,7 @@ def count_up_to(n):
             return True
         if num % 2 == 0:
             return False
-        for i in range(3, int(num**0.5) + 1, 2):
+        for i in range(3, int(num ** 0.5) + 1, 2):
             if num % i == 0:
                 return False
         return True

@@ -10,7 +10,6 @@ def unique_digits(x):
     >>> unique_digits([152, 323, 1422, 10])
     []
     """
-
     def has_even_digit(n):
         while n > 0:
             digit = n % 10

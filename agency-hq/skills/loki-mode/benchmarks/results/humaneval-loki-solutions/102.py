@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def choose_num(x, y):
     """This function takes two positive numbers x and y and returns the
     biggest even integer number that is in the range [x, y] inclusive. If

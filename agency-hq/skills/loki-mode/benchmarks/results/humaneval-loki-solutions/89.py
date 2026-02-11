@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def encrypt(s):
     """Create a function encrypt that takes a string as an argument and
     returns a string encrypted with the alphabet being rotated.
@@ -18,9 +17,9 @@ def encrypt(s):
     result = []
     for c in s:
         if c.islower():
-            result.append(chr((ord(c) - ord("a") + 4) % 26 + ord("a")))
+            result.append(chr((ord(c) - ord('a') + 4) % 26 + ord('a')))
         elif c.isupper():
-            result.append(chr((ord(c) - ord("A") + 4) % 26 + ord("A")))
+            result.append(chr((ord(c) - ord('A') + 4) % 26 + ord('A')))
         else:
             result.append(c)
-    return "".join(result)
+    return ''.join(result)

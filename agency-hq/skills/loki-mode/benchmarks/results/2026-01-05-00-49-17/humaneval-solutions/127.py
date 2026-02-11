@@ -18,7 +18,6 @@ def intersection(interval1, interval2):
     intersection((-1, 1), (0, 4)) ==> "NO"
     intersection((-3, -1), (-5, 5)) ==> "YES"
     """
-
     def is_prime(n):
         if n < 2:
             return False

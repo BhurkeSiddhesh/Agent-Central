@@ -1,10 +1,8 @@
 import typer
-
-from agent_central.services.hq_service import HQService
 from agent_central.services.skill_service import SkillService
+from agent_central.services.hq_service import HQService
 
 app = typer.Typer()
-
 
 @app.command()
 def index():
@@ -12,7 +10,6 @@ def index():
     hq = HQService()
     service = SkillService(hq.hq_path)
     service.build_registry()
-
 
 @app.command()
 def search(query: str):

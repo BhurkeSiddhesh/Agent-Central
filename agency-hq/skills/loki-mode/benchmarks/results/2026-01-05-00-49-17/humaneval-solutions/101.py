@@ -11,5 +11,5 @@ def words_string(s):
         return []
 
     # Replace commas with spaces, then split on whitespace
-    s = s.replace(",", " ")
+    s = s.replace(',', ' ')
     return s.split()

@@ -9,7 +9,6 @@ def order_by_points(nums):
     >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
     >>> order_by_points([]) == []
     """
-
     def digit_sum(n):
         s = str(abs(n))
         total = 0

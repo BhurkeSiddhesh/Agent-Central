@@ -7,7 +7,7 @@ def count_upper(s):
     count_upper('abcdefg') returns 0
     count_upper('dBBE') returns 0
     """
-    uppercase_vowels = "AEIOU"
+    uppercase_vowels = 'AEIOU'
     count = 0
     for i in range(0, len(s), 2):
         if s[i] in uppercase_vowels:

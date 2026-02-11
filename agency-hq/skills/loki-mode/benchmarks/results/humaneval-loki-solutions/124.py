@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def valid_date(date):
     """You have to write a function which validates a given date string and
     returns True if the date is valid otherwise False.
@@ -27,7 +26,7 @@ def valid_date(date):
     if not date or not isinstance(date, str):
         return False
 
-    parts = date.split("-")
+    parts = date.split('-')
     if len(parts) != 3:
         return False
 

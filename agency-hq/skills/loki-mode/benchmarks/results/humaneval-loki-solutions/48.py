@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def is_palindrome(text: str):
     """
     Checks if given string is a palindrome

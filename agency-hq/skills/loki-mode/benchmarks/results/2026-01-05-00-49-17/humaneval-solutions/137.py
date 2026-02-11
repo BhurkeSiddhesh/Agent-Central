@@ -10,7 +10,6 @@ def compare_one(a, b):
     compare_one("5,1", "6") ➞ "6"
     compare_one("1", 1) ➞ None
     """
-
     def to_float(x):
         if isinstance(x, str):
             return float(x.replace(",", "."))

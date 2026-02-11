@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def sort_array(array):
     """
     Given an array of non-negative integers, return a copy of the given array after sorting,

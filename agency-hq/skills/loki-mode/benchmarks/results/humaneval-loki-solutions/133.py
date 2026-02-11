@@ -5,7 +5,6 @@
 
 import math
 
-
 def sum_squares(lst):
     """You are given a list of numbers.
     You need to return the sum of squared numbers in the given list,
@@ -19,4 +18,4 @@ def sum_squares(lst):
 
 
     """
-    return sum(math.ceil(x) ** 2 for x in lst)
+    return sum(math.ceil(x)**2 for x in lst)

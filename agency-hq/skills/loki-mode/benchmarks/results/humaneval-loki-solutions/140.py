@@ -5,7 +5,6 @@
 
 import re
 
-
 def fix_spaces(text):
     """
     Given a string text, replace all spaces in it with underscores,
@@ -17,12 +16,11 @@ def fix_spaces(text):
     fix_spaces(" Example 2") == "_Example_2"
     fix_spaces(" Example   3") == "_Example-3"
     """
-
     def replace_spaces(match):
         spaces = match.group(0)
         if len(spaces) > 2:
-            return "-"
+            return '-'
         else:
-            return "_" * len(spaces)
+            return '_' * len(spaces)
 
-    return re.sub(r" +", replace_spaces, text)
+    return re.sub(r' +', replace_spaces, text)

@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def fib(n: int):
     """Return n-th Fibonacci number.
     >>> fib(10)

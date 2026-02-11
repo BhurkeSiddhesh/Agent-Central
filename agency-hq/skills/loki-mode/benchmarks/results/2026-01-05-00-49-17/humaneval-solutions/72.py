@@ -1,5 +1,5 @@
-def will_it_fly(q, w):
-    """
+def will_it_fly(q,w):
+    '''
     Write a function that returns True if the object q will fly, and False otherwise.
     The object q will fly if it's balanced (it is a palindromic list) and the sum of its elements is less than or equal the maximum possible weight w.
 
@@ -15,7 +15,7 @@ def will_it_fly(q, w):
 
     will_it_fly([3], 5) ➞ True
     # 3 is less than the maximum possible weight, and it's balanced.
-    """
+    '''
     is_balanced = q == q[::-1]
     is_light_enough = sum(q) <= w
     return is_balanced and is_light_enough

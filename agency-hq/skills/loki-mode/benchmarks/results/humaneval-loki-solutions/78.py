@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def hex_key(num):
     """You have been tasked to write a function that receives
     a hexadecimal number as a string and counts the number of hexadecimal
@@ -22,7 +21,7 @@ def hex_key(num):
     For num = "123456789ABCDEF0" the output should be 6.
     For num = "2020" the output should be 2.
     """
-    prime_hex_digits = {"2", "3", "5", "7", "B", "D"}
+    prime_hex_digits = {'2', '3', '5', '7', 'B', 'D'}
     count = 0
     for char in num:
         if char in prime_hex_digits:

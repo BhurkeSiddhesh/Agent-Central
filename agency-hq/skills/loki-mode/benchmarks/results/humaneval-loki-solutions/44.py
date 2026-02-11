@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def change_base(x: int, base: int):
     """Change numerical base of input number x to base.
     return string representation after the conversion.
@@ -16,11 +15,11 @@ def change_base(x: int, base: int):
     '111'
     """
     if x == 0:
-        return "0"
+        return '0'
 
     digits = []
     while x > 0:
         digits.append(str(x % base))
         x //= base
 
-    return "".join(reversed(digits))
+    return ''.join(reversed(digits))

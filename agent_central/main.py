@@ -1,6 +1,5 @@
 import typer
-
-from agent_central.commands import hire, init, ops, skills
+from agent_central.commands import init, hire, ops, skills
 
 app = typer.Typer(
     name="ai-ops",

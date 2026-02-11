@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def select_words(s, n):
     """Given a string s and a natural number n, you have been tasked to implement
     a function that returns a list of all words from string s that contain exactly
@@ -24,9 +23,7 @@ def select_words(s, n):
     result = []
 
     for word in s.split():
-        consonant_count = sum(
-            1 for char in word if char.isalpha() and char not in vowels
-        )
+        consonant_count = sum(1 for char in word if char.isalpha() and char not in vowels)
         if consonant_count == n:
             result.append(word)
 

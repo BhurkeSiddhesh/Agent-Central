@@ -13,23 +13,23 @@ def file_name_check(file_name):
     file_name_check("1example.dll") # => 'No' (the name should start with a latin alphapet letter)
     """
     # Check for exactly one dot
-    if file_name.count(".") != 1:
-        return "No"
+    if file_name.count('.') != 1:
+        return 'No'
 
     # Split the file name into name and extension
-    name, extension = file_name.split(".")
+    name, extension = file_name.split('.')
 
     # Check if the name is not empty and starts with a letter
     if len(name) == 0 or not name[0].isalpha():
-        return "No"
+        return 'No'
 
     # Check if extension is valid
-    if extension not in ["txt", "exe", "dll"]:
-        return "No"
+    if extension not in ['txt', 'exe', 'dll']:
+        return 'No'
 
     # Count digits in the entire file name
     digit_count = sum(1 for char in file_name if char.isdigit())
     if digit_count > 3:
-        return "No"
+        return 'No'
 
-    return "Yes"
+    return 'Yes'

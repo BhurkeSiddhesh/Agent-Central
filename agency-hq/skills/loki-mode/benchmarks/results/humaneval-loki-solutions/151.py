@@ -3,9 +3,8 @@
 # Attempts: 1
 # Passed: True
 
-
 def double_the_difference(lst):
-    """
+    '''
     Given a list of numbers, return the sum of squares of the numbers
     in the list that are odd. Ignore numbers that are negative or not integers.
 
@@ -15,7 +14,7 @@ def double_the_difference(lst):
     double_the_difference([0]) == 0
 
     If the input list is empty, return 0.
-    """
+    '''
     total = 0
     for n in lst:
         if isinstance(n, int) and not isinstance(n, bool) and n > 0 and n % 2 != 0:

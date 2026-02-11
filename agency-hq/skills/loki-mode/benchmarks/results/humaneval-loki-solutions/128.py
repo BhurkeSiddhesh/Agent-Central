@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def prod_signs(arr):
     """
     You are given an array arr of integers and you need to return

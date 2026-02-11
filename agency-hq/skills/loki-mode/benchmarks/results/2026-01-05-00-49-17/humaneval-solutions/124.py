@@ -22,7 +22,7 @@ def valid_date(date):
         return False
 
     try:
-        parts = date.split("-")
+        parts = date.split('-')
         if len(parts) != 3:
             return False
 

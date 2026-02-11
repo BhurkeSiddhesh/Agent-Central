@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def intersection(interval1, interval2):
     """You are given two intervals,
     where each interval is a pair of integers. For example, interval = (start, end) = (1, 2).
@@ -35,7 +34,7 @@ def intersection(interval1, interval2):
     if length < 2:
         return "NO"
 
-    for i in range(2, int(length**0.5) + 1):
+    for i in range(2, int(length ** 0.5) + 1):
         if length % i == 0:
             return "NO"
 

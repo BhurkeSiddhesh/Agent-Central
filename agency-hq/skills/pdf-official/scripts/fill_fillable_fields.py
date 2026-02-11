@@ -1,8 +1,10 @@
 import json
 import sys
 
-from extract_form_field_info import get_field_info
 from pypdf import PdfReader, PdfWriter
+
+from extract_form_field_info import get_field_info
+
 
 # Fills fillable form fields in a PDF. See forms.md.
 
@@ -32,9 +34,7 @@ def fill_pdf_fields(input_pdf_path: str, fields_json_path: str, output_pdf_path:
             print(f"ERROR: `{field['field_id']}` is not a valid field ID")
         elif field["page"] != existing_field["page"]:
             has_error = True
-            print(
-                f"ERROR: Incorrect page number for `{field['field_id']}` (got {field['page']}, expected {existing_field['page']})"
-            )
+            print(f"ERROR: Incorrect page number for `{field['field_id']}` (got {field['page']}, expected {existing_field['page']})")
         else:
             if "value" in field:
                 err = validation_error_for_field_value(existing_field, field["value"])
@@ -46,9 +46,7 @@ def fill_pdf_fields(input_pdf_path: str, fields_json_path: str, output_pdf_path:
 
     writer = PdfWriter(clone_from=reader)
     for page, field_values in fields_by_page.items():
-        writer.update_page_form_field_values(
-            writer.pages[page - 1], field_values, auto_regenerate=False
-        )
+        writer.update_page_form_field_values(writer.pages[page - 1], field_values, auto_regenerate=False)
 
     # This seems to be necessary for many PDF viewers to format the form values correctly.
     # It may cause the viewer to show a "save changes" dialog even if the user doesn't make any changes.
@@ -90,17 +88,15 @@ def validation_error_for_field_value(field_info, field_value):
 # We call the original method and adjust the return value only if the argument to `get_inherited`
 # is `FA.Opt` and if the return value is a list of two-element lists.
 def monkeypatch_pydpf_method():
-    from pypdf.constants import FieldDictionaryAttributes
     from pypdf.generic import DictionaryObject
+    from pypdf.constants import FieldDictionaryAttributes
 
     original_get_inherited = DictionaryObject.get_inherited
 
-    def patched_get_inherited(self, key: str, default=None):
+    def patched_get_inherited(self, key: str, default = None):
         result = original_get_inherited(self, key, default)
         if key == FieldDictionaryAttributes.Opt:
-            if isinstance(result, list) and all(
-                isinstance(v, list) and len(v) == 2 for v in result
-            ):
+            if isinstance(result, list) and all(isinstance(v, list) and len(v) == 2 for v in result):
                 result = [r[0] for r in result]
         return result
 
@@ -109,9 +105,7 @@ def monkeypatch_pydpf_method():
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print(
-            "Usage: fill_fillable_fields.py [input pdf] [field_values.json] [output pdf]"
-        )
+        print("Usage: fill_fillable_fields.py [input pdf] [field_values.json] [output pdf]")
         sys.exit(1)
     monkeypatch_pydpf_method()
     input_pdf = sys.argv[1]

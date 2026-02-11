@@ -3,7 +3,6 @@
 # Attempts: 1
 # Passed: True
 
-
 def by_length(arr):
     """
     Given an array of integers, sort the integers that are between 1 and 9 inclusive,

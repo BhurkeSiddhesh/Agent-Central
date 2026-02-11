@@ -5,9 +5,9 @@ Use this template to create a factory that supports multiple providers
 for transcription, LLM, and TTS services.
 """
 
-import logging
+from typing import Dict, Any
 from abc import ABC, abstractmethod
-from typing import Any, Dict
+import logging
 
 logger = logging.getLogger(__name__)
 
@@ -15,7 +15,6 @@ logger = logging.getLogger(__name__)
 # ============================================================================
 # Provider Interfaces
 # ============================================================================
-
 
 class TranscriberProvider(ABC):
     """Abstract base class for transcriber providers"""
@@ -47,7 +46,6 @@ class TTSProvider(ABC):
 # ============================================================================
 # Multi-Provider Factory
 # ============================================================================
-
 
 class VoiceComponentFactory:
     """
@@ -254,7 +252,6 @@ class VoiceComponentFactory:
 # Example Usage
 # ============================================================================
 
-
 def example_usage():
     """Example of how to use the factory"""
 
@@ -267,7 +264,7 @@ def example_usage():
         "voiceProvider": "elevenlabs",
         "elevenlabsApiKey": "your-api-key",
         "elevenlabsVoiceId": "your-voice-id",
-        "prompt": "You are a helpful AI assistant.",
+        "prompt": "You are a helpful AI assistant."
     }
 
     # Create factory
