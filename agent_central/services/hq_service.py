@@ -1,18 +1,20 @@
-﻿import shutil
 import os
+import shutil
 from pathlib import Path
+
 import yaml
+
 
 class HQService:
     def __init__(self, project_root: str = "."):
         self.project_root = Path(project_root).resolve()
-        
+
         # Central HQ is located relative to this source file
         self.central_hq_path = Path(__file__).parent.parent.parent / "agency-hq"
-        
+
         # Local HQ is an optional override in the project
         self.local_hq_path = self.project_root / ".agency-hq"
-        
+
         # Determine which HQ to use (prefer local if exists, else central)
         if self.local_hq_path.exists():
             self.hq_path = self.local_hq_path
@@ -27,13 +29,13 @@ class HQService:
         source = Path(source_hq_path).resolve()
         if not source.exists():
             raise FileNotFoundError(f"HQ Source not found at {source}")
-        
+
         # In a real scenario, we might clone a git repo here.
         # For now, we copy from the local 'agency-hq' folder if it exists, or the source provided.
         if self.hq_path.exists():
             shutil.rmtree(self.hq_path)
         shutil.copytree(source, self.hq_path)
-        
+
         # Create .ai-context structure
         self.context_path.mkdir(exist_ok=True)
         (self.context_path / "SQUAD_GOAL.md").touch()
@@ -41,14 +43,30 @@ class HQService:
 
     def get_role_content(self, role_name: str) -> str:
         """Retrieves content for a given role."""
-        role_file = self.hq_path / "roles" / f"{role_name}.md"
+        roles_dir = (self.hq_path / "roles").resolve()
+        role_file = (roles_dir / f"{role_name}.md").resolve()
+
+        # Security: Prevent Path Traversal
+        if not str(role_file).startswith(str(roles_dir)):
+            raise ValueError(
+                f"Security Alert: Role path traversal attempt blocked for '{role_name}'"
+            )
+
         if not role_file.exists():
             raise ValueError(f"Role {role_name} not found in HQ.")
         return role_file.read_text(encoding="utf-8")
 
     def get_skill_content(self, skill_name: str) -> str:
         """Retrieves content for a given skill."""
-        skill_file = self.hq_path / "skills" / skill_name / "SKILL.md"
+        skills_dir = (self.hq_path / "skills").resolve()
+        skill_file = (skills_dir / skill_name / "SKILL.md").resolve()
+
+        # Security: Prevent Path Traversal
+        if not str(skill_file).startswith(str(skills_dir)):
+            raise ValueError(
+                f"Security Alert: Skill path traversal attempt blocked for '{skill_name}'"
+            )
+
         if not skill_file.exists():
             raise ValueError(f"Skill {skill_name} not found in HQ.")
         return skill_file.read_text(encoding="utf-8")
@@ -78,7 +96,7 @@ class HQService:
         """Token-based inference for roles and skills."""
         if not requirements:
             return [], []
-        
+
         req_lower = requirements.lower()
         suggested_roles = []
         suggested_skills = []
@@ -94,14 +112,15 @@ class HQService:
                     suggested_roles.append(role)
                     print(f"  🔍 [Proof] Inferred Role '{role}' from keyword '{t}'")
                     break
-        
+
         # Check Skills (Smart Search)
         from agent_central.services.skill_service import SkillService
+
         skill_service = SkillService(self.hq_path)
-        
+
         # Aggregate all requirements into a single query string for semantic matching
         # (This is a simplified approach; ideally we'd extract key phrases)
-        
+
         # 1. Direct Keyword Matching (Legacy + Precision)
         for skill in self.list_skills():
             tokens = get_tokens(skill)
@@ -110,15 +129,17 @@ class HQService:
                     suggested_skills.append(skill)
                     print(f"  🔍 [Proof] Inferred Skill '{skill}' from keyword '{t}'")
                     break
-        
+
         # 2. Semantic/Registry Matching (Expansion)
         # Only search if we have requirements text
         if requirements:
             semantic_matches = skill_service.search_skills(requirements, top_k=3)
             for skill_obj in semantic_matches:
-                if skill_obj['id'] not in suggested_skills:
-                   suggested_skills.append(skill_obj['id'])
-                   print(f"  🧠 [Smart-Match] Inferred Skill '{skill_obj['id']}' from intent.")
+                if skill_obj["id"] not in suggested_skills:
+                    suggested_skills.append(skill_obj["id"])
+                    print(
+                        f"  🧠 [Smart-Match] Inferred Skill '{skill_obj['id']}' from intent."
+                    )
 
         return list(set(suggested_roles)), list(set(suggested_skills))
 
@@ -137,7 +158,7 @@ class HQService:
         project_requirements = config.get("project_requirements", "")
         required_agents_raw = config.get("required_agents", [])
         required_skills_raw = config.get("required_skills", [])
-        
+
         required_agents = set()
         required_skills = set()
 
@@ -179,10 +200,10 @@ class HQService:
         context_root = config_file.parent / ".ai-context"
         team_dir = context_root / "team"
         skills_dir = context_root / "skills"
-        
+
         team_dir.mkdir(parents=True, exist_ok=True)
         skills_dir.mkdir(parents=True, exist_ok=True)
-        
+
         missing_assets = []
         hired_roles = 0
         hired_skills = 0
@@ -207,51 +228,60 @@ class HQService:
             except ValueError:
                 missing_assets.append(f"skill:{skill}")
 
-        print(f"✅ Hired {hired_roles} roles and {hired_skills} skills to {context_root}")
-        
+        print(
+            f"✅ Hired {hired_roles} roles and {hired_skills} skills to {context_root}"
+        )
+
         if missing_assets:
             self._log_missing_agents(missing_assets, context_root)
-            
+
     def _log_missing_agents(self, assets: list, context_path: Path = None):
         """Logs missing assets to HQ_REQUESTS.md"""
         target_path = context_path if context_path else self.context_path
         request_file = target_path / "HQ_REQUESTS.md"
         request_file.parent.mkdir(parents=True, exist_ok=True)
-        
+
         # Read existing requests to avoid duplicates
         existing_requests = set()
         if request_file.exists():
             lines = request_file.read_text().splitlines()
-            existing_requests = {line.strip("- ").strip() for line in lines if line.strip().startswith("-")}
+            existing_requests = {
+                line.strip("- ").strip()
+                for line in lines
+                if line.strip().startswith("-")
+            }
 
         new_requests = [a for a in assets if a not in existing_requests]
-        
+
         if new_requests:
             with open(request_file, "a") as f:
                 if not request_file.exists() or request_file.stat().st_size == 0:
                     f.write("# HQ Asset Requests\n\n")
                 for asset in new_requests:
                     f.write(f"- {asset}\n")
-            
+
             print(f"⚠️  Logged {len(new_requests)} missing assets to {request_file}")
-            print("👉 Run 'ai ops sync' (future) or contact HQ to fulfil these requests.")
+            print(
+                "👉 Run 'ai ops sync' (future) or contact HQ to fulfil these requests."
+            )
 
     def learn_from_project(self, project_path: str = "."):
         """Extracts learned patterns from project and syncs to HQ."""
         project_root = Path(project_path).resolve()
         agents_file = project_root / "AGENTS.md"
-        
+
         if not agents_file.exists():
             print(f"⚠️  No AGENTS.md found at {project_root}")
             return
 
         import re
+
         content = agents_file.read_text(encoding="utf-8")
-        
+
         # Regex to find "## Learned" or "## <number>. Learned"
         pattern = r"##\s+(?:\d+\.\s*)?Learned"
         match = re.search(pattern, content)
-        
+
         if not match:
             print("ℹ️  No '## Learned' section found in AGENTS.md.")
             return
@@ -259,11 +289,11 @@ class HQService:
         # Get text starting from the matched header
         start_index = match.end()
         text_after = content[start_index:]
-        
+
         # Stop at next "## " header
         next_header_match = re.search(r"\n##\s+", text_after)
         if next_header_match:
-            learned_content = text_after[:next_header_match.start()].strip()
+            learned_content = text_after[: next_header_match.start()].strip()
         else:
             learned_content = text_after.strip()
 
@@ -272,14 +302,22 @@ class HQService:
             return
 
         import datetime
+
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         project_name = project_root.name
-        
+
         # Save to HQ Knowledge
-        knowledge_file = self.hq_path / "knowledge" / "patterns" / f"learning_{project_name}_{timestamp}.md"
+        knowledge_file = (
+            self.hq_path
+            / "knowledge"
+            / "patterns"
+            / f"learning_{project_name}_{timestamp}.md"
+        )
         knowledge_file.parent.mkdir(parents=True, exist_ok=True)
-        
-        knowledge_file.write_text(f"# Learning from {project_name}\n\n{learned_content}", encoding="utf-8")
+
+        knowledge_file.write_text(
+            f"# Learning from {project_name}\n\n{learned_content}", encoding="utf-8"
+        )
         print(f"📢 Synced new knowledge to: {knowledge_file.name}")
 
     def consolidate_knowledge(self):
@@ -298,23 +336,39 @@ class HQService:
             return
 
         roles = self.list_roles()
-        
+
         for k_file in knowledge_files:
             content = k_file.read_text(encoding="utf-8")
             # Determine target role based on simple keyword matching
             target_role = None
             content_lower = content.lower()
-            
-            if "architect" in content_lower or "design" in content_lower or "pattern" in content_lower:
+
+            if (
+                "architect" in content_lower
+                or "design" in content_lower
+                or "pattern" in content_lower
+            ):
                 target_role = "architect"
-            elif "qa" in content_lower or "test" in content_lower or "regression" in content_lower:
+            elif (
+                "qa" in content_lower
+                or "test" in content_lower
+                or "regression" in content_lower
+            ):
                 target_role = "jules-qa"
-            elif "backend" in content_lower or "api" in content_lower or "logic" in content_lower:
+            elif (
+                "backend" in content_lower
+                or "api" in content_lower
+                or "logic" in content_lower
+            ):
                 target_role = "backend-dev"
-            elif "frontend" in content_lower or "ui" in content_lower or "ux" in content_lower:
+            elif (
+                "frontend" in content_lower
+                or "ui" in content_lower
+                or "ux" in content_lower
+            ):
                 target_role = "frontend-dev"
             else:
-                target_role = "task-assigner" # Default to manager for generic patterns
+                target_role = "task-assigner"  # Default to manager for generic patterns
 
             if target_role in roles:
                 self._upskill_role(target_role, content)
@@ -328,11 +382,11 @@ class HQService:
         Extracts 'Topic', 'Rule', and 'Type'.
         """
         import re
-        
+
         # Heuristic extraction
         topic = "General Protocol"
         rule = raw_text
-        
+
         # Try to find a topic in [Brackets] or first few words
         match = re.search(r"\[(.*?)\]", raw_text)
         if match:
@@ -367,10 +421,10 @@ class HQService:
             return
 
         current_content = role_file.read_text(encoding="utf-8")
-        
+
         # Extract new wisdom (skip header of knowledge file)
         raw_wisdom_lines = knowledge_content.split("\n\n", 1)[-1].strip().splitlines()
-        
+
         # Synthesize each line (assuming bullet points)
         synthesized_block = ""
         for line in raw_wisdom_lines:
@@ -378,10 +432,12 @@ class HQService:
                 clean_line = line.strip("- ").strip()
                 s_wisdom = self._synthesize_wisdom(clean_line)
                 synthesized_block += f"{s_wisdom}\n"
-        
+
         if "## 7. Learned Protocols" in current_content:
             updated_content = current_content + "\n" + synthesized_block
         else:
-            updated_content = current_content + "\n\n## 7. Learned Protocols\n" + synthesized_block
-            
+            updated_content = (
+                current_content + "\n\n## 7. Learned Protocols\n" + synthesized_block
+            )
+
         role_file.write_text(updated_content, encoding="utf-8")
