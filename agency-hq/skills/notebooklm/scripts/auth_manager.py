@@ -11,6 +11,7 @@ See: https://github.com/microsoft/playwright/issues/36139
 """
 
 import json
+import os
 import time
 import argparse
 import shutil
@@ -43,7 +44,9 @@ class AuthManager:
         """Initialize the authentication manager"""
         # Ensure directories exist
         DATA_DIR.mkdir(parents=True, exist_ok=True)
+        os.chmod(DATA_DIR, 0o700)
         BROWSER_STATE_DIR.mkdir(parents=True, exist_ok=True)
+        os.chmod(BROWSER_STATE_DIR, 0o700)
 
         self.state_file = STATE_FILE
         self.auth_info_file = AUTH_INFO_FILE
