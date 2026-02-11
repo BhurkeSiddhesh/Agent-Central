@@ -1,0 +1,35 @@
+"""
+Voice AI Engine Interfaces
+
+This module defines the abstract base classes for the different components
+of the voice AI engine pipeline.
+"""
+
+from abc import ABC, abstractmethod
+
+
+class TranscriberProvider(ABC):
+    """Abstract base class for transcriber providers"""
+
+    @abstractmethod
+    async def transcribe_stream(self, audio_stream):
+        """Transcribe streaming audio"""
+        pass
+
+
+class LLMProvider(ABC):
+    """Abstract base class for LLM providers"""
+
+    @abstractmethod
+    async def generate_response(self, messages, stream=True):
+        """Generate response from messages"""
+        pass
+
+
+class TTSProvider(ABC):
+    """Abstract base class for TTS providers"""
+
+    @abstractmethod
+    async def synthesize_speech(self, text):
+        """Synthesize speech from text"""
+        pass
