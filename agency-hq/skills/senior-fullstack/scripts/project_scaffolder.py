@@ -4,12 +4,13 @@ Project Scaffolder
 Automated tool for senior fullstack tasks
 """
 
+import argparse
+import json
 import os
 import sys
-import json
-import argparse
 from pathlib import Path
 from typing import Dict, List, Optional
+
 
 class ProjectScaffolder:
     """Main class for project scaffolder functionality"""
@@ -50,65 +51,52 @@ class ProjectScaffolder:
             print("📊 Analyzing...")
 
         # Main logic here
-        self.results['status'] = 'success'
-        self.results['target'] = str(self.target_path)
-        self.results['findings'] = []
+        self.results["status"] = "success"
+        self.results["target"] = str(self.target_path)
+        self.results["findings"] = []
 
         # Add analysis results
         if self.verbose:
-            print(f"✓ Analysis complete: {len(self.results.get('findings', []))} findings")
+            print(
+                f"✓ Analysis complete: {len(self.results.get('findings', []))} findings"
+            )
 
     def generate_report(self):
         """Generate and display the report"""
-        print("\n" + "="*50)
+        print("\n" + "=" * 50)
         print("REPORT")
-        print("="*50)
+        print("=" * 50)
         print(f"Target: {self.results.get('target')}")
         print(f"Status: {self.results.get('status')}")
         print(f"Findings: {len(self.results.get('findings', []))}")
-        print("="*50 + "\n")
+        print("=" * 50 + "\n")
+
 
 def main():
     """Main entry point"""
-    parser = argparse.ArgumentParser(
-        description="Project Scaffolder"
-    )
+    parser = argparse.ArgumentParser(description="Project Scaffolder")
+    parser.add_argument("target", help="Target path to analyze or process")
     parser.add_argument(
-        'target',
-        help='Target path to analyze or process'
+        "--verbose", "-v", action="store_true", help="Enable verbose output"
     )
-    parser.add_argument(
-        '--verbose', '-v',
-        action='store_true',
-        help='Enable verbose output'
-    )
-    parser.add_argument(
-        '--json',
-        action='store_true',
-        help='Output results as JSON'
-    )
-    parser.add_argument(
-        '--output', '-o',
-        help='Output file path'
-    )
+    parser.add_argument("--json", action="store_true", help="Output results as JSON")
+    parser.add_argument("--output", "-o", help="Output file path")
 
     args = parser.parse_args()
 
-    tool = ProjectScaffolder(
-        args.target,
-        verbose=args.verbose
-    )
+    tool = ProjectScaffolder(args.target, verbose=args.verbose)
 
     results = tool.run()
 
     if args.json:
         output = json.dumps(results, indent=2)
         if args.output:
-            with open(args.output, 'w') as f:
+            with open(args.output, "w") as f:
                 f.write(output)
             print(f"Results written to {args.output}")
         else:
             print(output)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

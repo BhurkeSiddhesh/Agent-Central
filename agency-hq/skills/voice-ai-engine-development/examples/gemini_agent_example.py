@@ -6,9 +6,9 @@ that properly buffers responses to prevent audio jumping.
 """
 
 import asyncio
-from typing import AsyncGenerator, List, Dict
-from dataclasses import dataclass
 import logging
+from dataclasses import dataclass
+from typing import AsyncGenerator, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -43,9 +43,7 @@ class GeminiAgent:
         self.current_task = None
 
     async def generate_response(
-        self,
-        user_input: str,
-        is_interrupt: bool = False
+        self, user_input: str, is_interrupt: bool = False
     ) -> AsyncGenerator[GeneratedResponse, None]:
         """
         Generate streaming response from Gemini
@@ -62,9 +60,7 @@ class GeminiAgent:
         """
 
         # Add user message to history
-        self.conversation_history.append(
-            Message(role="user", content=user_input)
-        )
+        self.conversation_history.append(Message(role="user", content=user_input))
 
         logger.info(f"🤖 [AGENT] Generating response for: '{user_input}'")
 
@@ -90,7 +86,9 @@ class GeminiAgent:
 
         except Exception as e:
             logger.error(f"❌ [AGENT] Error generating response: {e}")
-            full_response = "I apologize, but I encountered an error. Could you please try again?"
+            full_response = (
+                "I apologize, but I encountered an error. Could you please try again?"
+            )
 
         # CRITICAL: Only yield after buffering the ENTIRE response
         # This prevents multiple TTS calls that cause audio jumping
@@ -100,11 +98,12 @@ class GeminiAgent:
                 Message(role="assistant", content=full_response)
             )
 
-            logger.info(f"✅ [AGENT] Generated complete response ({len(full_response)} chars)")
+            logger.info(
+                f"✅ [AGENT] Generated complete response ({len(full_response)} chars)"
+            )
 
             yield GeneratedResponse(
-                message=full_response.strip(),
-                is_interruptible=True
+                message=full_response.strip(), is_interruptible=True
             )
 
     def _build_gemini_contents(self) -> List[Dict]:
@@ -124,26 +123,24 @@ class GeminiAgent:
 
         # Add system prompt as first user message
         if self.system_prompt:
-            contents.append({
-                "role": "user",
-                "parts": [{"text": f"System Instruction: {self.system_prompt}"}]
-            })
-            contents.append({
-                "role": "model",
-                "parts": [{"text": "Understood."}]
-            })
+            contents.append(
+                {
+                    "role": "user",
+                    "parts": [{"text": f"System Instruction: {self.system_prompt}"}],
+                }
+            )
+            contents.append({"role": "model", "parts": [{"text": "Understood."}]})
 
         # Add conversation history
         for message in self.conversation_history:
             role = "user" if message.role == "user" else "model"
-            contents.append({
-                "role": role,
-                "parts": [{"text": message.content}]
-            })
+            contents.append({"role": role, "parts": [{"text": message.content}]})
 
         return contents
 
-    async def _simulate_gemini_stream(self, user_input: str) -> AsyncGenerator[str, None]:
+    async def _simulate_gemini_stream(
+        self, user_input: str
+    ) -> AsyncGenerator[str, None]:
         """
         Simulate Gemini streaming response
 
@@ -164,7 +161,7 @@ class GeminiAgent:
         # Simulate streaming by yielding chunks
         chunk_size = 10
         for i in range(0, len(response), chunk_size):
-            chunk = response[i:i + chunk_size]
+            chunk = response[i : i + chunk_size]
             await asyncio.sleep(0.05)  # Simulate network delay
             yield chunk
 
@@ -178,10 +175,15 @@ class GeminiAgent:
         Args:
             partial_message: The partial message that was actually spoken
         """
-        if self.conversation_history and self.conversation_history[-1].role == "assistant":
+        if (
+            self.conversation_history
+            and self.conversation_history[-1].role == "assistant"
+        ):
             # Update the last bot message with the partial message
             self.conversation_history[-1].content = partial_message
-            logger.info(f"📝 [AGENT] Updated history with partial message: '{partial_message}'")
+            logger.info(
+                f"📝 [AGENT] Updated history with partial message: '{partial_message}'"
+            )
 
     def cancel_current_task(self):
         """Cancel the current generation task (for interrupts)"""
@@ -203,13 +205,14 @@ class GeminiAgent:
 # Example Usage
 # ============================================================================
 
+
 async def example_usage():
     """Example of how to use the GeminiAgent"""
 
     # Configure agent
     config = {
         "prompt": "You are a helpful AI assistant specializing in voice conversations.",
-        "llmProvider": "gemini"
+        "llmProvider": "gemini",
     }
 
     # Create agent
@@ -219,7 +222,7 @@ async def example_usage():
     user_messages = [
         "Hello, how are you?",
         "What's the weather like today?",
-        "Thank you!"
+        "Thank you!",
     ]
 
     for user_message in user_messages:

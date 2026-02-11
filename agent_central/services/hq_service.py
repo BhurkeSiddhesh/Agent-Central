@@ -1,7 +1,9 @@
-﻿import shutil
-import os
+﻿import os
+import shutil
 from pathlib import Path
+
 import yaml
+
 
 class HQService:
     def __init__(self, project_root: str = "."):
@@ -97,6 +99,7 @@ class HQService:
 
         # Check Skills (Smart Search)
         from agent_central.services.skill_service import SkillService
+
         skill_service = SkillService(self.hq_path)
 
         # Aggregate all requirements into a single query string for semantic matching
@@ -116,9 +119,11 @@ class HQService:
         if requirements:
             semantic_matches = skill_service.search_skills(requirements, top_k=3)
             for skill_obj in semantic_matches:
-                if skill_obj['id'] not in suggested_skills:
-                   suggested_skills.append(skill_obj['id'])
-                   print(f"  🧠 [Smart-Match] Inferred Skill '{skill_obj['id']}' from intent.")
+                if skill_obj["id"] not in suggested_skills:
+                    suggested_skills.append(skill_obj["id"])
+                    print(
+                        f"  🧠 [Smart-Match] Inferred Skill '{skill_obj['id']}' from intent."
+                    )
 
         return list(set(suggested_roles)), list(set(suggested_skills))
 
@@ -207,7 +212,9 @@ class HQService:
             except ValueError:
                 missing_assets.append(f"skill:{skill}")
 
-        print(f"✅ Hired {hired_roles} roles and {hired_skills} skills to {context_root}")
+        print(
+            f"✅ Hired {hired_roles} roles and {hired_skills} skills to {context_root}"
+        )
 
         if missing_assets:
             self._log_missing_agents(missing_assets, context_root)
@@ -222,7 +229,11 @@ class HQService:
         existing_requests = set()
         if request_file.exists():
             lines = request_file.read_text().splitlines()
-            existing_requests = {line.strip("- ").strip() for line in lines if line.strip().startswith("-")}
+            existing_requests = {
+                line.strip("- ").strip()
+                for line in lines
+                if line.strip().startswith("-")
+            }
 
         new_requests = [a for a in assets if a not in existing_requests]
 
@@ -234,7 +245,9 @@ class HQService:
                     f.write(f"- {asset}\n")
 
             print(f"⚠️  Logged {len(new_requests)} missing assets to {request_file}")
-            print("👉 Run 'ai ops sync' (future) or contact HQ to fulfil these requests.")
+            print(
+                "👉 Run 'ai ops sync' (future) or contact HQ to fulfil these requests."
+            )
 
     def learn_from_project(self, project_path: str = "."):
         """Extracts learned patterns from project and syncs to HQ."""
@@ -246,6 +259,7 @@ class HQService:
             return
 
         import re
+
         content = agents_file.read_text(encoding="utf-8")
 
         # Regex to find "## Learned" or "## <number>. Learned"
@@ -263,7 +277,7 @@ class HQService:
         # Stop at next "## " header
         next_header_match = re.search(r"\n##\s+", text_after)
         if next_header_match:
-            learned_content = text_after[:next_header_match.start()].strip()
+            learned_content = text_after[: next_header_match.start()].strip()
         else:
             learned_content = text_after.strip()
 
@@ -272,14 +286,22 @@ class HQService:
             return
 
         import datetime
+
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         project_name = project_root.name
 
         # Save to HQ Knowledge
-        knowledge_file = self.hq_path / "knowledge" / "patterns" / f"learning_{project_name}_{timestamp}.md"
+        knowledge_file = (
+            self.hq_path
+            / "knowledge"
+            / "patterns"
+            / f"learning_{project_name}_{timestamp}.md"
+        )
         knowledge_file.parent.mkdir(parents=True, exist_ok=True)
 
-        knowledge_file.write_text(f"# Learning from {project_name}\n\n{learned_content}", encoding="utf-8")
+        knowledge_file.write_text(
+            f"# Learning from {project_name}\n\n{learned_content}", encoding="utf-8"
+        )
         print(f"📢 Synced new knowledge to: {knowledge_file.name}")
 
     def consolidate_knowledge(self):
@@ -305,16 +327,32 @@ class HQService:
             target_role = None
             content_lower = content.lower()
 
-            if "architect" in content_lower or "design" in content_lower or "pattern" in content_lower:
+            if (
+                "architect" in content_lower
+                or "design" in content_lower
+                or "pattern" in content_lower
+            ):
                 target_role = "architect"
-            elif "qa" in content_lower or "test" in content_lower or "regression" in content_lower:
+            elif (
+                "qa" in content_lower
+                or "test" in content_lower
+                or "regression" in content_lower
+            ):
                 target_role = "jules-qa"
-            elif "backend" in content_lower or "api" in content_lower or "logic" in content_lower:
+            elif (
+                "backend" in content_lower
+                or "api" in content_lower
+                or "logic" in content_lower
+            ):
                 target_role = "backend-dev"
-            elif "frontend" in content_lower or "ui" in content_lower or "ux" in content_lower:
+            elif (
+                "frontend" in content_lower
+                or "ui" in content_lower
+                or "ux" in content_lower
+            ):
                 target_role = "frontend-dev"
             else:
-                target_role = "task-assigner" # Default to manager for generic patterns
+                target_role = "task-assigner"  # Default to manager for generic patterns
 
             if target_role in roles:
                 self._upskill_role(target_role, content)
@@ -382,6 +420,8 @@ class HQService:
         if "## 7. Learned Protocols" in current_content:
             updated_content = current_content + "\n" + synthesized_block
         else:
-            updated_content = current_content + "\n\n## 7. Learned Protocols\n" + synthesized_block
+            updated_content = (
+                current_content + "\n\n## 7. Learned Protocols\n" + synthesized_block
+            )
 
         role_file.write_text(updated_content, encoding="utf-8")

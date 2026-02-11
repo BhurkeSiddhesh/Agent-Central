@@ -6,10 +6,11 @@ with all core components: Transcriber, Agent, Synthesizer, and WebSocket integra
 """
 
 import asyncio
-from typing import Dict, AsyncGenerator
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
-from dataclasses import dataclass
 import logging
+from dataclasses import dataclass
+from typing import AsyncGenerator, Dict
+
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -19,6 +20,7 @@ app = FastAPI()
 # ============================================================================
 # Data Models
 # ============================================================================
+
 
 @dataclass
 class Transcription:
@@ -43,6 +45,7 @@ class SynthesisResult:
 # ============================================================================
 # Base Worker Pattern
 # ============================================================================
+
 
 class BaseWorker:
     """Base class for all workers in the pipeline"""
@@ -82,6 +85,7 @@ class BaseWorker:
 # Transcriber Component
 # ============================================================================
 
+
 class DeepgramTranscriber(BaseWorker):
     """Converts audio chunks to text transcriptions using Deepgram"""
 
@@ -100,7 +104,7 @@ class DeepgramTranscriber(BaseWorker):
 
     def create_silent_chunk(self, size: int) -> bytes:
         """Create a silent audio chunk"""
-        return b'\x00' * size
+        return b"\x00" * size
 
     def mute(self):
         """Called when bot starts speaking (prevents echo)"""
@@ -122,9 +126,7 @@ class DeepgramTranscriber(BaseWorker):
 
         # Mock transcription
         transcription = Transcription(
-            message="Hello, how can I help you?",
-            confidence=0.95,
-            is_final=True
+            message="Hello, how can I help you?", confidence=0.95, is_final=True
         )
 
         logger.info(f"🎤 [TRANSCRIBER] Received: '{transcription.message}'")
@@ -134,6 +136,7 @@ class DeepgramTranscriber(BaseWorker):
 # ============================================================================
 # Agent Component
 # ============================================================================
+
 
 class GeminiAgent(BaseWorker):
     """LLM-powered conversational agent using Google Gemini"""
@@ -146,10 +149,9 @@ class GeminiAgent(BaseWorker):
     async def process(self, transcription: Transcription):
         """Process transcription and generate response"""
         # Add user message to history
-        self.conversation_history.append({
-            "role": "user",
-            "content": transcription.message
-        })
+        self.conversation_history.append(
+            {"role": "user", "content": transcription.message}
+        )
 
         logger.info(f"🤖 [AGENT] Generating response for: '{transcription.message}'")
 
@@ -157,7 +159,9 @@ class GeminiAgent(BaseWorker):
         async for response in self.generate_response(transcription.message):
             self.output_queue.put_nowait(response)
 
-    async def generate_response(self, user_input: str) -> AsyncGenerator[AgentResponse, None]:
+    async def generate_response(
+        self, user_input: str
+    ) -> AsyncGenerator[AgentResponse, None]:
         """Generate streaming response from LLM"""
         # In a real implementation, this would call Gemini API
         # For this example, we'll simulate a streaming response
@@ -167,26 +171,25 @@ class GeminiAgent(BaseWorker):
 
         # IMPORTANT: Buffer entire response before yielding
         # This prevents audio jumping/cutting off
-        full_response = f"I understand you said: {user_input}. How can I assist you further?"
+        full_response = (
+            f"I understand you said: {user_input}. How can I assist you further?"
+        )
 
         # Add to conversation history
-        self.conversation_history.append({
-            "role": "assistant",
-            "content": full_response
-        })
+        self.conversation_history.append(
+            {"role": "assistant", "content": full_response}
+        )
 
         logger.info(f"🤖 [AGENT] Generated: '{full_response}'")
 
         # Yield complete response
-        yield AgentResponse(
-            message=full_response,
-            is_interruptible=True
-        )
+        yield AgentResponse(message=full_response, is_interruptible=True)
 
 
 # ============================================================================
 # Synthesizer Component
 # ============================================================================
+
 
 class ElevenLabsSynthesizer:
     """Converts text to speech using ElevenLabs"""
@@ -194,7 +197,9 @@ class ElevenLabsSynthesizer:
     def __init__(self, config: Dict):
         self.config = config
 
-    async def create_speech(self, message: str, chunk_size: int = 1024) -> SynthesisResult:
+    async def create_speech(
+        self, message: str, chunk_size: int = 1024
+    ) -> SynthesisResult:
         """
         Generate speech audio from text
 
@@ -216,7 +221,7 @@ class ElevenLabsSynthesizer:
                 await asyncio.sleep(0.1)
 
                 # Mock audio chunk (in reality, this would be PCM audio)
-                chunk = b'\x00' * chunk_size
+                chunk = b"\x00" * chunk_size
                 yield chunk
 
         def get_message_up_to(seconds: float) -> str:
@@ -228,14 +233,14 @@ class ElevenLabsSynthesizer:
             return message[:char_index]
 
         return SynthesisResult(
-            chunk_generator=chunk_generator(),
-            get_message_up_to=get_message_up_to
+            chunk_generator=chunk_generator(), get_message_up_to=get_message_up_to
         )
 
 
 # ============================================================================
 # Output Device
 # ============================================================================
+
 
 class WebsocketOutputDevice:
     """Sends audio chunks to client via WebSocket"""
@@ -252,6 +257,7 @@ class WebsocketOutputDevice:
 # Conversation Orchestrator
 # ============================================================================
 
+
 class StreamingConversation:
     """Orchestrates the entire voice conversation pipeline"""
 
@@ -260,7 +266,7 @@ class StreamingConversation:
         output_device: WebsocketOutputDevice,
         transcriber: DeepgramTranscriber,
         agent: GeminiAgent,
-        synthesizer: ElevenLabsSynthesizer
+        synthesizer: ElevenLabsSynthesizer,
     ):
         self.output_device = output_device
         self.transcriber = transcriber
@@ -316,7 +322,9 @@ class StreamingConversation:
 
             self.is_human_speaking = True
 
-    async def _send_speech_to_output(self, synthesis_result: SynthesisResult, seconds_per_chunk: float):
+    async def _send_speech_to_output(
+        self, synthesis_result: SynthesisResult, seconds_per_chunk: float
+    ):
         """
         Send synthesized audio to output with rate limiting
 
@@ -369,6 +377,7 @@ class StreamingConversation:
 # WebSocket Endpoint
 # ============================================================================
 
+
 @app.websocket("/conversation")
 async def conversation_endpoint(websocket: WebSocket):
     """WebSocket endpoint for voice conversations"""
@@ -394,7 +403,7 @@ async def conversation_endpoint(websocket: WebSocket):
         output_device=output_device,
         transcriber=transcriber,
         agent=agent,
-        synthesizer=synthesizer
+        synthesizer=synthesizer,
     )
 
     # Start conversation

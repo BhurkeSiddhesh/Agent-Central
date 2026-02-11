@@ -1,6 +1,7 @@
-import unittest
-import json
 import io
+import json
+import unittest
+
 from check_bounding_boxes import get_bounding_box_messages
 
 
@@ -19,14 +20,14 @@ class TestGetBoundingBoxMessages(unittest.TestCase):
                     "description": "Name",
                     "page_number": 1,
                     "label_bounding_box": [10, 10, 50, 30],
-                    "entry_bounding_box": [60, 10, 150, 30]
+                    "entry_bounding_box": [60, 10, 150, 30],
                 },
                 {
                     "description": "Email",
                     "page_number": 1,
                     "label_bounding_box": [10, 40, 50, 60],
-                    "entry_bounding_box": [60, 40, 150, 60]
-                }
+                    "entry_bounding_box": [60, 40, 150, 60],
+                },
             ]
         }
 
@@ -43,14 +44,16 @@ class TestGetBoundingBoxMessages(unittest.TestCase):
                     "description": "Name",
                     "page_number": 1,
                     "label_bounding_box": [10, 10, 60, 30],
-                    "entry_bounding_box": [50, 10, 150, 30]  # Overlaps with label
+                    "entry_bounding_box": [50, 10, 150, 30],  # Overlaps with label
                 }
             ]
         }
 
         stream = self.create_json_stream(data)
         messages = get_bounding_box_messages(stream)
-        self.assertTrue(any("FAILURE" in msg and "intersection" in msg for msg in messages))
+        self.assertTrue(
+            any("FAILURE" in msg and "intersection" in msg for msg in messages)
+        )
         self.assertFalse(any("SUCCESS" in msg for msg in messages))
 
     def test_intersection_between_different_fields(self):
@@ -61,20 +64,27 @@ class TestGetBoundingBoxMessages(unittest.TestCase):
                     "description": "Name",
                     "page_number": 1,
                     "label_bounding_box": [10, 10, 50, 30],
-                    "entry_bounding_box": [60, 10, 150, 30]
+                    "entry_bounding_box": [60, 10, 150, 30],
                 },
                 {
                     "description": "Email",
                     "page_number": 1,
-                    "label_bounding_box": [40, 20, 80, 40],  # Overlaps with Name's boxes
-                    "entry_bounding_box": [160, 10, 250, 30]
-                }
+                    "label_bounding_box": [
+                        40,
+                        20,
+                        80,
+                        40,
+                    ],  # Overlaps with Name's boxes
+                    "entry_bounding_box": [160, 10, 250, 30],
+                },
             ]
         }
 
         stream = self.create_json_stream(data)
         messages = get_bounding_box_messages(stream)
-        self.assertTrue(any("FAILURE" in msg and "intersection" in msg for msg in messages))
+        self.assertTrue(
+            any("FAILURE" in msg and "intersection" in msg for msg in messages)
+        )
         self.assertFalse(any("SUCCESS" in msg for msg in messages))
 
     def test_different_pages_no_intersection(self):
@@ -85,14 +95,19 @@ class TestGetBoundingBoxMessages(unittest.TestCase):
                     "description": "Name",
                     "page_number": 1,
                     "label_bounding_box": [10, 10, 50, 30],
-                    "entry_bounding_box": [60, 10, 150, 30]
+                    "entry_bounding_box": [60, 10, 150, 30],
                 },
                 {
                     "description": "Email",
                     "page_number": 2,
-                    "label_bounding_box": [10, 10, 50, 30],  # Same coordinates but different page
-                    "entry_bounding_box": [60, 10, 150, 30]
-                }
+                    "label_bounding_box": [
+                        10,
+                        10,
+                        50,
+                        30,
+                    ],  # Same coordinates but different page
+                    "entry_bounding_box": [60, 10, 150, 30],
+                },
             ]
         }
 
@@ -110,9 +125,7 @@ class TestGetBoundingBoxMessages(unittest.TestCase):
                     "page_number": 1,
                     "label_bounding_box": [10, 10, 50, 30],
                     "entry_bounding_box": [60, 10, 150, 20],  # Height is 10
-                    "entry_text": {
-                        "font_size": 14  # Font size larger than height
-                    }
+                    "entry_text": {"font_size": 14},  # Font size larger than height
                 }
             ]
         }
@@ -131,9 +144,7 @@ class TestGetBoundingBoxMessages(unittest.TestCase):
                     "page_number": 1,
                     "label_bounding_box": [10, 10, 50, 30],
                     "entry_bounding_box": [60, 10, 150, 30],  # Height is 20
-                    "entry_text": {
-                        "font_size": 14  # Font size smaller than height
-                    }
+                    "entry_text": {"font_size": 14},  # Font size smaller than height
                 }
             ]
         }
@@ -152,7 +163,7 @@ class TestGetBoundingBoxMessages(unittest.TestCase):
                     "page_number": 1,
                     "label_bounding_box": [10, 10, 50, 30],
                     "entry_bounding_box": [60, 10, 150, 20],  # Height is 10
-                    "entry_text": {}  # No font_size specified, should use default 14
+                    "entry_text": {},  # No font_size specified, should use default 14
                 }
             ]
         }
@@ -170,7 +181,12 @@ class TestGetBoundingBoxMessages(unittest.TestCase):
                     "description": "Name",
                     "page_number": 1,
                     "label_bounding_box": [10, 10, 50, 30],
-                    "entry_bounding_box": [60, 10, 150, 20]  # Small height but no entry_text
+                    "entry_bounding_box": [
+                        60,
+                        10,
+                        150,
+                        20,
+                    ],  # Small height but no entry_text
                 }
             ]
         }
@@ -185,12 +201,14 @@ class TestGetBoundingBoxMessages(unittest.TestCase):
         fields = []
         # Create many overlapping fields
         for i in range(25):
-            fields.append({
-                "description": f"Field{i}",
-                "page_number": 1,
-                "label_bounding_box": [10, 10, 50, 30],  # All overlap
-                "entry_bounding_box": [20, 15, 60, 35]   # All overlap
-            })
+            fields.append(
+                {
+                    "description": f"Field{i}",
+                    "page_number": 1,
+                    "label_bounding_box": [10, 10, 50, 30],  # All overlap
+                    "entry_bounding_box": [20, 15, 60, 35],  # All overlap
+                }
+            )
 
         data = {"form_fields": fields}
 
@@ -211,7 +229,7 @@ class TestGetBoundingBoxMessages(unittest.TestCase):
                     "description": "Name",
                     "page_number": 1,
                     "label_bounding_box": [10, 10, 50, 30],
-                    "entry_bounding_box": [50, 10, 150, 30]  # Touches at x=50
+                    "entry_bounding_box": [50, 10, 150, 30],  # Touches at x=50
                 }
             ]
         }
@@ -222,5 +240,5 @@ class TestGetBoundingBoxMessages(unittest.TestCase):
         self.assertFalse(any("FAILURE" in msg for msg in messages))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
