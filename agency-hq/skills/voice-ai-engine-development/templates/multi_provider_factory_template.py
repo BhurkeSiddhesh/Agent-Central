@@ -44,6 +44,68 @@ class TTSProvider(ABC):
 
 
 # ============================================================================
+# Provider Implementations
+# ============================================================================
+
+class AzureSynthesizer(TTSProvider):
+    """Azure Speech Services synthesizer"""
+
+    def __init__(self, api_key: str, region: str, voice_name: str = "en-US-JennyNeural"):
+        self.api_key = api_key
+        self.region = region
+        self.voice_name = voice_name
+
+    async def synthesize_speech(self, text: str):
+        """
+        Synthesize speech using Azure SDK
+
+        Requires: pip install azure-cognitiveservices-speech
+        """
+        try:
+            import azure.cognitiveservices.speech as speechsdk
+        except ImportError:
+            raise ImportError(
+                "Azure Speech SDK not installed. "
+                "Please run: pip install azure-cognitiveservices-speech"
+            )
+
+        # Configure speech service
+        speech_config = speechsdk.SpeechConfig(
+            subscription=self.api_key,
+            region=self.region
+        )
+        speech_config.speech_synthesis_voice_name = self.voice_name
+
+        # Function to run in executor
+        def _synthesize():
+            # Use PullAudioOutputStream or just get the result to memory
+            # For this template we get result to memory via audio_config=None
+            synthesizer = speechsdk.SpeechSynthesizer(
+                speech_config=speech_config,
+                audio_config=None
+            )
+
+            # This is a blocking call
+            result = synthesizer.speak_text_async(text).get()
+
+            if result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
+                return result.audio_data
+            elif result.reason == speechsdk.ResultReason.Canceled:
+                cancellation_details = result.cancellation_details
+                raise RuntimeError(
+                    f"Azure synthesis canceled: {cancellation_details.reason}. "
+                    f"Error details: {cancellation_details.error_details}"
+                )
+            else:
+                raise RuntimeError(f"Azure synthesis failed with reason: {result.reason}")
+
+        # Run in executor to avoid blocking the loop
+        import asyncio
+        loop = asyncio.get_running_loop()
+        return await loop.run_in_executor(None, _synthesize)
+
+
+# ============================================================================
 # Multi-Provider Factory
 # ============================================================================
 
@@ -229,8 +291,11 @@ class VoiceComponentFactory:
     
     def _create_azure_synthesizer(self, config: Dict[str, Any]):
         """Create Azure TTS synthesizer"""
-        # TODO: Implement Azure synthesizer
-        raise NotImplementedError("Azure synthesizer not implemented")
+        return AzureSynthesizer(
+            api_key=config.get("azureSpeechKey"),
+            region=config.get("azureSpeechRegion"),
+            voice_name=config.get("azureVoiceName", "en-US-JennyNeural")
+        )
     
     def _create_google_synthesizer(self, config: Dict[str, Any]):
         """Create Google Cloud TTS synthesizer"""
