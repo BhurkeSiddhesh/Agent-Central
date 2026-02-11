@@ -12,35 +12,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-# ============================================================================
-# Provider Interfaces
-# ============================================================================
-
-class TranscriberProvider(ABC):
-    """Abstract base class for transcriber providers"""
-    
-    @abstractmethod
-    async def transcribe_stream(self, audio_stream):
-        """Transcribe streaming audio"""
-        pass
-
-
-class LLMProvider(ABC):
-    """Abstract base class for LLM providers"""
-    
-    @abstractmethod
-    async def generate_response(self, messages, stream=True):
-        """Generate response from messages"""
-        pass
-
-
-class TTSProvider(ABC):
-    """Abstract base class for TTS providers"""
-    
-    @abstractmethod
-    async def synthesize_speech(self, text):
-        """Synthesize speech from text"""
-        pass
+from .interfaces import TranscriberProvider, LLMProvider, TTSProvider
 
 
 # ============================================================================
@@ -178,8 +150,8 @@ class VoiceComponentFactory:
     
     def _create_google_transcriber(self, config: Dict[str, Any]):
         """Create Google Cloud Speech transcriber"""
-        # TODO: Implement Google transcriber
-        raise NotImplementedError("Google transcriber not implemented")
+        from .transcribers.google_transcriber import GoogleTranscriber
+        return GoogleTranscriber(config)
     
     # ========================================================================
     # LLM Agent Implementations
