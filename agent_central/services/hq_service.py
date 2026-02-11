@@ -1,4 +1,4 @@
-﻿import shutil
+import shutil
 import os
 from pathlib import Path
 import yaml
@@ -21,6 +21,16 @@ class HQService:
 
         self.context_path = self.project_root / ".ai-context"
         self.active_persona_file = self.context_path / "ACTIVE_PERSONA.md"
+
+        self.skill_service = None
+        self._skills_list_cache = None
+
+    @property
+    def _skill_service(self):
+        if self.skill_service is None:
+             from agent_central.services.skill_service import SkillService
+             self.skill_service = SkillService(self.hq_path)
+        return self.skill_service
 
     def setup_hq(self, source_hq_path: str):
         """Copies the HQ template to the project."""
@@ -69,10 +79,16 @@ class HQService:
 
     def list_skills(self):
         """Lists available skills in HQ."""
+        if self._skills_list_cache is not None:
+            return self._skills_list_cache
+
         skills_dir = self.hq_path / "skills"
         if not skills_dir.exists():
             return []
-        return [d.name for d in skills_dir.iterdir() if d.is_dir()]
+
+        result = [d.name for d in skills_dir.iterdir() if d.is_dir()]
+        self._skills_list_cache = result
+        return result
 
     def infer_assets(self, requirements: str):
         """Token-based inference for roles and skills."""
@@ -96,8 +112,7 @@ class HQService:
                     break
         
         # Check Skills (Smart Search)
-        from agent_central.services.skill_service import SkillService
-        skill_service = SkillService(self.hq_path)
+        skill_service = self._skill_service
         
         # Aggregate all requirements into a single query string for semantic matching
         # (This is a simplified approach; ideally we'd extract key phrases)
