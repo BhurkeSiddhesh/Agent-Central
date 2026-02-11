@@ -7,6 +7,7 @@ class SkillService:
         self.hq_path = hq_path
         self.skills_dir = self.hq_path / "skills"
         self.registry_file = self.skills_dir / "skills.json"
+        self._registry_cache = None
         
         if not self.skills_dir.exists():
             raise FileNotFoundError(f"Skills directory not found at {self.skills_dir}")
@@ -65,15 +66,20 @@ class SkillService:
             json.dump(registry, f, indent=2)
             
         print(f"✅ skills.json built with {len(registry)} skills.")
+        self._registry_cache = registry
         return registry
 
     def load_registry(self):
         """Loads the registry from JSON."""
+        if self._registry_cache is not None:
+            return self._registry_cache
+
         if not self.registry_file.exists():
             return self.build_registry()
         
         with open(self.registry_file, "r", encoding="utf-8") as f:
-            return json.load(f)
+            self._registry_cache = json.load(f)
+            return self._registry_cache
 
     def search_skills(self, query: str, top_k: int = 5):
         """
